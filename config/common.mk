@@ -82,6 +82,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.aosp.rc
 
+# Bring in camera effects
+PRODUCT_COPY_FILES +=  \
+    vendor/aosp/prebuilt/common/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/aosp/prebuilt/common/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
