@@ -117,8 +117,10 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
 FAOSP_VERSION := $(TARGET_DEVICE)-$(shell date -u +%Y%m%d)
 PRODUCT_PROPERTY_OVERRIDES += ro.faosp.version=$(FAOSP_VERSION)
 
+ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+endif
 
 # Chromium Prebuilt
 ifeq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
