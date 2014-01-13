@@ -89,6 +89,7 @@
   <spnOverride numeric="40001"  spn="Azercell" />
   <spnOverride numeric="40002"  spn="Bakcell" />
   <spnOverride numeric="40003"  spn="FONEX" />
+  <!-- Azerbaijan -->
   <spnOverride numeric="40004"  spn="Nar Mobile" />
   <!-- Bahamas -->
   <spnOverride numeric="364390" spn="BaTelCo" />
@@ -260,18 +261,14 @@
   <spnOverride numeric="73008"  spn="VTR MOvil" />
   <spnOverride numeric="73099"  spn="Will" />
   <!-- China -->
-  <spnOverride numeric="46001"  spn="中国联通" />
   <spnOverride numeric="46006"  spn="中国联通" />
   <spnOverride numeric="46000"  spn="中国移动" />
   <spnOverride numeric="46002"  spn="中国移动" />
   <spnOverride numeric="46007"  spn="中国移动" />
   <spnOverride numeric="46003"  spn="中国电信" />
   <spnOverride numeric="46005"  spn="中国电信" />
-  <spnOverride numeric="46011"  spn="中国电信" />
-  <spnOverride numeric="46012"  spn="中国电信" />
-  <spnOverride numeric="46013"  spn="中国电信" />
-  <spnOverride numeric="46099"  spn="中国电信" />
   <spnOverride numeric="46020"  spn="China Tietong" />
+  <spnOverride numeric="46001"  spn="中国联通" />
   <!-- Colombia -->
   <spnOverride numeric="732001" spn="Colombia Telecomunicaciones S.A. - Telecom" />
   <spnOverride numeric="732101" spn="Comcel" />
@@ -757,11 +754,11 @@
   <spnOverride numeric="51008"  spn="AXIS" />
   <spnOverride numeric="51027"  spn="Ceria" />
   <spnOverride numeric="51099"  spn="Esia" />
-  <spnOverride numeric="51028"  spn="Smartfren" />
+  <spnOverride numeric="51028"  spn="Fren/Hepi" />
   <spnOverride numeric="51021"  spn="IM3" />
   <spnOverride numeric="51001"  spn="INDOSAT" />
   <spnOverride numeric="51000"  spn="PSN" />
-  <spnOverride numeric="51009"  spn="Smartfren" />
+  <spnOverride numeric="51009"  spn="SMART" />
   <spnOverride numeric="51003"  spn="StarOne" />
   <spnOverride numeric="51007"  spn="TelkomFlexi" />
   <spnOverride numeric="51020"  spn="TELKOMMobile" />
@@ -1198,8 +1195,8 @@
   <spnOverride numeric="26010"  spn="Telefony Opalenickie" />
   <spnOverride numeric="26009"  spn="Telekomunikacja Kolejowa" />
   <!-- Portugal -->
-  <spnOverride numeric="26806"  spn="MEO" />
-  <spnOverride numeric="26803"  spn="NOS" />
+  <spnOverride numeric="26803"  spn="Optimus" />
+  <spnOverride numeric="26806"  spn="TMN" />
   <spnOverride numeric="26801"  spn="Vodafone" />
   <spnOverride numeric="26821"  spn="Zapp" />
   <!-- Puerto Rico -->
@@ -1374,7 +1371,6 @@
   <spnOverride numeric="21419"  spn="Simyo" />
   <spnOverride numeric="21416"  spn="TeleCable" />
   <spnOverride numeric="21405"  spn="TME" />
-  <spnOverride numeric="21432"  spn="Tuenti" />
   <spnOverride numeric="21401"  spn="Vodafone" />
   <spnOverride numeric="21406"  spn="Vodafone" />
   <spnOverride numeric="21404"  spn="Yoigo" />
@@ -1409,6 +1405,7 @@
   <spnOverride numeric="24033"  spn="Mobile Arts AB" />
   <spnOverride numeric="24003"  spn="Nordisk Mobiltelefon" />
   <spnOverride numeric="24010"  spn="SpringMobil" />
+  <spnOverride numeric="24024"  spn="Sweden 2G" />
   <spnOverride numeric="24024"  spn="Sweden 2G" />
   <spnOverride numeric="24005"  spn="Sweden 3G" />
   <spnOverride numeric="24014"  spn="TDC Mobil" />
