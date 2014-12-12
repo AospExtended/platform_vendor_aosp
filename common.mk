@@ -18,14 +18,14 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/aosp/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/aosp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
     vendor/aosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
+    vendor/aosp/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
