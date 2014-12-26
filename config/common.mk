@@ -27,6 +27,10 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
 
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/sysinit:system/bin/sysinit
