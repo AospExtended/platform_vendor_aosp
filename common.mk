@@ -1,6 +1,3 @@
-SUPERUSER_EMBEDDED := true
-SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -19,6 +16,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
+# Backup Tool
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/aosp/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/aosp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
+    vendor/aosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+
 # Signature compatibility validation
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/otasigcheck.sh:system/bin/otasigcheck.sh
@@ -29,9 +33,11 @@ PRODUCT_COPY_FILES += \
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/aosp/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/aosp/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/aosp/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
-# CM-specific init file
+# Init file
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
@@ -48,60 +54,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# Required CM packages
+# Misc packages
 PRODUCT_PACKAGES += \
+    BluetoothExt \
     LatinIME \
-    BluetoothExt
-
-# Optional CM packages
-PRODUCT_PACKAGES += \
-    Basic \
-    libemoji
-
-# Custom CM packages
-PRODUCT_PACKAGES += \
     Launcher3 \
-    audio_effects.conf
-
-# Extra tools in CM
-PRODUCT_PACKAGES += \
-    libsepol \
-    openvpn \
-    e2fsck \
-    mke2fs \
-    tune2fs \
-    bash \
-    nano \
-    htop \
-    powertop \
-    lsof \
-    mount.exfat \
-    fsck.exfat \
-    mkfs.exfat \
-    mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
-    ntfsfix \
-    ntfs-3g \
-    gdbserver \
-    micro_bench \
-    oprofiled \
-    sqlite3 \
-    strace
-
-# Openssh
-PRODUCT_PACKAGES += \
-    scp \
-    sftp \
-    ssh \
-    sshd \
-    sshd_config \
-    ssh-keygen \
-    start-ssh
-
-# rsync
-PRODUCT_PACKAGES += \
-    rsync
+    libemoji
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
@@ -110,29 +68,49 @@ PRODUCT_PACKAGES += \
     libFFmpegExtractor \
     libnamparser
 
-# These packages are excluded from user builds
-ifneq ($(TARGET_BUILD_VARIANT),user)
-
+# Live Wallpapers and more Daydream packages
 PRODUCT_PACKAGES += \
-    procmem \
-    procrank \
-    Superuser \
-    su
+    Galaxy4 \
+    HoloSpiralWallpaper \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    MagicSmokeWallpapers \
+    NoiseField \
+    PhaseBeam \
+    VisualizationWallpapers \
+    PhotoTable \
+    SoundRecorder \
+    PhotoPhase
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.root_access=1
-else
+# Telephony packages
+PRODUCT_PACKAGES += \
+    CellBroadcastReceiver \
+    Mms \
+    Stk \
+    VoiceDialer
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.root_access=0
+# Mms depends on SoundRecorder for recorded audio messages
+PRODUCT_PACKAGES += \
+    SoundRecorder
 
-endif
+# World APN list
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
+# World SPN overrides list
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
+
+# Selective SPN list for operator number who has the problem.
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
+
+# Overlays & Include LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += \
+	vendor/aosp/overlay/common \
+	vendor/aosp/overlay/dictionaries
 
 # by default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
-
--include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
