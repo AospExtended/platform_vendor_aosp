@@ -59,7 +59,8 @@ PRODUCT_PACKAGES += \
     BluetoothExt \
     LatinIME \
     Launcher3 \
-    libemoji
+    libemoji \
+    Terminal
 
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
