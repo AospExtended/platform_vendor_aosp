@@ -2,3 +2,6 @@
 allow file_type rootfs:filesystem associate;
 
 type auditd_log, file_type;
+
+# Performance settings
+type sysfs_devices_system_iosched, file_type, sysfs_type;
