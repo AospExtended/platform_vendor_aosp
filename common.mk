@@ -87,8 +87,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
     Mms \
-    Stk \
-    VoiceDialer
+    Stk
 
 # Mms depends on SoundRecorder for recorded audio messages
 PRODUCT_PACKAGES += \
