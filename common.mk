@@ -23,10 +23,6 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
     vendor/aosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
-# Signature compatibility validation
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
-
 # Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
