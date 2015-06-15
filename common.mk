@@ -53,8 +53,6 @@ PRODUCT_COPY_FILES += \
 # Misc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    LatinIME \
-    Launcher3 \
     libemoji \
     Terminal
 
@@ -65,24 +63,9 @@ PRODUCT_PACKAGES += \
     libFFmpegExtractor \
     libnamparser
 
-# Live Wallpapers and more Daydream packages
-PRODUCT_PACKAGES += \
-    Galaxy4 \
-    HoloSpiralWallpaper \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    NoiseField \
-    PhaseBeam \
-    VisualizationWallpapers \
-    PhotoTable \
-    SoundRecorder \
-    PhotoPhase
-
 # Telephony packages
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
-    Mms \
     Stk
 
 # Mms depends on SoundRecorder for recorded audio messages
