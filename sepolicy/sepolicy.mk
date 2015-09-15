@@ -17,6 +17,7 @@ BOARD_SEPOLICY_UNION += \
     healthd.te \
     hostapd.te \
     installd.te \
+    livedisplay.te \
     netd.te \
     property.te \
     recovery.te \
