@@ -96,7 +96,8 @@ for f in srcfiles:
         idx = len(ext)
         pfile = "%s/%s.P" % (depdir, f[0:-idx])
         verbose("android-cache-enter: src: f=%s, ext=%s, pfile=%s\n" % (f, ext, pfile))
-        add_deps(pfile)
+        if os.path.isfile(pfile):
+            add_deps(pfile)
     else:
         verbose("android-cache-enter: src: f=%s, ext=%s, no match\n" % (f, ext))
 
