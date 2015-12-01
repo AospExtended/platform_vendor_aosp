@@ -140,6 +140,10 @@ PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
     Stk
 
+# Include librsjni explicitly to workaround GMS issue
+PRODUCT_PACKAGES += \
+    librsjni
+
 # Telephony
 PRODUCT_PACKAGES += \
     telephony-ext
