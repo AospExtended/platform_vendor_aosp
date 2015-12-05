@@ -52,18 +52,16 @@ PRODUCT_PACKAGES += \
     mke2fs \
     tune2fs \
     bash \
-    nano \
-    htop \
     powertop \
-    lsof \
     mount.exfat \
     fsck.exfat \
     mkfs.exfat \
     mkfs.f2fs \
     fsck.f2fs \
     fibmap.f2fs \
-    ntfsfix \
-    ntfs-3g \
+    mkfs.ntfs \
+    fsck.ntfs \
+    mount.ntfs \
     gdbserver \
     micro_bench \
     oprofiled \
