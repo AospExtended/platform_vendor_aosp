@@ -38,6 +38,8 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/aosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/aosp/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
+    vendor/aosp/prebuilt/common/addon.d/71-layers.sh:system/addon.d/71-layers.sh
+
 
 # Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/dictionaries
