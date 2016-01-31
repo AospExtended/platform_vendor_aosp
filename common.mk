@@ -20,6 +20,9 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
+# Include LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/dictionaries
+
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/sysinit:system/bin/sysinit \
