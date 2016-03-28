@@ -55,6 +55,7 @@ PRODUCT_COPY_FILES += \
 # Misc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
+    LatinIME \
     libemoji \
     libsepol \
     e2fsck \
@@ -120,3 +121,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+
+PRODUCT_PACKAGES += \
+	messaging
