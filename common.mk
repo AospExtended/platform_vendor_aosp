@@ -16,9 +16,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
+ifeq ($(480p_BOOTANIMATION),)
+# Boot Animation
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/media/bootanimation-480p.zip:system/media/bootanimation.zip
+else
 # Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+endif
 
 # Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/dictionaries
