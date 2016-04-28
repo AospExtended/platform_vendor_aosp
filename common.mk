@@ -16,12 +16,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
-ifeq ($(480p_BOOTANIMATION),)
-# Boot Animation
+TARGET_BOOTANIMATION_480P := $(shell \
+  if [ $(TARGET_SCREEN_WIDTH) -le 720 ]; then \
+    echo 'true'; \
+  else \
+    echo ''; \
+  fi )
+
+# Bootanimation
+ifeq ($(TARGET_BOOTANIMATION_480P),true)
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/media/bootanimation-480p.zip:system/media/bootanimation.zip
 else
-# Bootanimation
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 endif
