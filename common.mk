@@ -32,6 +32,13 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 endif
 
+# Backup Tool
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/aosp/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
+    vendor/aosp/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
+
 # Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/dictionaries
 
