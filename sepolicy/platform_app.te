@@ -2,3 +2,7 @@
 # This is a performance optimization that allows platform apps to bypass the FUSE layer
 allow platform_app sdcard_posix:dir create_dir_perms;
 allow platform_app sdcard_posix:file create_file_perms;
+
+# Allow batterymanager and batteryproperties services to be found
+allow platform_app battery_service:service_manager find;
+allow platform_app healthd_service:service_manager find;
