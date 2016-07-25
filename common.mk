@@ -101,6 +101,7 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace \
+    masquerade \
     Terminal
 
 # Stagefright FFMPEG plugin
