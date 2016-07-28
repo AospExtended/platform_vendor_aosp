@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+    vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.aosp.rc
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
