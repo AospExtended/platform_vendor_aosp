@@ -79,6 +79,7 @@ PRODUCT_COPY_FILES += \
 # Misc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
+    MusicFX \
     LatinIME \
     libemoji \
     libsepol \
