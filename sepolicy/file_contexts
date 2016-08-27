@@ -8,6 +8,11 @@
 
 /system/bin/sysinit       u:object_r:sysinit_exec:s0
 
+# For EXFAT/F2FS/NTFS partitions marked "formattable"
+/system/bin/mkfs\.exfat   u:object_r:mkfs_exec:s0
+/system/bin/mkfs\.f2fs    u:object_r:mkfs_exec:s0
+/system/bin/mkfs\.ntfs    u:object_r:mkfs_exec:s0
+
 # For minivold in recovery
 /sbin/minivold            u:object_r:vold_exec:s0
 
@@ -16,8 +21,8 @@
 
 #############################
 # performance-related sysfs files (CM)
-/sys/devices/system/cpu.*/cpufreq(/.*)? --  u:object_r:sysfs_devices_system_cpu:s0
-/sys/block/mmcblk.*/queue/scheduler  --    u:object_r:sysfs_devices_system_iosched:s0
+/sys/devices/system/cpu.*/cpufreq(/.*)?   u:object_r:sysfs_devices_system_cpu:s0
+/sys/block/mmcblk.*/queue/scheduler       u:object_r:sysfs_devices_system_iosched:s0
 
 /data/hostapd(/.*)?         u:object_r:wifi_data_file:s0
 
@@ -33,3 +38,8 @@
 /sys/devices/virtual/graphics/fb0/cabc          u:object_r:livedisplay_sysfs:s0
 /sys/devices/virtual/graphics/fb0/rgb           u:object_r:livedisplay_sysfs:s0
 /sys/devices/virtual/graphics/fb0/sre           u:object_r:livedisplay_sysfs:s0
+
+
+# fsck
+/system/bin/fsck\.ntfs                          u:object_r:fsck_exec:s0
+/system/bin/fsck\.exfat                         u:object_r:fsck_exec:s0
