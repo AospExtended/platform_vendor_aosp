@@ -154,6 +154,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     tcmiface
 
+# include definitions for SDCLANG
+ include vendor/aosp/sdclang/sdclang.mk
+
 # Mms depends on SoundRecorder for recorded audio messages
 PRODUCT_PACKAGES += \
     SoundRecorder
