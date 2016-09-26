@@ -66,6 +66,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	vendor/aosp/prebuilt/common/app/Substratum/Substratum.apk:system/app/Substratum/Substratum.apk
 
+#Pixel Launcher
+PRODUCT_COPY_FILES += \
+	vendor/to/prebuilt/common/apk/PixelLauncherPrebuilt.apk:system/priv-app/pixel-launcher/PixelLauncherPrebuilt.apk \
+	vendor/to/prebuilt/common/apk/WallpaperPickerGooglePrebuilt.apk:system/app/pixel-launcher/WallpaperPickerGooglePrebuilt.apk
+
 # MK Explorer
 PRODUCT_COPY_FILES += \
 	vendor/aosp/prebuilt/common/app/mkexplorer.apk:system/app/MkExplorer/MkExplorer.apk
