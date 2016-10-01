@@ -165,3 +165,24 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 PRODUCT_PACKAGES += \
 	messaging
+
+#Extended Versioning
+ANDRDOID_VERSION = 7.0
+EXTENDED_VERSION = v1.0
+
+ifndef EXTENDED_BUILD_TYPE
+    EXTENDED_BUILD_TYPE := UNOFFICIAL
+    PLATFORM_VERSION_CODENAME := UNOFFICIAL
+endif 
+
+EXTENDED_MOD_VERSION := AospExtended-$(EXTENDED_VERSION)-$(shell date -u +%Y%m%d-%H%M)-$(EXTENDED_BUILD_TYPE)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.extended.version=$(EXTENDED_VERSION) \
+  ro.extended.releasetype=$(EXTENDED_BUILD_TYPE) \
+  ro.modversion=$(EXTENDED_MOD_VERSION)
+  
+EXTENDED_DISPLAY_VERSION := AospExtended-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_TYPE)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.extended.display.version=$(EXTENDED_DISPLAY_VERSION)
