@@ -165,7 +165,9 @@ endif
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 PRODUCT_PACKAGES += \
-	messaging
+        messaging \
+        LiveWallpapers \
+        LiveWallpapersPicker
 
 #Extended Versioning
 ANDRDOID_VERSION = 7.0
