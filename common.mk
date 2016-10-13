@@ -126,6 +126,13 @@ PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
     Stk
 
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 # Mms depends on SoundRecorder for recorded audio messages
 PRODUCT_PACKAGES += \
     SoundRecorder
