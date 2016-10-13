@@ -164,4 +164,6 @@ endif
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 PRODUCT_PACKAGES += \
-	messaging
+	messaging \
+	LiveWallpapers \
+	LiveWallpapersPicker
