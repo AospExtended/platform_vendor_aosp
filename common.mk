@@ -114,6 +114,10 @@ PRODUCT_PACKAGES += \
     masquerade \
     Terminal
 
+# DU Utils Library
+PRODUCT_PACKAGES += \
+    org.dirtyunicorns.utils
+
 # Stagefright FFMPEG plugin
 PRODUCT_PACKAGES += \
     libffmpeg_extractor \
@@ -128,6 +132,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.substratum.verified=true
 
+# DU Utils Library
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
 
 # Telephony packages
 PRODUCT_PACKAGES += \
