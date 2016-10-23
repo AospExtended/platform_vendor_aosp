@@ -112,7 +112,8 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace \
     masquerade \
-    Terminal
+    Terminal \
+    FMRadio
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
