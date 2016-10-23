@@ -73,9 +73,9 @@ endif
 PRODUCT_COPY_FILES += \
 	vendor/aosp/prebuilt/common/app/Substratum/Substratum.apk:system/app/Substratum/Substratum.apk
 
-# Es File Explorer
+# MK Explorer
 PRODUCT_COPY_FILES += \
-	vendor/aosp/prebuilt/common/app/estrongs.apk:system/app/EsFileExplorer/EsFileExplorer.apk
+	vendor/aosp/prebuilt/common/app/mkexplorer.apk:system/app/MkExplorer/MkExplorer.apk
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
