@@ -186,10 +186,11 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 PRODUCT_PACKAGES += \
         messaging \
         LiveWallpapers \
-        LiveWallpapersPicker
+        LiveWallpapersPicker \
+	Eleven
 
 #Extended Versioning
-ANDRDOID_VERSION = 7.0
+ANDROID_VERSION = 7.0
 EXTENDED_VERSION = v1.1
 
 ifndef EXTENDED_BUILD_TYPE
