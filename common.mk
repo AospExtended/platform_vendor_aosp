@@ -196,7 +196,8 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 PRODUCT_PACKAGES += \
 	messaging \
 	LiveWallpapers \
-	LiveWallpapersPicker
+	LiveWallpapersPicker \
+        Eleven
 
 # Set cache location
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
