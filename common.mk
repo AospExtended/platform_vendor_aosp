@@ -177,3 +177,12 @@ PRODUCT_PACKAGES += \
 	messaging \
 	LiveWallpapers \
 	LiveWallpapersPicker
+
+# Set cache location
+ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.device.cache_dir=/data/cache
+else
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.device.cache_dir=/cache
+endif
