@@ -116,6 +116,7 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace \
+    LockClock \
     masquerade \
     Terminal \
     FMRadio
