@@ -146,8 +146,7 @@ PRODUCT_BOOT_JARS += \
 
 # Mms depends on SoundRecorder for recorded audio messages
 PRODUCT_PACKAGES += \
-    SoundRecorder \
-    Chromium
+    SoundRecorder
 
 # World APN list
 PRODUCT_COPY_FILES += \
