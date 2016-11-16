@@ -109,6 +109,7 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace \
+    Gallery2 \
     LockClock \
     masquerade \
     Terminal \
