@@ -75,6 +75,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	vendor/aosp/prebuilt/common/app/mkexplorer.apk:system/app/MkExplorer/MkExplorer.apk
 
+# Slimperience
+PRODUCT_COPY_FILES += \
+        vendor/aosp/prebuilt/common/app/Slimperience.apk:system/app/Slimperience/Slimperience.apk
+
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
