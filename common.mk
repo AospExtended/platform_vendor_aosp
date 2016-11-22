@@ -119,6 +119,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.sf.omx-plugin=libffmpeg_omx.so \
     media.sf.extractor-plugin=libffmpeg_extractor.so
 
+# Substratum Verified
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.substratum.verified=true
+
+
 # Telephony packages
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
