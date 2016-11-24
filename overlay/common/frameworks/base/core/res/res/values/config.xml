@@ -28,7 +28,7 @@
          on the current state of the device. -->
     <string-array translatable="false" name="config_globalActionsList">
         <item>power</item>
-        <item>reboot</item>
+        <item>restart</item>
     </string-array>
 
     <!-- Set this to true to enable the platform's auto-power-save modes like doze and
