@@ -69,23 +69,6 @@ PRODUCT_COPY_FILES += \
    vendor/aosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 endif
 
-# Substratum
-PRODUCT_COPY_FILES += \
-	vendor/aosp/prebuilt/common/app/Substratum/Substratum.apk:system/app/Substratum/Substratum.apk
-
-#Pixel Launcher
-PRODUCT_COPY_FILES += \
-	vendor/aosp/prebuilt/common/apk/PixelLauncherPrebuilt.apk:system/priv-app/PixelLauncher/PixelLauncherPrebuilt.apk \
-	vendor/aosp/prebuilt/common/apk/WallpaperPickerGooglePrebuilt.apk:system/app/WallpaperPickerGoogle/WallpaperPickerGooglePrebuilt.apk
-
-# MK Explorer
-PRODUCT_COPY_FILES += \
-	vendor/aosp/prebuilt/common/app/mkexplorer.apk:system/app/MkExplorer/MkExplorer.apk
-
-# Slimperience
-PRODUCT_COPY_FILES += \
-        vendor/aosp/prebuilt/common/app/Slimperience.apk:system/app/Slimperience/Slimperience.apk
-
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
@@ -123,7 +106,12 @@ PRODUCT_PACKAGES += \
     LockClock \
     masquerade \
     Terminal \
-    FMRadio
+    FMRadio \
+    PixelLauncher \
+    WallpaperPickerGoogle \
+    Substratum \
+    MkExplorer \
+    Slimperience
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
