@@ -14,10 +14,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
-# Enable Google Assistant on all devices.
-PRODUCT_PROPERTY_OVERRIDES += \
-   ro.opa.eligible_device=true
-
 # Thank you, please drive thru!
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
@@ -142,6 +138,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Substratum Verified
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.substratum.verified=true
+
+PRODUCT_PROPERTY_OVERRIDES := \
+    ro.opa.eligible_device=true
+
 
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
