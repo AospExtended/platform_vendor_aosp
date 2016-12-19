@@ -111,7 +111,8 @@ PRODUCT_PACKAGES += \
     WallpaperPickerGoogle \
     Substratum \
     MkExplorer \
-    Slimperience
+    Slimperience \
+    AEXPapers
 
 # DU Utils Library
 PRODUCT_PACKAGES += \
