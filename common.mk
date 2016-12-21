@@ -110,7 +110,6 @@ PRODUCT_PACKAGES += \
     PixelLauncher \
     WallpaperPickerGoogle \
     Substratum \
-    MkExplorer \
     Slimperience \
     AEXPapers
 

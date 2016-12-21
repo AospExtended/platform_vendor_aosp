@@ -34,16 +34,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_CERTIFICATE := platform
 include $(BUILD_PREBUILT)
 
-#MkExplorer
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := MkExplorer
-LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_TAGS := optional
-LOCAL_CERTIFICATE := platform
-include $(BUILD_PREBUILT)
-
 #Pixel Launcher
 
 include $(CLEAR_VARS)
