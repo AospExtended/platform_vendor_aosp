@@ -14,16 +14,6 @@
 
 LOCAL_PATH:=$(call my-dir)
 
-#Substratum
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := Substratum
-LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_TAGS := optional
-LOCAL_CERTIFICATE := platform
-include $(BUILD_PREBUILT)
-
 #Slimperience
 
 include $(CLEAR_VARS)

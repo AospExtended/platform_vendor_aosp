@@ -109,7 +109,6 @@ PRODUCT_PACKAGES += \
     FMRadio \
     PixelLauncher \
     WallpaperPickerGoogle \
-    Substratum \
     Slimperience \
     AEXPapers
 
