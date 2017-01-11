@@ -106,7 +106,6 @@ PRODUCT_PACKAGES += \
     LockClock \
     masquerade \
     Terminal \
-    FMRadio \
     PixelLauncher \
     WallpaperPickerGoogle \
     Slimperience \
