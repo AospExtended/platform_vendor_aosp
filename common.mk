@@ -109,7 +109,8 @@ PRODUCT_PACKAGES += \
     PixelLauncher \
     WallpaperPickerGoogle \
     Slimperience \
-    AEXPapers
+    AEXPapers \
+    OmniStyle
 
 # Custom off-mode charger
 ifneq ($(WITH_CM_CHARGER),false)
