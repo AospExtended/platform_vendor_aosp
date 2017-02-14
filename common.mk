@@ -69,10 +69,6 @@ PRODUCT_COPY_FILES += \
    vendor/aosp/prebuilt/common/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 endif
 
-# OMS Theme
-PRODUCT_COPY_FILES +=  \
-   vendor/aosp/prebuilt/common/apk/ExtendedUI.apk:system/app/ExtendedUI/ExtendedUI.APK \
-
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
