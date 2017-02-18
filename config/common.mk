@@ -54,6 +54,18 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/format.sh:install/bin/format.sh
 
+ifeq ($(DEFAULT_ROOT_METHOD),magisk)
+# Copy Magisk zip
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/zip/magisk.zip:system/addon.d/magisk.zip
+
+else ifeq ($(DEFAULT_ROOT_METHOD),supersu)
+# SuperSU
+PRODUCT_COPY_FILES += \
+   vendor/aosp/prebuilt/common/zip/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+endif
+endif
+
 # Custom AEX packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
