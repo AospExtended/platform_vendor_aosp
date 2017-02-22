@@ -125,6 +125,10 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     OmniStyle
 
+# Include explicitly to work around Facelock issues
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full
+
 # Custom off-mode charger
 ifneq ($(WITH_CM_CHARGER),false)
 PRODUCT_PACKAGES += \
