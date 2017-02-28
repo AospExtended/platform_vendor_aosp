@@ -123,7 +123,8 @@ PRODUCT_PACKAGES += \
     WallpaperPickerGoogle \
     Slimperience \
     AEXPapers \
-    OmniStyle
+    OmniStyle \
+    CalendarWidget
 
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += \
