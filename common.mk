@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
     sqlite3 \
     strace \
     LockClock \
-    masquerade \
+    ThemeInterfacer \
     Terminal \
     PixelLauncher \
     WallpaperPickerGoogle \
