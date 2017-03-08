@@ -221,7 +221,8 @@ PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
         Eleven \
-        Email
+        Email \
+	OmniJaws
 
 # Set cache location
 ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
