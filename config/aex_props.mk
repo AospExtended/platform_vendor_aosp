@@ -28,7 +28,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.sf.extractor-plugin=libffmpeg_extractor.so \
     ro.substratum.verified=true \
     ro.opa.eligible_device=true \
-    persist.sys.recovery_update=false
+    persist.sys.recovery_update=false \
+    ro.com.google.ime.theme_id=5
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Enable ADB authentication
