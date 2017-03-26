@@ -220,7 +220,7 @@ PRODUCT_PACKAGES += \
 	messaging \
 	LiveWallpapers \
 	LiveWallpapersPicker \
-        Eleven \
+        Phonograph \
         Email \
 	OmniJaws
 
