@@ -121,7 +121,7 @@ PRODUCT_PACKAGES += \
     Terminal \
     PixelLauncher \
     WallpaperPickerGoogle \
-    Slimperience \
+    ViaBrowser \
     AEXPapers \
     OmniStyle \
     CalendarWidget
