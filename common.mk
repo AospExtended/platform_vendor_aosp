@@ -124,7 +124,8 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     OmniStyle \
-    CalendarWidget
+    CalendarWidget \
+    Turbo
 
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += \
