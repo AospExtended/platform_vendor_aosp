@@ -222,7 +222,6 @@ PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
         Phonograph \
-        Email \
 	OmniJaws
 
 # Set cache location
