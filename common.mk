@@ -121,10 +121,11 @@ PRODUCT_PACKAGES += \
     Terminal \
     PixelLauncher \
     WallpaperPickerGoogle \
-    Slimperience \
+    ViaBrowser \
     AEXPapers \
     OmniStyle \
-    CalendarWidget
+    CalendarWidget \
+    Turbo
 
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += \
@@ -220,8 +221,7 @@ PRODUCT_PACKAGES += \
 	messaging \
 	LiveWallpapers \
 	LiveWallpapersPicker \
-        Eleven \
-        Email \
+        Phonograph \
 	OmniJaws
 
 # Set cache location
@@ -234,8 +234,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 endif
 
 #Extended Versioning
-ANDRDOID_VERSION = 7.1.1
-EXTENDED_VERSION = v3.3
+EXTENDED_VERSION = v4.1
 
 ifndef EXTENDED_BUILD_TYPE
     EXTENDED_BUILD_TYPE := UNOFFICIAL
