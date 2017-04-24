@@ -24,6 +24,16 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_CERTIFICATE := platform
 include $(BUILD_PREBUILT)
 
+#AEXPapers
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := AEXPapers
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_TAGS := optional
+LOCAL_CERTIFICATE := platform
+include $(BUILD_PREBUILT)
+
 #Phonograph
 
 include $(CLEAR_VARS)
