@@ -116,7 +116,6 @@ PRODUCT_PACKAGES += \
     oprofiled \
     sqlite3 \
     strace \
-    LockClock \
     ThemeInterfacer \
     Terminal \
     PixelLauncher \
