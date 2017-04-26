@@ -35,6 +35,9 @@ on property:service.adb.tcp.port=-1
     stop adbd
     start adbd
 
+    # allow system to communicate pocket state
+    chown system system /sys/kernel/pocket_judge/inpocket
+
 on boot
     # interactive governor
     chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
