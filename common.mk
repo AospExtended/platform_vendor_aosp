@@ -1,22 +1,5 @@
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    keyguard.no_require_sim=true \
-    ro.com.google.clientidbase=android-google \
-    ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
-    ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.setupwizard.enterprise_mode=1 \
-    ro.com.android.dateformat=MM-dd-yyyy \
-    ro.com.android.dataroaming=false \
-    ro.setupwizard.rotation_locked=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
-
-# Thank you, please drive thru!
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
-
 TARGET_BOOTANIMATION_480P := $(shell \
   if [ $(TARGET_SCREEN_WIDTH) -le 720 ]; then \
     echo 'true'; \
@@ -149,18 +132,6 @@ PRODUCT_PACKAGES += \
     libffmpeg_omx \
     media_codecs_ffmpeg.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.sf.omx-plugin=libffmpeg_omx.so \
-    media.sf.extractor-plugin=libffmpeg_extractor.so
-
-# Substratum Verified
-PRODUCT_PROPERTY_OVERRIDES := \
-    ro.substratum.verified=true
-
-PRODUCT_PROPERTY_OVERRIDES := \
-    ro.opa.eligible_device=true
-
-
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
@@ -205,15 +176,6 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
 endif
 
-# by default, do not update the recovery with system updates
-PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
-
-
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-# Enable ADB authentication
-ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
-endif
-
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
 PRODUCT_PACKAGES += \
@@ -223,14 +185,7 @@ PRODUCT_PACKAGES += \
         Phonograph \
 	OmniJaws
 
-# Set cache location
-ifeq ($(BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE),)
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.device.cache_dir=/data/cache
-else
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.device.cache_dir=/cache
-endif
+$(call inherit-product, vendor/aosp/config/aex_props.mk)
 
 #Extended Versioning
 EXTENDED_VERSION = v4.1
