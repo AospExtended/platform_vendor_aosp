@@ -196,8 +196,10 @@ ifndef EXTENDED_BUILD_TYPE
 endif 
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
-PRODUCT_PACKAGES += \
-	AEXOTA
+
+# AEXOTA
+$(call inherit-product-if-exists, vendor/aosp/config/ota.mk)
+
 endif
 
 EXTENDED_MOD_VERSION := AospExtended-$(EXTENDED_VERSION)-$(shell date -u +%Y%m%d-%H%M)-$(EXTENDED_BUILD_TYPE)
