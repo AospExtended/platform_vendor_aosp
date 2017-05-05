@@ -44,3 +44,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.device.cache_dir=/cache
 endif
 
+# MusicFX advanced effects
+ifneq ($(TARGET_NO_DSPMANAGER), true)
+PRODUCT_PACKAGES += \
+    libcyanogen-dsp \
+    audio_effects.conf
+endif
