@@ -75,7 +75,6 @@ PRODUCT_COPY_FILES += \
 # Misc packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    Busybox \
     MusicFX \
     LatinIME \
     libemoji \
