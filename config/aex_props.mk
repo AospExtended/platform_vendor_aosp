@@ -44,6 +44,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.device.cache_dir=/cache
 endif
 
+# Recommend using the non debug dexpreopter
+USE_DEX2OAT_DEBUG ?= false
+
+
 # MusicFX advanced effects
 ifneq ($(TARGET_NO_DSPMANAGER), true)
 PRODUCT_PACKAGES += \
