@@ -100,7 +100,7 @@ PRODUCT_PACKAGES += \
     strace \
     ThemeInterfacer \
     Terminal \
-    PixelLauncher \
+    Launcher3 \
     WallpaperPickerGoogle \
     ViaBrowser \
     AEXPapers \
