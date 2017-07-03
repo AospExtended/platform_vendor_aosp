@@ -42,10 +42,6 @@ PRODUCT_COPY_FILES +=  \
     vendor/aosp/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 ifeq ($(DEFAULT_ROOT_METHOD),magisk)
-# Magisk Manager
-PRODUCT_PACKAGES += \
-    MagiskManager
-
 # Copy Magisk zip
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/zip/magisk.zip:system/addon.d/magisk.zip
