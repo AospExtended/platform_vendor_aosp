@@ -191,7 +191,7 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, vendor/aosp/config/aex_props.mk)
 
 #Extended Versioning
-EXTENDED_VERSION = v4.3
+EXTENDED_VERSION = v4.4
 
 ifndef EXTENDED_BUILD_TYPE
     EXTENDED_BUILD_TYPE := UNOFFICIAL
