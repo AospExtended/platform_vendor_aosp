@@ -59,6 +59,11 @@ PRODUCT_PACKAGES += \
     Jelly
 endif
 
+# TWRP
+ifeq ($(WITH_TWRP),true)
+include vendor/aosp/config/twrp.mk
+endif
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
