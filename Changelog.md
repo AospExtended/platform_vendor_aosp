@@ -66,8 +66,8 @@
     * base: Introduce Accidental Touch feature
     * Jflte: fixed custom Doze feature not appearing under Settings
     * Ported lockscreen blur feature
-    * Substratum: update to v821
-    * Update Turbo apk from August images
+    * Substratum: update to v822
+    * Update Turbo apk from August images
     * base: ported bt and AudioService fixes from CAF
     * Gemini: enable speaker protection and set speaker calibration time to 5 min
 
