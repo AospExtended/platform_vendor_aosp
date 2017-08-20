@@ -1,4 +1,4 @@
-# Copyright (C) 2016 The JDCTeam
+# Copyright (C) 2017 The AospExtended
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@ include vendor/aosp/sdclang/sdclang.mk
 
 include vendor/aosp/config/version.mk
 
-PRODUCT_BRAND ?= JDCTeam
+PRODUCT_BRAND ?= AEX
 
 # Use signing keys for user builds
 ifeq ($(TARGET_BUILD_VARIANT),user)
@@ -32,29 +32,48 @@ PRODUCT_COPY_FILES += \
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/bootanimation/bootanimation.zip:system/media/bootanimation.zip
+    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common \
     vendor/aosp/overlay/dictionaries
 
+# Proprietary latinime libs needed for Keyboard swyping
+ifneq ($(filter arm64,$(TARGET_ARCH)),)
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so \
+    vendor/aosp/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+else
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so \
+    vendor/aosp/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+endif
+
 # EXT4/F2FS format script
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/format.sh:install/bin/format.sh
 
-# Custom JDCTeam packages
+# Custom AEX packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    Jelly \
     LatinIME \
+    MusicFX \
     Launcher3 \
     LiveWallpapers \
     LiveWallpapersPicker \
-    OTAUpdates \
     Stk \
-    Substratum \
     ThemeInterfacer \
+    WallpaperPickerGoogle \
+    ViaBrowser \
+    AEXPapers \
+    OmniStyle \
+    CalendarWidget \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    Phonograph \
+    OmniJaws \
+    SoundRecorder \
     Turbo
 
 # Extra tools
@@ -82,30 +101,22 @@ PRODUCT_PACKAGES += \
     unzip \
     zip
 
-# Exchange support
-PRODUCT_PACKAGES += \
-    Exchange2
-
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
-
-# For keyboard gesture typing
-ifneq ($(filter jdc_jflte jdc_onyx,$(TARGET_PRODUCT)),)
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinime.so
-else
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinime.so
-endif
 
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
 
-# JDC-specific init file
+# AEX-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.jdc.rc
+    vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.aosp.rc
+
+# Bring in camera effects
+PRODUCT_COPY_FILES +=  \
+    vendor/aosp/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/aosp/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
@@ -125,10 +136,6 @@ PRODUCT_PACKAGES += \
     libffmpeg_omx \
     media_codecs_ffmpeg.xml
 
-# Changelog
-PRODUCT_COPY_FILES += \
-    vendor/aosp/Changelog.md:system/etc/Changelog.md
-
 # Needed by some RILs and for some gApps packages
 PRODUCT_PACKAGES += \
     librsjni \
@@ -140,14 +147,6 @@ PRODUCT_PACKAGES += \
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
-
-# Magisk
-ifeq ($(WITH_ROOT),true)
- PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/magisk/Magisk.zip:install/magisk/Magisk.zip
-else
-$(warning Root method is undefined, please use 'WITH_ROOT := true' to define it)
-endif
 
 # TCM (TCP Connection Management)
 PRODUCT_PACKAGES += \
