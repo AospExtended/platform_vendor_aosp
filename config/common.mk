@@ -49,6 +49,11 @@ PRODUCT_PACKAGES += \
     Phonograph \
     WallpaperPickerGoogle
 
+# Themes
+PRODUCT_PACKAGES += \
+    PixelTheme \
+    Stock
+
 # Extra tools
 PRODUCT_PACKAGES += \
     e2fsck \
