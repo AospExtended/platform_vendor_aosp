@@ -90,16 +90,4 @@
          with HWC 2.0 or higher. -->
     <bool name="config_nightDisplayAvailable">true</bool>
 
-    <!-- Control the behavior when the user panic presses the back button.
-            0 - Nothing
-            1 - Go to home
-    -->
-    <integer name="config_backPanicBehavior">1</integer>
-
-    <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
-    <bool name="config_useRoundIcon">true</bool>
-
-    <!-- Support in Surfaceflinger for blur layers.
-         NOTE: This requires additional hardware-specific code. -->
-    <!-- <bool name="config_uiBlurEnabled">true</bool> -->
 </resources>
