@@ -44,7 +44,10 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     Stk \
-    Turbo
+    Turbo \
+    ViaBrowser \
+    Phonograph \
+    WallpaperPickerGoogle
 
 # Extra tools
 PRODUCT_PACKAGES += \

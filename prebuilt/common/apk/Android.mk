@@ -15,6 +15,7 @@
 LOCAL_PATH:= $(call my-dir)
 
 #ViaBrowser
+include $(CLEAR_VARS)
 LOCAL_MODULE := ViaBrowser
 LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 LOCAL_MODULE_CLASS := APPS
@@ -24,6 +25,7 @@ LOCAL_DEX_PREOPT := false
 include $(BUILD_PREBUILT)
 
 #Phonograph
+include $(CLEAR_VARS)
 LOCAL_MODULE := Phonograph
 LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 LOCAL_MODULE_CLASS := APPS
@@ -33,6 +35,7 @@ LOCAL_DEX_PREOPT := false
 include $(BUILD_PREBUILT)
 
 #WallpaperPickerGoogle
+include $(CLEAR_VARS)
 LOCAL_MODULE := WallpaperPickerGoogle
 LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
 LOCAL_MODULE_CLASS := APPS
