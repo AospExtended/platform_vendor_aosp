@@ -20,6 +20,13 @@ EXTENDED_VERSION = v5.0
     PLATFORM_VERSION_CODENAME := ALPHA
 #endif
 
+ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
+
+# AEXOTA
+$(call inherit-product-if-exists, vendor/aosp/config/ota.mk)
+
+endif
+
 EXTENDED_MOD_VERSION := AospExtended-$(EXTENDED_VERSION)-$(shell date -u +%Y%m%d-%H%M)-$(EXTENDED_BUILD_TYPE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
