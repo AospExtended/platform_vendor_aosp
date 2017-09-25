@@ -42,6 +42,7 @@ PRODUCT_PACKAGES += \
     Stk \
     Turbo \
     ViaBrowser \
+    AEXPapers \
     Phonograph \
     WallpaperPickerGoogle
 
