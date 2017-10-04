@@ -36,7 +36,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_PACKAGES += \
     BluetoothExt \
     LatinIME \
-    Launcher3 \
+    Lawnchair \
     LiveWallpapers \
     LiveWallpapersPicker \
     Stk \
