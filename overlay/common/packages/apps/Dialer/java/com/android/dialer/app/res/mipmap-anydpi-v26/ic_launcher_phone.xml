@@ -11,6 +11,6 @@
      limitations under the License.
 -->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <background android:drawable="@mipmap/ic_launcher_phone_background"/>
-    <foreground android:drawable="@mipmap/ic_launcher_phone_foreground"/>
+    <background android:drawable="@color/ic_launcher_dialer_background"/>
+    <foreground android:drawable="@mipmap/ic_launcher_dialer_foreground"/>
 </adaptive-icon>
