@@ -130,6 +130,12 @@ PRODUCT_PACKAGES += \
     libffmpeg_omx \
     media_codecs_ffmpeg.xml
 
+# Charging sounds
+PRODUCT_COPY_FILES += \
+    vendor/aosp/google/effects/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
+    vendor/aosp/google/effects/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
+
+
 # Needed by some RILs and for some gApps packages
 PRODUCT_PACKAGES += \
     librsjni \
