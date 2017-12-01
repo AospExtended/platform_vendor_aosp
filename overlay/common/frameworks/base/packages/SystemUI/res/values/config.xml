@@ -38,4 +38,6 @@
     <!-- The duration in seconds to wait before the dismiss buttons are shown. -->
     <integer name="recents_task_bar_dismiss_delay_seconds">0</integer>
 
+    <!-- Whether to show activity indicators in the status bar -->
+    <bool name="config_showActivity">true</bool>
 </resources>
