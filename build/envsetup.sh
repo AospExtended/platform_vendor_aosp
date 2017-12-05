@@ -2,6 +2,7 @@ function __print_aosp_functions_help() {
 cat <<EOF
 Additional AOSP functions:
 - mka:             Builds using SCHED_BATCH on all processors.
+- gerrit:          Adds a remote for AEX Gerrit
 EOF
 } 
 
@@ -41,6 +42,22 @@ function mka() {
 function repopick() {
     T=$(gettop)
     $T/vendor/aosp/build/tools/repopick.py $@
+}
+
+function gerrit()
+{
+    if [ ! -d ".git" ]; then
+        echo -e "Please run this inside a git directory";
+    else
+        if [ -d ".git/refs/remotes/gerrit" ]; then
+            git remote rm gerrit;
+        fi
+        if [[ -z "${GERRIT_USER}" ]]; then
+            git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e 's|https://github.com/AospExtended|ssh://gerrit.aospextended.com:29418/AospExtended|');
+        else
+            git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e 's|https://github.com/AospExtended|ssh://${GERRIT_USER}@gerrit.aospextended.com:29418/AospExtended|');
+        fi
+    fi
 }
 
 function fixup_common_out_dir() {
