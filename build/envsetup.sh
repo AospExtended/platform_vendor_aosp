@@ -52,10 +52,11 @@ function gerrit()
         if [ -d ".git/refs/remotes/gerrit" ]; then
             git remote rm gerrit;
         fi
+        [[ -z "${GERRIT_USER}" ]] && export GERRIT_USER=$(git config --get gerrit.aospextended.com.username);
         if [[ -z "${GERRIT_USER}" ]]; then
-            git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e 's|https://github.com/AospExtended|ssh://gerrit.aospextended.com:29418/AospExtended|');
+            git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e "s|https://github.com/AospExtended|ssh://gerrit.aospextended.com:29418/AospExtended|");
         else
-            git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e 's|https://github.com/AospExtended|ssh://${GERRIT_USER}@gerrit.aospextended.com:29418/AospExtended|');
+            git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e "s|https://github.com/AospExtended|ssh://${GERRIT_USER}@gerrit.aospextended.com:29418/AospExtended|");
         fi
     fi
 }
