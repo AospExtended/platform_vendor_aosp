@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
     Turbo \
     ViaBrowser \
     AEXPapers \
-    Phonograph \
+    RetroMusicPlayer \
     WallpaperPickerGoogle
 
 # Themes
