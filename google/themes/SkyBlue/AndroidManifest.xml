@@ -4,7 +4,7 @@
     platformBuildVersionCode="26"
     platformBuildVersionName="8.0.0">
 
-    <overlay android:priority="1" android:targetPackage="android" />
+    <overlay android:priority="6" android:targetPackage="android" />
 
     <application android:hasCode="false"
                  android:label="Sky Blue" />
