@@ -181,7 +181,7 @@ PRODUCT_PACKAGES += \
 	messaging \
 	LiveWallpapers \
 	LiveWallpapersPicker \
-        Phonograph \
+        RetroMusicPlayer \
 	OmniJaws
 
 $(call inherit-product, vendor/aosp/config/aex_props.mk)
