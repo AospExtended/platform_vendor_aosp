@@ -49,15 +49,28 @@ PRODUCT_PACKAGES += \
 # Themes
 # Accents
 PRODUCT_PACKAGES += \
-    DeepPurpleTheme \
-    IndigoTheme \
-    PinkTheme \
-    PurpleTheme \
-    RedTheme \
-    SkyBlueTheme \
-    YellowTheme \
     PixelTheme \
-    Stock
+    AmberAccent \
+    BlackAccent \
+    BlueAccent \
+    BlueGreyAccent \
+    BrownAccent \
+    CyanAccent \
+    DeepOrangeAccent \
+    DeepPurpleAccent \
+    GreenAccent \
+    GreyAccent \
+    IndigoAccent \
+    LightBlueAccent \
+    LightGreenAccent \
+    LimeAccent \
+    OrangeAccent \
+    PinkAccent \
+    PurpleAccent \
+    RedAccent \
+    TealAccent \
+    YellowAccent \
+    WhiteAccent
 
 # UI Variants
 PRODUCT_PACKAGES += \
