@@ -45,7 +45,8 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     RetroMusicPlayer \
-    WallpaperPickerGoogle
+    WallpaperPickerGoogle \
+    OmniJaws
 
 # Themes
 PRODUCT_PACKAGES += \
