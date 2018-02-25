@@ -21,4 +21,30 @@
     <color name="accent_device_default_light">#ff1fe082</color>
     <color name="accent_device_default_dark">#ff21ef8b</color>
     <color name="accent_device_default_50">#ffe8f0fe</color>
+
+    <!-- Resolver -->
+    <color name="resolver_list_bg">@*android:color/black</color>
+
+    <!-- Immersive cling -->
+    <color name="immersive_cling_bg_color">@*android:color/black</color>
+    <color name="immersive_cling_text_color">@android:color/white</color>
+    <color name="immersive_cling_button_text_color">@android:color/white</color>
+
+    <!-- Power menu items -->
+    <color name="power_menu_power_off">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_restart">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_restart_advanced">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_hot_reboot">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_advanced_bootloader">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_advanced_recovery">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_advanced_system_restart_ui">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_screenshot">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_airplane">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_screenrecord">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_torch">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_settings">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_lock">@*android:color/accent_device_default_light</color>
+
+    <!-- Notification info -->
+    <color name="notification_info_button_text">@*android:color/notification_default_color</color>
 </resources>
