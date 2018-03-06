@@ -36,6 +36,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Custom AEX packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
+    Terminal \
     LatinIME \
     Launcher3 \
     LiveWallpapers \
@@ -75,6 +76,7 @@ PRODUCT_PACKAGES += \
     fsck.ntfs \
     mount.ntfs \
     7z \
+    bash \
     bzip2 \
     curl \
     lib7z \
@@ -83,6 +85,8 @@ PRODUCT_PACKAGES += \
     tinymix \
     unrar \
     unzip \
+    vim \
+    rsync \
     zip
 
 # Exchange support
