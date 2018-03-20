@@ -44,7 +44,7 @@ trap cleanup 0
 #
 # $1: device name
 # $2: vendor name
-# $3: JDC root directory
+# $3: CM root directory
 # $4: is common device - optional, default to false
 # $5: cleanup - optional, default to true
 # $6: custom vendor makefile name - optional, default to false
@@ -65,15 +65,15 @@ function setup_vendor() {
         exit 1
     fi
 
-    export JDC_ROOT="$3"
-    if [ ! -d "$JDC_ROOT" ]; then
-        echo "\$JDC_ROOT must be set and valid before including this script!"
+    export CM_ROOT="$3"
+    if [ ! -d "$CM_ROOT" ]; then
+        echo "\$CM_ROOT must be set and valid before including this script!"
         exit 1
     fi
 
     export OUTDIR=vendor/"$VENDOR"/"$DEVICE"
-    if [ ! -d "$JDC_ROOT/$OUTDIR" ]; then
-        mkdir -p "$JDC_ROOT/$OUTDIR"
+    if [ ! -d "$CM_ROOT/$OUTDIR" ]; then
+        mkdir -p "$CM_ROOT/$OUTDIR"
     fi
 
     VNDNAME="$6"
@@ -81,9 +81,9 @@ function setup_vendor() {
         VNDNAME="$DEVICE"
     fi
 
-    export PRODUCTMK="$JDC_ROOT"/"$OUTDIR"/"$VNDNAME"-vendor.mk
-    export ANDROIDMK="$JDC_ROOT"/"$OUTDIR"/Android.mk
-    export BOARDMK="$JDC_ROOT"/"$OUTDIR"/BoardConfigVendor.mk
+    export PRODUCTMK="$CM_ROOT"/"$OUTDIR"/"$VNDNAME"-vendor.mk
+    export ANDROIDMK="$CM_ROOT"/"$OUTDIR"/Android.mk
+    export BOARDMK="$CM_ROOT"/"$OUTDIR"/BoardConfigVendor.mk
 
     if [ "$4" == "true" ] || [ "$4" == "1" ]; then
         COMMON=1
@@ -443,12 +443,35 @@ function write_product_packages() {
 # be executed first!
 #
 function write_header() {
+    if [ -f $1 ]; then
+        rm $1
+    fi
+
     YEAR=$(date +"%Y")
 
     [ "$COMMON" -eq 1 ] && local DEVICE="$DEVICE_COMMON"
 
-    cat << EOF > $1
-# Copyright (C) $YEAR The CyanogenMod Project
+    NUM_REGEX='^[0-9]+$'
+    if [[ $INITIAL_COPYRIGHT_YEAR =~ $NUM_REGEX ]] && [ $INITIAL_COPYRIGHT_YEAR -le $YEAR ]; then
+        if [ $INITIAL_COPYRIGHT_YEAR -lt 2016 ]; then
+            printf "# Copyright (C) $INITIAL_COPYRIGHT_YEAR-2016 The CyanogenMod Project\n" > $1
+        elif [ $INITIAL_COPYRIGHT_YEAR -eq 2016 ]; then
+            printf "# Copyright (C) 2016 The CyanogenMod Project\n" > $1
+        fi
+        if [ $YEAR -eq 2017 ]; then
+            printf "# Copyright (C) 2017 The LineageOS Project\n" >> $1
+        elif [ $INITIAL_COPYRIGHT_YEAR -eq $YEAR ]; then
+            printf "# Copyright (C) $YEAR The LineageOS Project\n" >> $1
+        elif [ $INITIAL_COPYRIGHT_YEAR -le 2017 ]; then
+            printf "# Copyright (C) 2017-$YEAR The LineageOS Project\n" >> $1
+        else
+            printf "# Copyright (C) $INITIAL_COPYRIGHT_YEAR-$YEAR The LineageOS Project\n" >> $1
+        fi
+    else
+        printf "# Copyright (C) $YEAR The LineageOS Project\n" > $1
+    fi
+
+    cat << EOF >> $1
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -660,15 +683,15 @@ function get_file() {
 # Convert apk|jar .odex in the corresposing classes.dex
 #
 function oat2dex() {
-    local JDC_TARGET="$1"
+    local CM_TARGET="$1"
     local OEM_TARGET="$2"
     local SRC="$3"
     local TARGET=
     local OAT=
 
     if [ -z "$BAKSMALIJAR" ] || [ -z "$SMALIJAR" ]; then
-        export BAKSMALIJAR="$JDC_ROOT"/vendor/aosp/build/tools/smali/baksmali.jar
-        export SMALIJAR="$JDC_ROOT"/vendor/aosp/build/tools/smali/smali.jar
+        export BAKSMALIJAR="$CM_ROOT"/vendor/cm/build/tools/smali/baksmali.jar
+        export SMALIJAR="$CM_ROOT"/vendor/cm/build/tools/smali/smali.jar
     fi
 
     # Extract existing boot.oats to the temp folder
@@ -693,11 +716,11 @@ function oat2dex() {
         FULLY_DEODEXED=1 && return 0 # system is fully deodexed, return
     fi
 
-    if [ ! -f "$JDC_TARGET" ]; then
+    if [ ! -f "$CM_TARGET" ]; then
         return;
     fi
 
-    if grep "classes.dex" "$JDC_TARGET" >/dev/null; then
+    if grep "classes.dex" "$CM_TARGET" >/dev/null; then
         return 0 # target apk|jar is already odexed, return
     fi
 
@@ -708,9 +731,13 @@ function oat2dex() {
 
         if get_file "$OAT" "$TMPDIR" "$SRC"; then
             java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" "$TMPDIR/$(basename "$OAT")"
-        elif [[ "$JDC_TARGET" =~ .jar$ ]]; then
-            # try to extract classes.dex from boot.oat for framework jars
-            java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" -e "/$OEM_TARGET" "$BOOTOAT"
+        elif [[ "$CM_TARGET" =~ .jar$ ]]; then
+            # try to extract classes.dex from boot.oats for framework jars
+            JAROAT="$TMPDIR/system/framework/$ARCH/boot-$(basename ${OEM_TARGET%.*}).oat"
+            if [ ! -f "$JAROAT" ]; then
+                JAROAT=$BOOTOAT;
+            fi
+            java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" "$JAROAT/$OEM_TARGET"
         else
             continue
         fi
@@ -792,7 +819,7 @@ function extract() {
     local HASHLIST=( ${PRODUCT_COPY_FILES_HASHES[@]} ${PRODUCT_PACKAGES_HASHES[@]} )
     local COUNT=${#FILELIST[@]}
     local SRC="$2"
-    local OUTPUT_ROOT="$JDC_ROOT"/"$OUTDIR"/proprietary
+    local OUTPUT_ROOT="$CM_ROOT"/"$OUTDIR"/proprietary
     local OUTPUT_TMP="$TMPDIR"/"$OUTDIR"/proprietary
 
     if [ "$SRC" = "adb" ]; then
@@ -838,7 +865,9 @@ function extract() {
         echo "Cleaning output directory ($OUTPUT_ROOT).."
         rm -rf "${OUTPUT_TMP:?}"
         mkdir -p "${OUTPUT_TMP:?}"
-        mv "${OUTPUT_ROOT:?}/"* "${OUTPUT_TMP:?}/"
+        if [ -d "$OUTPUT_ROOT" ]; then
+            mv "${OUTPUT_ROOT:?}/"* "${OUTPUT_TMP:?}/"
+        fi
         VENDOR_STATE=1
     fi
 
@@ -877,7 +906,6 @@ function extract() {
         fi
         local DEST="$OUTPUT_DIR/$FROM"
 
-
         # Check pinned files
         local HASH="${HASHLIST[$i-1]}"
         local KEEP=""
@@ -905,21 +933,19 @@ function extract() {
         if [ "$KEEP" = "1" ]; then
             printf '    + (keeping pinned file with hash %s)\n' "$HASH"
         elif [ "$SRC" = "adb" ]; then
-
             # Try CM target first
-
             adb pull "/$TARGET" "$DEST"
             # if file does not exist try OEM target
             if [ "$?" != "0" ]; then
                 adb pull "/$FILE" "$DEST"
             fi
         else
-            # Try OEM target first
-            if [ -f "$SRC/$FILE" ]; then
-                cp "$SRC/$FILE" "$DEST"
-            # if file does not exist try JDC target
-            elif [ -f "$SRC/$TARGET" ]; then
+            # Try CM target first
+            if [ -f "$SRC/$TARGET" ]; then
                 cp "$SRC/$TARGET" "$DEST"
+            # if file does not exist try OEM target
+            elif [ -f "$SRC/$FILE" ]; then
+                cp "$SRC/$FILE" "$DEST"
             else
                 printf '    !! file not found in source\n'
             fi
@@ -938,7 +964,6 @@ function extract() {
                 fix_xml "$DEST"
             fi
         fi
-
 
         if [ -f "$DEST" ]; then
             local TYPE="${DIR##*/}"
@@ -975,7 +1000,7 @@ function extract_firmware() {
     local FILELIST=( ${PRODUCT_COPY_FILES_LIST[@]} )
     local COUNT=${#FILELIST[@]}
     local SRC="$2"
-    local OUTPUT_DIR="$JDC_ROOT"/"$OUTDIR"/radio
+    local OUTPUT_DIR="$CM_ROOT"/"$OUTDIR"/radio
 
     if [ "$VENDOR_RADIO_STATE" -eq "0" ]; then
         echo "Cleaning firmware output directory ($OUTPUT_DIR).."
