@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
     OmniJaws
 
 # Themes
+# Accents
 PRODUCT_PACKAGES += \
     DeepPurpleTheme \
     IndigoTheme \
@@ -57,6 +58,18 @@ PRODUCT_PACKAGES += \
     YellowTheme \
     PixelTheme \
     Stock
+
+# UI Variants
+PRODUCT_PACKAGES += \
+    SystemDarkTheme \
+    SettingsDarkTheme \
+    DuiDarkTheme \
+    SystemBlackTheme \
+    SettingsBlackTheme \
+    DuiBlackTheme \
+    SystemExtendedTheme \
+    SettingsExtendedTheme \
+    DuiExtendedTheme \
 
 # Extra tools
 PRODUCT_PACKAGES += \
