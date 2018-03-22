@@ -744,8 +744,9 @@ function oat2dex() {
     local OAT=
 
     if [ -z "$BAKSMALIJAR" ] || [ -z "$SMALIJAR" ]; then
-        export BAKSMALIJAR="$LINEAGE_ROOT"/vendor/lineage/build/tools/smali/baksmali.jar
-        export SMALIJAR="$LINEAGE_ROOT"/vendor/lineage/build/tools/smali/smali.jar
+
+        export BAKSMALIJAR="$LINEAGE_ROOT"/vendor/aosp/build/tools/smali/baksmali.jar
+        export SMALIJAR="$LINEAGE_ROOT"/vendor/aosp/build/tools/smali/smali.jar
     fi
 
     # Extract existing boot.oats to the temp folder
@@ -906,7 +907,11 @@ function extract() {
             # If OTA is block based, extract it.
             elif [ -a "$DUMPDIR"/system.new.dat ]; then
                 echo "Converting system.new.dat to system.img"
+<<<<<<< HEAD
                 python "$LINEAGE_ROOT"/vendor/lineage/build/tools/sdat2img.py "$DUMPDIR"/system.transfer.list "$DUMPDIR"/system.new.dat "$DUMPDIR"/system.img 2>&1
+=======
+                python "$CM_ROOT"/vendor/aosp/build/tools/sdat2img.py "$DUMPDIR"/system.transfer.list "$DUMPDIR"/system.new.dat "$DUMPDIR"/system.img 2>&1
+>>>>>>> 083e03d7... extract_utils.sh: Fix smali path for AOSP
                 rm -rf "$DUMPDIR"/system.new.dat "$DUMPDIR"/system
                 mkdir "$DUMPDIR"/system "$DUMPDIR"/tmp
                 echo "Requesting sudo access to mount the system.img"
