@@ -26,8 +26,7 @@ COMMON=-1
 ARCHES=
 FULLY_DEODEXED=-1
 
-TMPDIR="/tmp/extractfiles.$$"
-mkdir "$TMPDIR"
+TMPDIR=$(mktemp -d)
 
 #
 # cleanup
@@ -38,14 +37,14 @@ function cleanup() {
     rm -rf "${TMPDIR:?}"
 }
 
-trap cleanup EXIT INT TERM ERR
+trap cleanup 0
 
 #
 # setup_vendor
 #
 # $1: device name
 # $2: vendor name
-# $3: JDC root directory
+# $3: Lineage root directory
 # $4: is common device - optional, default to false
 # $5: cleanup - optional, default to true
 # $6: custom vendor makefile name - optional, default to false
@@ -66,15 +65,15 @@ function setup_vendor() {
         exit 1
     fi
 
-    export JDC_ROOT="$3"
-    if [ ! -d "$JDC_ROOT" ]; then
-        echo "\$JDC_ROOT must be set and valid before including this script!"
+    export LINEAGE_ROOT="$3"
+    if [ ! -d "$LINEAGE_ROOT" ]; then
+        echo "\$LINEAGE_ROOT must be set and valid before including this script!"
         exit 1
     fi
 
     export OUTDIR=vendor/"$VENDOR"/"$DEVICE"
-    if [ ! -d "$JDC_ROOT/$OUTDIR" ]; then
-        mkdir -p "$JDC_ROOT/$OUTDIR"
+    if [ ! -d "$LINEAGE_ROOT/$OUTDIR" ]; then
+        mkdir -p "$LINEAGE_ROOT/$OUTDIR"
     fi
 
     VNDNAME="$6"
@@ -82,9 +81,9 @@ function setup_vendor() {
         VNDNAME="$DEVICE"
     fi
 
-    export PRODUCTMK="$JDC_ROOT"/"$OUTDIR"/"$VNDNAME"-vendor.mk
-    export ANDROIDMK="$JDC_ROOT"/"$OUTDIR"/Android.mk
-    export BOARDMK="$JDC_ROOT"/"$OUTDIR"/BoardConfigVendor.mk
+    export PRODUCTMK="$LINEAGE_ROOT"/"$OUTDIR"/"$VNDNAME"-vendor.mk
+    export ANDROIDMK="$LINEAGE_ROOT"/"$OUTDIR"/Android.mk
+    export BOARDMK="$LINEAGE_ROOT"/"$OUTDIR"/BoardConfigVendor.mk
 
     if [ "$4" == "true" ] || [ "$4" == "1" ]; then
         COMMON=1
@@ -124,13 +123,13 @@ function target_file() {
 #
 # target_args:
 #
-# $1: colon delimited list
+# $1: semicolon delimited list
 #
 # Returns optional arguments (last value) for given target
 #
 function target_args() {
     local LINE="$1"
-    local SPLIT=(${LINE//:/ })
+    local SPLIT=(${LINE//;/ })
     local COUNT=${#SPLIT[@]}
     if [ "$COUNT" -gt "1" ]; then
         if [[ ! "${SPLIT[$COUNT-1]}" =~ .*/.* ]]; then
@@ -157,7 +156,45 @@ function prefix_match() {
 }
 
 #
+# prefix_match_file:
+#
+# $1: the prefix to match on
+# $2: the file to match the prefix for
+#
+# Internal function which returns true if a filename contains the
+# specified prefix.
+#
+function prefix_match_file() {
+    local PREFIX="$1"
+    local FILE="$2"
+    if [[ "$FILE" =~ ^"$PREFIX" ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+#
+# truncate_file
+#
+# $1: the filename to truncate
+# $2: the argument to output the truncated filename to
+#
+# Internal function which truncates a filename by removing the first dir
+# in the path. ex. vendor/lib/libsdmextension.so -> lib/libsdmextension.so
+#
+function truncate_file() {
+    local FILE="$1"
+    RETURN_FILE="$2"
+    local FIND="${FILE%%/*}"
+    local LOCATION="${#FIND}+1"
+    echo ${FILE:$LOCATION}
+}
+
+#
 # write_product_copy_files:
+#
+# $1: make treble compatible makefile - optional, default to false
 #
 # Creates the PRODUCT_COPY_FILES section in the product makefile for all
 # items in the list which do not start with a dash (-).
@@ -167,6 +204,7 @@ function write_product_copy_files() {
     local TARGET=
     local FILE=
     local LINEEND=
+    local TREBLE_COMPAT=$1
 
     if [ "$COUNT" -eq "0" ]; then
         return 0
@@ -180,9 +218,20 @@ function write_product_copy_files() {
             LINEEND=""
         fi
 
-        TARGET=$(target_file "$FILE")
-        printf '    %s/proprietary/%s:system/%s%s\n' \
-            "$OUTDIR" "$TARGET" "$TARGET" "$LINEEND" >> "$PRODUCTMK"
+        TARGET=$(echo $(target_file "$FILE") | sed 's/\;.*//')
+        if [ "$TREBLE_COMPAT" == "true" ] || [ "$TREBLE_COMPAT" == "1" ]; then
+            if prefix_match_file "vendor/" $TARGET ; then
+                local OUTTARGET=$(truncate_file $TARGET)
+                printf '    %s/proprietary/%s:$(TARGET_COPY_OUT_VENDOR)/%s%s\n' \
+                    "$OUTDIR" "$TARGET" "$OUTTARGET" "$LINEEND" >> "$PRODUCTMK"
+            else
+                printf '    %s/proprietary/%s:system/%s%s\n' \
+                    "$OUTDIR" "$TARGET" "$TARGET" "$LINEEND" >> "$PRODUCTMK"
+            fi
+        else
+            printf '    %s/proprietary/%s:system/%s%s\n' \
+                "$OUTDIR" "$TARGET" "$TARGET" "$LINEEND" >> "$PRODUCTMK"
+        fi
     done
     return 0
 }
@@ -217,10 +266,11 @@ function write_packages() {
     local SRC=
 
     for P in "${FILELIST[@]}"; do
-        FILE=$(target_file "$P")
+        FILE=$(echo $(target_file "$P") | sed 's/\;.*//')
         ARGS=$(target_args "$P")
 
         BASENAME=$(basename "$FILE")
+        DIRNAME=$(dirname "$FILE")
         EXTENSION=${BASENAME##*.}
         PKGNAME=${BASENAME%.*}
 
@@ -255,12 +305,10 @@ function write_packages() {
                 printf 'LOCAL_MULTILIB := %s\n' "$EXTRA"
             fi
         elif [ "$CLASS" = "APPS" ]; then
-            if [ -z "$ARGS" ]; then
-                if [ "$EXTRA" = "priv-app" ]; then
-                    SRC="$SRC/priv-app"
-                else
-                    SRC="$SRC/app"
-                fi
+            if [ "$EXTRA" = "priv-app" ]; then
+                SRC="$SRC/priv-app"
+            else
+                SRC="$SRC/app"
             fi
             printf 'LOCAL_SRC_FILES := %s/%s\n' "$SRC" "$FILE"
             local CERT=platform
@@ -301,11 +349,16 @@ function write_packages() {
         if [ ! -z "$EXTENSION" ]; then
             printf 'LOCAL_MODULE_SUFFIX := .%s\n' "$EXTENSION"
         fi
+        if [ "$CLASS" = "SHARED_LIBRARIES" ] || [ "$CLASS" = "EXECUTABLES" ]; then
+            if [ "$DIRNAME" != "." ]; then
+                printf 'LOCAL_MODULE_RELATIVE_PATH := %s\n' "$DIRNAME"
+            fi
+        fi
         if [ "$EXTRA" = "priv-app" ]; then
             printf 'LOCAL_PRIVILEGED_MODULE := true\n'
         fi
         if [ "$VENDOR_PKG" = "true" ]; then
-            printf 'LOCAL_PROPRIETARY_MODULE := true\n'
+            printf 'LOCAL_VENDOR_MODULE := true\n'
         fi
         printf 'include $(BUILD_PREBUILT)\n\n'
     done
@@ -385,6 +438,10 @@ function write_product_packages() {
     if [ "${#FRAMEWORK[@]}" -gt "0" ]; then
         write_packages "JAVA_LIBRARIES" "false" "" "FRAMEWORK" >> "$ANDROIDMK"
     fi
+    local V_FRAMEWORK=( $(prefix_match "vendor/framework/") )
+    if [ "${#V_FRAMEWORK[@]}" -gt "0" ]; then
+        write_packages "JAVA_LIBRARIES" "true" "" "V_FRAMEWORK" >> "$ANDROIDMK"
+    fi
 
     # Etc
     local ETC=( $(prefix_match "etc/") )
@@ -393,7 +450,7 @@ function write_product_packages() {
     fi
     local V_ETC=( $(prefix_match "vendor/etc/") )
     if [ "${#V_ETC[@]}" -gt "0" ]; then
-        write_packages "ETC" "false" "" "V_ETC" >> "$ANDROIDMK"
+        write_packages "ETC" "true" "" "V_ETC" >> "$ANDROIDMK"
     fi
 
     # Executables
@@ -438,12 +495,35 @@ function write_product_packages() {
 # be executed first!
 #
 function write_header() {
+    if [ -f $1 ]; then
+        rm $1
+    fi
+
     YEAR=$(date +"%Y")
 
     [ "$COMMON" -eq 1 ] && local DEVICE="$DEVICE_COMMON"
 
-    cat << EOF > $1
-# Copyright (C) $YEAR The CyanogenMod Project
+    NUM_REGEX='^[0-9]+$'
+    if [[ $INITIAL_COPYRIGHT_YEAR =~ $NUM_REGEX ]] && [ $INITIAL_COPYRIGHT_YEAR -le $YEAR ]; then
+        if [ $INITIAL_COPYRIGHT_YEAR -lt 2016 ]; then
+            printf "# Copyright (C) $INITIAL_COPYRIGHT_YEAR-2016 The CyanogenMod Project\n" > $1
+        elif [ $INITIAL_COPYRIGHT_YEAR -eq 2016 ]; then
+            printf "# Copyright (C) 2016 The CyanogenMod Project\n" > $1
+        fi
+        if [ $YEAR -eq 2017 ]; then
+            printf "# Copyright (C) 2017 The LineageOS Project\n" >> $1
+        elif [ $INITIAL_COPYRIGHT_YEAR -eq $YEAR ]; then
+            printf "# Copyright (C) $YEAR The LineageOS Project\n" >> $1
+        elif [ $INITIAL_COPYRIGHT_YEAR -le 2017 ]; then
+            printf "# Copyright (C) 2017-$YEAR The LineageOS Project\n" >> $1
+        else
+            printf "# Copyright (C) $INITIAL_COPYRIGHT_YEAR-$YEAR The LineageOS Project\n" >> $1
+        fi
+    else
+        printf "# Copyright (C) $YEAR The LineageOS Project\n" > $1
+    fi
+
+    cat << EOF >> $1
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -574,6 +654,7 @@ function parse_file_list() {
 
         # if line starts with a dash, it needs to be packaged
         if [[ "$SPEC" =~ ^- ]]; then
+            SPEC=$(echo "${SPEC}" | sed 's/[^"]*://')
             PRODUCT_PACKAGES_LIST+=("${SPEC#-}")
             PRODUCT_PACKAGES_HASHES+=("$HASH")
         else
@@ -588,6 +669,7 @@ function parse_file_list() {
 # write_makefiles:
 #
 # $1: file containing the list of items to extract
+# $2: make treble compatible makefile - optional
 #
 # Calls write_product_copy_files and write_product_packages on
 # the given file and appends to the Android.mk as well as
@@ -595,7 +677,7 @@ function parse_file_list() {
 #
 function write_makefiles() {
     parse_file_list "$1"
-    write_product_copy_files
+    write_product_copy_files "$2"
     write_product_packages
 }
 
@@ -655,15 +737,15 @@ function get_file() {
 # Convert apk|jar .odex in the corresposing classes.dex
 #
 function oat2dex() {
-    local JDC_TARGET="$1"
+    local LINEAGE_TARGET="$1"
     local OEM_TARGET="$2"
     local SRC="$3"
     local TARGET=
     local OAT=
 
     if [ -z "$BAKSMALIJAR" ] || [ -z "$SMALIJAR" ]; then
-        export BAKSMALIJAR="$JDC_ROOT"/vendor/aosp/build/tools/smali/baksmali.jar
-        export SMALIJAR="$JDC_ROOT"/vendor/aosp/build/tools/smali/smali.jar
+        export BAKSMALIJAR="$LINEAGE_ROOT"/vendor/lineage/build/tools/smali/baksmali.jar
+        export SMALIJAR="$LINEAGE_ROOT"/vendor/lineage/build/tools/smali/smali.jar
     fi
 
     # Extract existing boot.oats to the temp folder
@@ -671,7 +753,12 @@ function oat2dex() {
         echo "Checking if system is odexed and locating boot.oats..."
         for ARCH in "arm64" "arm" "x86_64" "x86"; do
             mkdir -p "$TMPDIR/system/framework/$ARCH"
-            if get_file "system/framework/$ARCH/" "$TMPDIR/system/framework/" "$SRC"; then
+            if [ -d "$SRC/framework" ] && [ "$SRC" != "adb" ]; then
+                ARCHDIR="framework/$ARCH/"
+            else
+                ARCHDIR="system/framework/$ARCH/"
+            fi
+            if get_file "$ARCHDIR" "$TMPDIR/system/framework/" "$SRC"; then
                 ARCHES+="$ARCH "
             else
                 rmdir "$TMPDIR/system/framework/$ARCH"
@@ -683,11 +770,11 @@ function oat2dex() {
         FULLY_DEODEXED=1 && return 0 # system is fully deodexed, return
     fi
 
-    if [ ! -f "$JDC_TARGET" ]; then
+    if [ ! -f "$LINEAGE_TARGET" ]; then
         return;
     fi
 
-    if grep "classes.dex" "$JDC_TARGET" >/dev/null; then
+    if grep "classes.dex" "$LINEAGE_TARGET" >/dev/null; then
         return 0 # target apk|jar is already odexed, return
     fi
 
@@ -695,12 +782,21 @@ function oat2dex() {
         BOOTOAT="$TMPDIR/system/framework/$ARCH/boot.oat"
 
         local OAT="$(dirname "$OEM_TARGET")/oat/$ARCH/$(basename "$OEM_TARGET" ."${OEM_TARGET##*.}").odex"
+        local VDEX="$(dirname "$OEM_TARGET")/oat/$ARCH/$(basename "$OEM_TARGET" ."${OEM_TARGET##*.}").vdex"
 
         if get_file "$OAT" "$TMPDIR" "$SRC"; then
+            if get_file "$VDEX" "$TMPDIR" "$SRC"; then
+                echo "WARNING: Deodexing with VDEX. Still experimental"
+            fi
             java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" "$TMPDIR/$(basename "$OAT")"
-        elif [[ "$JDC_TARGET" =~ .jar$ ]]; then
-            # try to extract classes.dex from boot.oat for framework jars
-            java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" -e "/$OEM_TARGET" "$BOOTOAT"
+        elif [[ "$LINEAGE_TARGET" =~ .jar$ ]]; then
+            # try to extract classes.dex from boot.oats for framework jars
+            # TODO: check if extraction from boot.vdex is needed
+            JAROAT="$TMPDIR/system/framework/$ARCH/boot-$(basename ${OEM_TARGET%.*}).oat"
+            if [ ! -f "$JAROAT" ]; then
+                JAROAT=$BOOTOAT;
+            fi
+            java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" "$JAROAT/$OEM_TARGET"
         else
             continue
         fi
@@ -782,7 +878,7 @@ function extract() {
     local HASHLIST=( ${PRODUCT_COPY_FILES_HASHES[@]} ${PRODUCT_PACKAGES_HASHES[@]} )
     local COUNT=${#FILELIST[@]}
     local SRC="$2"
-    local OUTPUT_ROOT="$JDC_ROOT"/"$OUTDIR"/proprietary
+    local OUTPUT_ROOT="$LINEAGE_ROOT"/"$OUTDIR"/proprietary
     local OUTPUT_TMP="$TMPDIR"/"$OUTDIR"/proprietary
 
     if [ "$SRC" = "adb" ]; then
@@ -790,7 +886,7 @@ function extract() {
     fi
 
     if [ -f "$SRC" ] && [ "${SRC##*.}" == "zip" ]; then
-        DUMPDIR="$CM_ROOT"/system_dump
+        DUMPDIR="$TMPDIR"/system_dump
 
         # Check if we're working with the same zip that was passed last time.
         # If so, let's just use what's already extracted.
@@ -810,7 +906,7 @@ function extract() {
             # If OTA is block based, extract it.
             elif [ -a "$DUMPDIR"/system.new.dat ]; then
                 echo "Converting system.new.dat to system.img"
-                python "$CM_ROOT"/vendor/cm/build/tools/sdat2img.py "$DUMPDIR"/system.transfer.list "$DUMPDIR"/system.new.dat "$DUMPDIR"/system.img 2>&1
+                python "$LINEAGE_ROOT"/vendor/lineage/build/tools/sdat2img.py "$DUMPDIR"/system.transfer.list "$DUMPDIR"/system.new.dat "$DUMPDIR"/system.img 2>&1
                 rm -rf "$DUMPDIR"/system.new.dat "$DUMPDIR"/system
                 mkdir "$DUMPDIR"/system "$DUMPDIR"/tmp
                 echo "Requesting sudo access to mount the system.img"
@@ -828,7 +924,9 @@ function extract() {
         echo "Cleaning output directory ($OUTPUT_ROOT).."
         rm -rf "${OUTPUT_TMP:?}"
         mkdir -p "${OUTPUT_TMP:?}"
-        mv "${OUTPUT_ROOT:?}/"* "${OUTPUT_TMP:?}/"
+        if [ -d "$OUTPUT_ROOT" ]; then
+            mv "${OUTPUT_ROOT:?}/"* "${OUTPUT_TMP:?}/"
+        fi
         VENDOR_STATE=1
     fi
 
@@ -836,10 +934,10 @@ function extract() {
 
     for (( i=1; i<COUNT+1; i++ )); do
 
-        local FROM=$(target_file "${FILELIST[$i-1]}")
+        local FROM=$(echo $(target_file "${FILELIST[$i-1]}") | sed 's/\;.*//')
         local ARGS=$(target_args "${FILELIST[$i-1]}")
         local SPLIT=(${FILELIST[$i-1]//:/ })
-        local FILE="${SPLIT[0]#-}"
+        local FILE=$(echo "${SPLIT[0]#-}" | sed 's/\;.*//')
         local OUTPUT_DIR="$OUTPUT_ROOT"
         local TMP_DIR="$OUTPUT_TMP"
         local TARGET=
@@ -867,20 +965,46 @@ function extract() {
         fi
         local DEST="$OUTPUT_DIR/$FROM"
 
-        if [ "$SRC" = "adb" ]; then
-            # Try JDC target first
+        # Check pinned files
+        local HASH="${HASHLIST[$i-1]}"
+        local KEEP=""
+        if [ "$DISABLE_PINNING" != "1" ] && [ ! -z "$HASH" ] && [ "$HASH" != "x" ]; then
+            if [ -f "$DEST" ]; then
+                local PINNED="$DEST"
+            else
+                local PINNED="$TMP_DIR/$FROM"
+            fi
+            if [ -f "$PINNED" ]; then
+                if [ "$(uname)" == "Darwin" ]; then
+                    local TMP_HASH=$(shasum "$PINNED" | awk '{print $1}' )
+                else
+                    local TMP_HASH=$(sha1sum "$PINNED" | awk '{print $1}' )
+                fi
+                if [ "$TMP_HASH" = "$HASH" ]; then
+                    KEEP="1"
+                    if [ ! -f "$DEST" ]; then
+                        cp -p "$PINNED" "$DEST"
+                    fi
+                fi
+            fi
+        fi
+
+        if [ "$KEEP" = "1" ]; then
+            printf '    + (keeping pinned file with hash %s)\n' "$HASH"
+        elif [ "$SRC" = "adb" ]; then
+            # Try Lineage target first
             adb pull "/$TARGET" "$DEST"
             # if file does not exist try OEM target
             if [ "$?" != "0" ]; then
                 adb pull "/$FILE" "$DEST"
             fi
         else
-            # Try OEM target first
-            if [ -f "$SRC/$FILE" ]; then
-                cp "$SRC/$FILE" "$DEST"
-            # if file does not exist try JDC target
-            elif [ -f "$SRC/$TARGET" ]; then
+            # Try Lineage target first
+            if [ -f "$SRC/$TARGET" ]; then
                 cp "$SRC/$TARGET" "$DEST"
+            # if file does not exist try OEM target
+            elif [ -f "$SRC/$FILE" ]; then
+                cp "$SRC/$FILE" "$DEST"
             else
                 printf '    !! file not found in source\n'
             fi
@@ -897,30 +1021,6 @@ function extract() {
                 fi
             elif [[ "$DEST" =~ .xml$ ]]; then
                 fix_xml "$DEST"
-            fi
-        fi
-
-        # Check pinned files
-        local HASH="${HASHLIST[$i-1]}"
-        if [ "$DISABLE_PINNING" != "1" ] && [ ! -z "$HASH" ] && [ "$HASH" != "x" ]; then
-            local KEEP=""
-            local TMP="$TMP_DIR/$FROM"
-            if [ -f "$TMP" ]; then
-                if [ ! -f "$DEST" ]; then
-                    KEEP="1"
-                else
-                    local DEST_HASH=$(sha1sum "$DEST" | awk '{print $1}' )
-                    if [ "$DEST_HASH" != "$HASH" ]; then
-                        KEEP="1"
-                    fi
-                fi
-                if [ "$KEEP" = "1" ]; then
-                    local TMP_HASH=$(sha1sum "$TMP" | awk '{print $1}' )
-                    if [ "$TMP_HASH" = "$HASH" ]; then
-                        printf '    + (keeping pinned file with hash %s)\n' "$HASH"
-                        cp -p "$TMP" "$DEST"
-                    fi
-                fi
             fi
         fi
 
@@ -959,7 +1059,7 @@ function extract_firmware() {
     local FILELIST=( ${PRODUCT_COPY_FILES_LIST[@]} )
     local COUNT=${#FILELIST[@]}
     local SRC="$2"
-    local OUTPUT_DIR="$JDC_ROOT"/"$OUTDIR"/radio
+    local OUTPUT_DIR="$LINEAGE_ROOT"/"$OUTDIR"/radio
 
     if [ "$VENDOR_RADIO_STATE" -eq "0" ]; then
         echo "Cleaning firmware output directory ($OUTPUT_DIR).."
