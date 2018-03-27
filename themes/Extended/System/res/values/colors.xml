@@ -21,6 +21,7 @@
     <color name="accent_device_default_light">#ff1fe082</color>
     <color name="accent_device_default_dark">#ff21ef8b</color>
     <color name="accent_device_default_50">#ffe8f0fe</color>
+    <color name="settings_icon_tint_color">#ff21ef8b</color>
 
     <!-- Resolver -->
     <color name="resolver_list_bg">@*android:color/black</color>
