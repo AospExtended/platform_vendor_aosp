@@ -52,5 +52,7 @@
     <color name="toast_bg_color">@*android:color/black</color>
     <color name="toast_text_color">@android:color/white</color>
 
+    <color name="background_floating_material_dark">#ff111111</color>
+
 </resources>
 
