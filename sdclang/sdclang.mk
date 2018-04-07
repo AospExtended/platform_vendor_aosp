@@ -22,5 +22,5 @@ SDCLANG_LTO_DEFS := vendor/aosp/sdclang/sdllvm-lto-defs.mk
 SDCLANG_COMMON_FLAGS := -O3 -fvectorize -mllvm -polly-run-dce
 ifeq (user,$(TARGET_BUILD_VARIANT))
   # Disable debugging on user builds
-  SDCLANG_COMMON_FLAGS := -g0 -DNDEBUG
+  SDCLANG_COMMON_FLAGS += -g0 -DNDEBUG
 endif
