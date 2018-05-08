@@ -44,7 +44,8 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
-    OmniJaws
+    OmniJaws \
+    OmniStyle
 
 # Themes
 # Accents
