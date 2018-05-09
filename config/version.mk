@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v5.4
+EXTENDED_VERSION = v5.5
 
 ifndef EXTENDED_BUILD_TYPE
     EXTENDED_BUILD_TYPE := UNOFFICIAL
