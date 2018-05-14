@@ -115,4 +115,7 @@
     -->
     <bool name="config_enableWifiDisplay">true</bool>
 
+    <!-- AlwaysOnDisplay  -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
 </resources>
