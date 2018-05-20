@@ -4,6 +4,12 @@
     <!-- Resolver -->
     <color name="resolver_list_bg">@*android:color/background_material_dark</color>
 
+    <!-- Custom Analog clock -->
+    <color name="analog_clock_border_color">#FFFFFF</color>
+    <color name="analog_clock_face_color">#212121</color>
+    <color name="analog_clock_hand_hour_color">@*android:color/accent_device_default_light</color>
+    <color name="analog_clock_hand_minute_color">#FFFFFF</color>
+
     <!-- Immersive cling -->
     <color name="immersive_cling_bg_color">@*android:color/background_material_dark</color>
     <color name="immersive_cling_text_color">@android:color/white</color>
