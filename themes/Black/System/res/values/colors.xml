@@ -54,5 +54,8 @@
 
     <color name="background_floating_material_dark">#ff111111</color>
 
+    <!-- Two target preference vertical divider color -->
+    <color name="list_divider_dark">@*android:color/black</color>
+
 </resources>
 
