@@ -31,6 +31,11 @@ DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/dictionaries
 
 # Custom AEX packages
+ifeq ($(TARGET_USE_GCAM),true)
+PRODUCT_PACKAGES += \
+    Gcam
+endif
+
 PRODUCT_PACKAGES += \
     BluetoothExt \
     Terminal \
