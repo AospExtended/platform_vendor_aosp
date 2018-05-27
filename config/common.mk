@@ -36,6 +36,11 @@ PRODUCT_PACKAGES += \
     Gcam
 endif
 
+ifeq ($(TARGET_USE_JELLY),true)
+PRODUCT_PACKAGES += \
+    Jelly
+endif
+
 PRODUCT_PACKAGES += \
     BluetoothExt \
     Terminal \
