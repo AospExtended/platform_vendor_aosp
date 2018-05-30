@@ -55,7 +55,8 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
     OmniJaws \
-    OmniStyle
+    OmniStyle \
+    OmniSwitch
 
 # Themes
 # Accents
