@@ -99,6 +99,9 @@ PRODUCT_PACKAGES += \
     SystemExtendedTheme \
     SettingsExtendedTheme \
     DuiExtendedTheme \
+    SystemChocolateTheme \
+    SettingsChocolateTheme \
+    DuiChocolateTheme \
 
 # Fonts
 PRODUCT_PACKAGES += \
