@@ -102,6 +102,9 @@ PRODUCT_PACKAGES += \
     SystemChocolateTheme \
     SettingsChocolateTheme \
     DuiChocolateTheme \
+    DialerTheme \
+    ContactsTheme \
+    FilesTheme \
 
 # Fonts
 PRODUCT_PACKAGES += \
