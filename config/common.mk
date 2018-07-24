@@ -49,7 +49,6 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
-    BluetoothExt \
     Terminal \
     LatinIME \
     Launcher3 \
