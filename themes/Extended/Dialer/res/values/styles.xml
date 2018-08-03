@@ -35,7 +35,7 @@
     </style>
 
     <style name="DialtactsActionBarTabTextStyle" parent="@*android:style/Widget.Material.ActionBar.TabText">
-        <item name="android:textColor">@*android:color/accent_device_default_light</item>
+        <item name="android:textColor">#ffffffff</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
