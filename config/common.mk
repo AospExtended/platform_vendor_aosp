@@ -51,7 +51,6 @@ endif
 PRODUCT_PACKAGES += \
     Terminal \
     LatinIME \
-    Launcher3 \
     LiveWallpapers \
     LiveWallpapersPicker \
     Stk \
@@ -59,70 +58,7 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     RetroMusicPlayer \
-    WallpaperPickerGoogle \
-    OmniJaws \
-    OmniStyle
-
-# Themes
-# Accents
-PRODUCT_PACKAGES += \
-    PixelTheme \
-    AmberAccent \
-    BlueAccent \
-    BlueGreyAccent \
-    BrownAccent \
-    CyanAccent \
-    CandyRedAccent \
-    DeepOrangeAccent \
-    DeepPurpleAccent \
-    ExtendedGreenAccent \
-    GreenAccent \
-    GreyAccent \
-    IndigoAccent \
-    JadeGreenAccent \
-    LightBlueAccent \
-    LightGreenAccent \
-    LimeAccent \
-    OrangeAccent \
-    PaleBlueAccent \
-    PaleRedAccent \
-    PinkAccent \
-    PurpleAccent \
-    RedAccent \
-    TealAccent \
-    YellowAccent
-
-# UI Variants
-PRODUCT_PACKAGES += \
-    SystemDarkTheme \
-    SettingsDarkTheme \
-    DuiDarkTheme \
-    SystemBlackTheme \
-    SettingsBlackTheme \
-    DuiBlackTheme \
-    SystemExtendedTheme \
-    SettingsExtendedTheme \
-    DuiExtendedTheme \
-    SystemChocolateTheme \
-    SettingsChocolateTheme \
-    DuiChocolateTheme \
-    ContactsThemeBlack \
-    DialerThemeBlack \
-    FilesThemeBlack \
-    ContactsThemeDark \
-    DialerThemeDark \
-    FilesThemeDark \
-    ContactsThemeChocolate \
-    DialerThemeChocolate \
-    FilesThemeChocolate \
-    ContactsThemeExtended \
-    DialerThemeExtended \
-    FilesThemeExtended \
-
-
-# Fonts
-PRODUCT_PACKAGES += \
-    CustomFonts
+    WallpaperPickerGoogle
 
 # Extra tools
 PRODUCT_PACKAGES += \
@@ -204,18 +140,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_GENERIC_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
-# Charging sounds
-PRODUCT_COPY_FILES += \
-    vendor/aosp/google/effects/BatteryPlugged.ogg:system/media/audio/ui/BatteryPlugged.ogg \
-    vendor/aosp/google/effects/BatteryPlugged_48k.ogg:system/media/audio/ui/BatteryPlugged_48k.ogg
-
-# DU Utils Library
-PRODUCT_PACKAGES += \
-    org.dirtyunicorns.utils
-
-PRODUCT_BOOT_JARS += \
-    org.dirtyunicorns.utils
-
 # Needed by some RILs and for some gApps packages
 PRODUCT_PACKAGES += \
     librsjni \
@@ -229,8 +153,8 @@ PRODUCT_PACKAGES += \
 USE_DEX2OAT_DEBUG ?= false
 
 # Include SDCLANG definitions if it is requested and available
-ifeq ($(HOST_OS),linux)
-    ifneq ($(wildcard vendor/qcom/sdclang-4.0/),)
-        include vendor/aosp/sdclang/sdclang.mk
-    endif
-endif
+#ifeq ($(HOST_OS),linux)
+#    ifneq ($(wildcard vendor/qcom/sdclang-4.0/),)
+#        include vendor/aosp/sdclang/sdclang.mk
+#    endif
+#endif
