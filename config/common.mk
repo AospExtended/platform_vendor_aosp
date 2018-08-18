@@ -59,7 +59,8 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
-    MarkupGoogle
+    MarkupGoogle \
+    WellbeingPrebuilt
 
 # Markup libs
 PRODUCT_COPY_FILES += \
