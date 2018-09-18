@@ -18,6 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="settings_overlay_dark">Settings Dark Theme</string>
+    <string name="sysui_overlay_black">SystemUI Black Theme</string>
 
 </resources>
+
