@@ -62,6 +62,36 @@ PRODUCT_PACKAGES += \
     MarkupGoogle \
     WellbeingPrebuilt
 
+# Themes
+PRODUCT_PACKAGES += \
+    SettingsDarkTheme \
+    SystemDarkTheme \
+    SystemUIDarkTheme
+
+# Accents
+PRODUCT_PACKAGES += \
+    AmberAccent \
+    BlackAccent \
+    BlueAccent \
+    BlueGreyAccent \
+    BrownAccent \
+    CyanAccent \
+    DeepOrangeAccent \
+    DeepPurpleAccent \
+    GreenAccent \
+    GreyAccent \
+    IndigoAccent \
+    LightBlueAccent \
+    LightGreenAccent \
+    LimeAccent \
+    OrangeAccent \
+    PinkAccent \
+    PurpleAccent \
+    RedAccent \
+    TealAccent \
+    YellowAccent \
+    WhiteAccent
+
 # Markup libs
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
