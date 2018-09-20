@@ -21,17 +21,10 @@
 #
 # These config vars are usually set in BoardConfig.mk:
 #
-#   TARGET_KERNEL_SOURCE               = Kernel source dir, optional, defaults
-#                                        to kernel/$(TARGET_DEVICE_DIR)
 #   TARGET_KERNEL_CONFIG               = Kernel defconfig
 #   TARGET_KERNEL_VARIANT_CONFIG       = Variant defconfig, optional
 #   TARGET_KERNEL_SELINUX_CONFIG       = SELinux defconfig, optional
 #   TARGET_KERNEL_ADDITIONAL_CONFIG    = Additional defconfig, optional
-#   TARGET_KERNEL_ARCH                 = Kernel Arch
-#   TARGET_KERNEL_CROSS_COMPILE_PREFIX = Compiler prefix (e.g. arm-eabi-)
-#                                          defaults to arm-linux-androidkernel- for arm
-#                                                      aarch64-linux-androidkernel- for arm64
-#                                                      x86_64-linux-androidkernel- for x86
 #
 #   TARGET_KERNEL_CLANG_COMPILE        = Compile kernel with clang, defaults to false
 #
@@ -48,13 +41,6 @@
 #                                          For example, for ARM devices,
 #                                          use zImage-dtb instead of zImage.
 #
-#   KERNEL_TOOLCHAIN_PREFIX            = Overrides TARGET_KERNEL_CROSS_COMPILE_PREFIX,
-#                                          Set this var in shell to override
-#                                          toolchain specified in BoardConfig.mk
-#   KERNEL_TOOLCHAIN                   = Path to toolchain, if unset, assumes
-#                                          TARGET_KERNEL_CROSS_COMPILE_PREFIX
-#                                          is in PATH
-#
 #   KERNEL_CC                          = The C Compiler used. This is automatically set based
 #                                          on whether the clang version is set, optional.
 #
@@ -63,8 +49,6 @@
 #                                                      aarch64-linux-gnu- for arm64
 #                                                      x86_64-linux-gnu- for x86
 #
-#   USE_CCACHE                         = Enable ccache (global Android flag)
-#
 #   NEED_KERNEL_MODULE_ROOT            = Optional, if true, install kernel
 #                                          modules in root instead of vendor
 #   NEED_KERNEL_MODULE_SYSTEM          = Optional, if true, install kernel
@@ -72,11 +56,7 @@
 
 ifneq ($(TARGET_NO_KERNEL),true)
 
-TARGET_AUTO_KDIR := $(shell echo $(TARGET_DEVICE_DIR) | sed -e 's/^device/kernel/g')
-
 ## Externally influenced variables
-# kernel location - optional, defaults to kernel/<vendor>/<device>
-TARGET_KERNEL_SOURCE ?= $(TARGET_AUTO_KDIR)
 KERNEL_SRC := $(TARGET_KERNEL_SOURCE)
 # kernel configuration - mandatory
 KERNEL_DEFCONFIG := $(TARGET_KERNEL_CONFIG)
@@ -86,13 +66,6 @@ SELINUX_DEFCONFIG := $(TARGET_KERNEL_SELINUX_CONFIG)
 ## Internal variables
 KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
-
-TARGET_KERNEL_ARCH := $(strip $(TARGET_KERNEL_ARCH))
-ifeq ($(TARGET_KERNEL_ARCH),)
-KERNEL_ARCH := $(TARGET_ARCH)
-else
-KERNEL_ARCH := $(TARGET_KERNEL_ARCH)
-endif
 
 ifeq ($(KERNEL_ARCH),x86_64)
 KERNEL_DEFCONFIG_ARCH := x86
