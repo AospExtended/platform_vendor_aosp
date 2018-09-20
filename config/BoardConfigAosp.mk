@@ -3,3 +3,6 @@ include vendor/aosp/config/BoardConfigQcom.mk
 endif
 
 include vendor/aosp/config/BoardConfigSoong.mk
+
+include vendor/aosp/config/BoardConfigKernel.mk
+
