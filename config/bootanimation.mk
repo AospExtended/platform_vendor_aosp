@@ -24,6 +24,7 @@ else ifeq ($(TARGET_BOOT_ANIMATION_RES),720)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-720.zip:system/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1080.zip:system/media/bootanimation.zip
+else ifeq ($(TARGET_BOOT_ANIMATION_RES),custom)
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),undefined)
      $(warning Target bootanimation res is undefined, using generic bootanimation )
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
