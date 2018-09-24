@@ -114,9 +114,11 @@ PRODUCT_PACKAGES += \
     ContactsThemeChocolate \
     DialerThemeChocolate \
     FilesThemeChocolate \
+    WellbeingThemeChocolate \
     ContactsThemeExtended \
     DialerThemeExtended \
     FilesThemeExtended \
+    WellbeingThemeExtended
 
 
 # Markup libs
