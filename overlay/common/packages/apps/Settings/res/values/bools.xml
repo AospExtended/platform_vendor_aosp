@@ -22,7 +22,4 @@
     <!-- Whether wallpaper attribution should be shown or not. -->
     <bool name="config_show_wallpaper_attribution">false</bool>
 
-    <!-- Whether system_update_settings should be shown or not. -->
-    <bool name="config_show_system_update_settings">false</bool>
-
 </resources>
