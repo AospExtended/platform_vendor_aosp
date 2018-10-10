@@ -12,7 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifneq ($(IS_GENERIC_SYSTEM_IMAGE), true)
+
+ifeq ($(IS_GO_VERSION), true)
+CUSTOM_OTA_VERSION_CODE := pie_go
+else
+CUSTOM_OTA_VERSION_CODE := pie
+endif
+
+PRODUCT_GENERIC_PROPERTIES += \
+  ro.extended.ota.version_code=$(CUSTOM_OTA_VERSION_CODE)
 
 PRODUCT_PACKAGES += \
         Updates
+
+endif
 
