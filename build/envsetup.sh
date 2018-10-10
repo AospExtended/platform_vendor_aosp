@@ -3,6 +3,7 @@ cat <<EOF
 Additional AOSP functions:
 - mka:             Builds using SCHED_BATCH on all processors.
 - gerrit:          Adds a remote for AEX Gerrit
+- losrepopick:     Utility to fetch changes from Lineage Gerrit.
 EOF
 } 
 
@@ -59,6 +60,11 @@ function gerrit()
             git remote add gerrit $(git remote -v | grep AospExtended | awk '{print $2}' | uniq | sed -e "s|https://github.com/AospExtended|ssh://${GERRIT_USER}@gerrit.aospextended.com:29418/AospExtended|");
         fi
     fi
+}
+
+function losrepopick() {
+    T=$(gettop)
+    $T/vendor/aosp/build/tools/losrepopick.py $@
 }
 
 function fixup_common_out_dir() {
