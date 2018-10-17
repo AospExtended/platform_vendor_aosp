@@ -137,6 +137,14 @@ PRODUCT_PACKAGES += \
     FilesThemeExtended \
     WellbeingExtendedTheme
 
+# QS tile styles
+PRODUCT_PACKAGES += \
+    QStilesDefault \
+    QStilesCircleTrim \
+    QStilesSquircleTrim \
+    QStilesTwoToneCircle
+
+
 
 # Markup libs
 PRODUCT_COPY_FILES += \
