@@ -59,7 +59,8 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
     MarkupGoogle \
-    WellbeingPrebuilt
+    WellbeingPrebuilt \
+    WeatherClient
 
 # Themes
 # Accents
