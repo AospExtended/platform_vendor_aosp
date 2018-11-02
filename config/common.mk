@@ -63,7 +63,8 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
     MarkupGoogle \
-    WellbeingPrebuilt
+    WellbeingPrebuilt \
+    Recorder
 
 # Themes
 # Accents
