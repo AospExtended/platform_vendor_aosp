@@ -37,6 +37,10 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/aex-hiddenapi-package-whitelist.xml:system/etc/permissions/aex-hiddenapi-package-whitelist.xml
 
+# priv-app permissions
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex.xml:system/etc/permissions/privapp-permissions-aex.xml
+
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common \
     vendor/aosp/overlay/dictionaries
@@ -63,7 +67,8 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
     MarkupGoogle \
-    WellbeingPrebuilt
+    WellbeingPrebuilt \
+    Recorder
 
 # Themes
 # Accents
