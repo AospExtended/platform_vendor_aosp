@@ -68,7 +68,12 @@ PRODUCT_PACKAGES += \
     WallpaperPickerGoogle \
     MarkupGoogle \
     WellbeingPrebuilt \
-    Recorder
+    Recorder \
+    WeatherClient
+
+# Weather
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/permissions/org.pixelexperience.weather.client.xml:system/etc/permissions/org.pixelexperience.weather.client.xml
 
 # Themes
 # Accents
