@@ -85,7 +85,8 @@ PRODUCT_PACKAGES += \
     MarkupGoogle \
     WellbeingPrebuilt \
     Recorder \
-    WeatherClient
+    WeatherClient \
+    SubstratumKey
 
 # Weather
 PRODUCT_COPY_FILES += \
