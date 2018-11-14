@@ -93,21 +93,21 @@ on boot
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
     chmod 0664 /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
 
+    restorecon --recursive /sys/block/mmcblk0/queue
     chown system system /sys/block/mmcblk0/queue/scheduler
     chmod 0664 /sys/block/mmcblk0/queue/scheduler
-    restorecon /sys/block/mmcblk0/queue/scheduler
 
+    restorecon --recursive /sys/block/sda/queue
     chown system system /sys/block/sda/queue/scheduler
     chmod 0664 /sys/block/sda/queue/scheduler
-    restorecon /sys/block/sda/queue/scheduler
 
+    restorecon --recursive /sys/block/sde/queue
     chown system system /sys/block/sde/queue/scheduler
     chmod 0664 /sys/block/sde/queue/scheduler
-    restorecon /sys/block/sde/queue/scheduler
 
+    restorecon --recursive /sys/block/dm-0/queue
     chown system system /sys/block/dm-0/queue/scheduler
     chmod 0664 /sys/block/dm-0/queue/scheduler
-    restorecon /sys/block/dm-0/queue/scheduler
 
     chown system system /dev/cpuctl/cpu.notify_on_migrate
     chmod 0664 /dev/cpuctl/cpu.notify_on_migrate
@@ -138,6 +138,12 @@ on property:persist.sys.io.scheduler=*
 
 # Set slice_idle to 0 for CFQ
 on property:sys.io.scheduler=cfq
+    restorecon --recursive /sys/block/mmcblk0/queue
+    restorecon --recursive /sys/block/mmcblk1/queue
+    restorecon --recursive /sys/block/sda/queue
+    restorecon --recursive /sys/block/sde/queue
+    restorecon --recursive /sys/block/dm-0/queue
+
     write /sys/block/mmcblk0/queue/iosched/slice_idle 0
     write /sys/block/mmcblk1/queue/iosched/slice_idle 0
     write /sys/block/sda/queue/iosched/slice_idle 0
@@ -146,6 +152,12 @@ on property:sys.io.scheduler=cfq
 
 # Set slice_idle to 0 for BFQ
 on property:sys.io.scheduler=bfq
+    restorecon --recursive /sys/block/mmcblk0/queue
+    restorecon --recursive /sys/block/mmcblk1/queue
+    restorecon --recursive /sys/block/sda/queue
+    restorecon --recursive /sys/block/sde/queue
+    restorecon --recursive /sys/block/dm-0/queue
+
     write /sys/block/mmcblk0/queue/iosched/slice_idle 0
     write /sys/block/mmcblk1/queue/iosched/slice_idle 0
     write /sys/block/sda/queue/iosched/slice_idle 0
