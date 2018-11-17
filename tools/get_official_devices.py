@@ -14,10 +14,12 @@ except:
     urllib.parse = urlparse
     urllib.request = urllib2
 try:
-    url = "https://raw.githubusercontent.com/AospExtended/official_devices/8.1.x/devices.json"
+    url = "https://raw.githubusercontent.com/AospExtended/official_devices/main/devices.json"
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
     for res in data:
-        print (res['codename'])
+	for version in res['supported_versions']:
+		if version['version_code'] == 'pie' or version['version_code'] == 'pie_go':
+		        print (res['codename'])
 except:
     print ("")
