@@ -58,6 +58,11 @@
         <permission name="android.permission.SHUTDOWN"/>
         <permission name="android.permission.MODIFY_DAY_NIGHT_MODE"/>
         <permission name="com.android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
+        <permission name="android.permission.NAVIGATION_EDITOR"/>
+    </privapp-permissions>
+
+    <privapp-permissions package="com.android.settings">
+        <permission name="android.permission.NAVIGATION_EDITOR"/>
     </privapp-permissions>
 
     <privapp-permissions package="org.lineageos.recorder">
