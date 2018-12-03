@@ -139,11 +139,10 @@ PRODUCT_PACKAGES += \
 
 # QS tile styles
 PRODUCT_PACKAGES += \
-    QStilesDefault \
-    QStilesCircleTrim \
-    QStilesSquircleTrim \
-    QStilesTwoToneCircle
-
+    QStilesSquare \
+    QStilesRoundedSquare \
+    QStilesSquircle \
+    QStilesTearDrop
 
 
 # Markup libs
