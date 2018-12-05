@@ -20,8 +20,7 @@ PRODUCT_BRAND ?= AEX
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/aosp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/aosp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
-    vendor/aosp/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
+    vendor/aosp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
