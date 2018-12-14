@@ -141,7 +141,10 @@ PRODUCT_PACKAGES += \
     QStilesSquare \
     QStilesRoundedSquare \
     QStilesSquircle \
-    QStilesTearDrop
+    QStilesTearDrop \
+    QSTilesJustIcons \
+    QStilesCircleOutline \
+    QSTilesCircleGradient
 
 
 # Markup libs
