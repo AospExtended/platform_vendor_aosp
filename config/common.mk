@@ -44,6 +44,10 @@ DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common \
     vendor/aosp/overlay/dictionaries
 
+# Power whitelist
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/permissions/aex-power-whitelist.xml:system/etc/sysconfig/aex-power-whitelist.xml
+
 # Custom AEX packages
 ifeq ($(TARGET_USE_GCAM),true)
 PRODUCT_PACKAGES += \
