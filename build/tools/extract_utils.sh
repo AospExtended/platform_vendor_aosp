@@ -997,7 +997,7 @@ function extract() {
         local DEST="$OUTPUT_DIR/$FROM"
 
         # Check pinned files
-        local HASH="${HASHLIST[$i-1]}"
+        local HASH="$(echo ${HASHLIST[$i-1]} | awk '{ print tolower($0); }')"
         local KEEP=""
         if [ "$DISABLE_PINNING" != "1" ] && [ ! -z "$HASH" ] && [ "$HASH" != "x" ]; then
             if [ -f "$DEST" ]; then
