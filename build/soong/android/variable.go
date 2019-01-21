@@ -47,6 +47,13 @@ type Product_variables struct {
 		Cppflags []string
 		Shared_libs []string
 	}
+
+    Uses_aosp_wfd struct {
+		Cflags []string
+        Include_dirs []string
+        Shared_libs []string
+        Srcs []string
+    }
 }
 
 type ProductVariables struct {
@@ -64,4 +71,5 @@ type ProductVariables struct {
 	Uses_nvidia_enhancements  *bool `json:",omitempty"`
 	Uses_qcom_bsp_legacy  *bool `json:",omitempty"`
 	Uses_qti_camera_device  *bool `json:",omitempty"`
+	Uses_aosp_wfd  *bool `json:",omitempty"`
 }
