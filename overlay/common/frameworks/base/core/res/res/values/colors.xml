@@ -29,7 +29,7 @@
     <color name="system_error">#ffea4335</color>
 
     <!-- Multi-sim sim colors -->
-    <color name="Teal_700">#ff5a9af8</color>
-    <color name="Teal_800">#ff5795f0</color>
+    <color name="Teal_700">#ff00796b</color>
+    <color name="Blue_700">#ff1976d2</color>
 
 </resources>
