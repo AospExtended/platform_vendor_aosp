@@ -214,9 +214,9 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 endif
 
-# AEX-specific init file
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/init.local.rc:root/init.aosp.rc
+# AEX-specific init files
+$(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
+    $(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
