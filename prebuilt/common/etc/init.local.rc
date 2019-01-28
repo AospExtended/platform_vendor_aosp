@@ -163,3 +163,16 @@ on property:sys.io.scheduler=bfq
     write /sys/block/sda/queue/iosched/slice_idle 0
     write /sys/block/sde/queue/iosched/slice_idle 0
     write /sys/block/dm-0/queue/iosched/slice_idle 0
+
+# adb over network
+on property:adb.network.port=*
+    setprop service.adb.tcp.port ${adb.network.port}
+
+# adb over network
+on property:adb.network.port=5555
+    stop adbd
+    start adbd
+
+on property:adb.network.port=-1
+    stop adbd
+    start adbd
