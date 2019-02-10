@@ -26,6 +26,7 @@
     <color name="homepage_accounts_background">#ff473e38</color>
     <color name="homepage_accessibility_background">#ff473e38</color>
     <color name="homepage_system_background">#ff473e38</color>
+    <color name="homepage_about_background">#ff473e38</color>
     <color name="homepage_support_background">#ff473e38</color>
     <color name="homepage_generic_icon_background">#ff473e38</color>
     <color name="homepage_extensions_background">#ff473e38</color>
