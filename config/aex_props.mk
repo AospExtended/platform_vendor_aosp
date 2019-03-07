@@ -25,15 +25,11 @@ PRODUCT_GENERIC_PROPERTIES += \
     ro.opa.eligible_device=true\
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    ro.build.selinux=0 \
+    ro.build.selinux=1 \
     persist.sys.dun.override=0 \
     ro.storage_manager.enabled=true \
     ro.substratum.verified=true \
     persist.sys.recovery_update=false \
     ro.com.google.ime.theme_id=5 \
     persist.sys.disable_rescue=true
-
-# Disable HDCP check
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.wfd.nohdcp=1
 
