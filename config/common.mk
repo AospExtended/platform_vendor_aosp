@@ -32,6 +32,11 @@ endif
 # Bootanimation
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
+# Gapps
+ifeq ($(WITH_GAPPS),true)
+include vendor/gapps/config.mk
+endif
+
 # Hidden API whitelist
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/aex-hiddenapi-package-whitelist.xml:system/etc/permissions/aex-hiddenapi-package-whitelist.xml
@@ -169,7 +174,7 @@ PRODUCT_COPY_FILES += \
 
 # Turbo
 PRODUCT_PACKAGES += \
-    Turbo \
+    TurboPrebuilt \
     turbo.xml \
     privapp-permissions-turbo.xml
 
