@@ -105,6 +105,7 @@ PRODUCT_PACKAGES += \
     DeepOrangeAccent \
     DeepPurpleAccent \
     ExtendedGreenAccent \
+    ElegantGreenAccent \
     GreenAccent \
     GreyAccent \
     IndigoAccent \
@@ -154,7 +155,16 @@ PRODUCT_PACKAGES += \
     DialerThemeExtended \
     FilesThemeExtended \
     WellbeingExtendedTheme \
-    UpdatesThemeExtended
+    UpdatesThemeExtended \
+    SystemElegantTheme \
+    SettingsElegantTheme \
+    SystemUIElegantTheme \
+    ContactsThemeElegant \
+    DialerThemeElegant \
+    FilesThemeElegant \
+    WellbeingElegantTheme \
+    GooglePlayElegantTheme \
+    UpdatesThemeElegant
 
 # QS tile styles
 PRODUCT_PACKAGES += \
