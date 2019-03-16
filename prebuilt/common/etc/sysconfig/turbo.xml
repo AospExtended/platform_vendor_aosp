@@ -6,6 +6,4 @@
     <!-- Turbo must not have App Standby restrictions in order to push new
          App Standby buckets to the platform periodically -->
     <allow-in-power-save-except-idle package="com.google.android.apps.turbo" />
-
-    <hidden-api-whitelisted-app package="com.google.android.apps.turbo" />
 </config>
