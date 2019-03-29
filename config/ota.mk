@@ -14,10 +14,20 @@
 
 ifneq ($(IS_GENERIC_SYSTEM_IMAGE), true)
 
+ifeq ($(TARGET_SHIPS_SEPERATE_GAPPS_BUILD), true)
+ifeq ($(WITH_GAPPS), true)
+ifeq ($(IS_GO_VERSION), true)
+CUSTOM_OTA_VERSION_CODE := pie_go_gapps
+else
+CUSTOM_OTA_VERSION_CODE := pie_gapps
+endif
+endif
+else
 ifeq ($(IS_GO_VERSION), true)
 CUSTOM_OTA_VERSION_CODE := pie_go
 else
 CUSTOM_OTA_VERSION_CODE := pie
+endif
 endif
 
 PRODUCT_GENERIC_PROPERTIES += \
