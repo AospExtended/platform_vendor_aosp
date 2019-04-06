@@ -69,6 +69,9 @@ type Product_variables struct {
 		Cflags []string
 		Srcs []string
 	}
+	Healthd_use_battery_info struct {
+		Cflags []string
+	}
 }
 
 type ProductVariables struct {
@@ -93,4 +96,5 @@ type ProductVariables struct {
 	Uses_qti_camera_device  *bool `json:",omitempty"`
 	Target_use_sdclang        *bool `json:",omitempty"`
 	Needs_camera_boottime_timestamp  *bool `json:",omitempty"`
+	Healthd_use_battery_info  *bool `json:",omitempty"`
 }
