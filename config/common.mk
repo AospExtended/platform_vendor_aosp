@@ -139,18 +139,22 @@ PRODUCT_PACKAGES += \
     DialerThemeBlack \
     FilesThemeBlack \
     WellbeingBlackTheme \
+    UpdatesThemeBlack \
     ContactsThemeDark \
     DialerThemeDark \
     FilesThemeDark \
     WellbeingDarkTheme \
+    UpdatesThemeDark \
     ContactsThemeChocolate \
     DialerThemeChocolate \
     FilesThemeChocolate \
     WellbeingChocolateTheme \
+    UpdatesThemeChocolate \
     ContactsThemeExtended \
     DialerThemeExtended \
     FilesThemeExtended \
-    WellbeingExtendedTheme
+    WellbeingExtendedTheme \
+    UpdatesThemeExtended
 
 # QS tile styles
 PRODUCT_PACKAGES += \
