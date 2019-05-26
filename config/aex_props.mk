@@ -28,7 +28,6 @@ PRODUCT_GENERIC_PROPERTIES += \
     ro.build.selinux=1 \
     persist.sys.dun.override=0 \
     ro.storage_manager.enabled=true \
-    ro.substratum.verified=true \
     persist.sys.recovery_update=false \
     ro.com.google.ime.theme_id=5 \
     persist.sys.disable_rescue=true
