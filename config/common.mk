@@ -82,6 +82,7 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
+    LivePicker \
     MarkupGoogle \
     WellbeingPrebuilt \
     Recorder \
