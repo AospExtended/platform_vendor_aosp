@@ -59,6 +59,12 @@ PRODUCT_PACKAGES += \
     Gcam
 endif
 
+# Custom AEX packages
+ifeq ($(TARGET_USE_BACKRIDER_GCAM),true)
+PRODUCT_PACKAGES += \
+    Gcam_backrider
+endif
+
 ifeq ($(TARGET_USE_JELLY),true)
 PRODUCT_PACKAGES += \
     Jelly
