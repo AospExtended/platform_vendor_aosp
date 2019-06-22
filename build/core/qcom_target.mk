@@ -1,6 +1,3 @@
-# Bring in Qualcomm helper macros
-include vendor/aosp/build/core/qcom_utils.mk
-
 # Set device-specific HALs into project pathmap
 define set-device-specific-path
 $(if $(USE_DEVICE_SPECIFIC_$(1)), \
