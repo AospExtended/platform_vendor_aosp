@@ -75,15 +75,19 @@ else ifeq ($(call is-board-platform-in-list, $(BR_FAMILY)),true)
 else ifeq ($(call is-board-platform-in-list, $(UM_3_18_FAMILY)),true)
     MSM_VIDC_TARGET_LIST := $(UM_3_18_FAMILY)
     QCOM_HARDWARE_VARIANT := msm8996
+    TARGET_USES_QCOM_UM_3_18_FAMILY := true
 else ifeq ($(call is-board-platform-in-list, $(UM_4_4_FAMILY)),true)
     MSM_VIDC_TARGET_LIST := $(UM_4_4_FAMILY)
     QCOM_HARDWARE_VARIANT := msm8998
+    TARGET_USES_QCOM_UM_4_4_FAMILY := true
 else ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY)),true)
     MSM_VIDC_TARGET_LIST := $(UM_4_9_FAMILY)
     QCOM_HARDWARE_VARIANT := sdm845
-else ifneq ($(filter $(UM_4_14_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+    TARGET_USES_QCOM_UM_4_9_FAMILY := true
+else ifneq ($(call is-board-platform-in-list, $(UM_4_14_FAMILY)),true)
     MSM_VIDC_TARGET_LIST := $(UM_4_14_FAMILY)
     QCOM_HARDWARE_VARIANT := sm8150
+    TARGET_USES_QCOM_UM_4_14_FAMILY := true
 else
     MSM_VIDC_TARGET_LIST := $(TARGET_BOARD_PLATFORM)
     QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
@@ -92,6 +96,21 @@ endif
 # Allow a device to manually override which HALs it wants to use
 ifneq ($(OVERRIDE_QCOM_HARDWARE_VARIANT),)
 QCOM_HARDWARE_VARIANT := $(OVERRIDE_QCOM_HARDWARE_VARIANT)
+endif
+
+# Required for frameworks/native
+ifeq ($(QCOM_HARDWARE_VARIANT)),msm8996)
+    TARGET_USES_QCOM_UM_FAMILY := true
+    TARGET_USES_QCOM_UM_3_18_FAMILY := true
+else ifeq ($(QCOM_HARDWARE_VARIANT)),msm8998)
+    TARGET_USES_QCOM_UM_FAMILY := true
+    TARGET_USES_QCOM_UM_4_4_FAMILY := true
+else ifeq ($(QCOM_HARDWARE_VARIANT)),sdm845)
+    TARGET_USES_QCOM_UM_FAMILY := true
+    TARGET_USES_QCOM_UM_4_9_FAMILY := true
+else ifeq ($(QCOM_HARDWARE_VARIANT)),sm8150)
+    TARGET_USES_QCOM_UM_FAMILY := true
+    TARGET_USES_QCOM_UM_4_14_FAMILY := true
 endif
 
 PRODUCT_SOONG_NAMESPACES += \
