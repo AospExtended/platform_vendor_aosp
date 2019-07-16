@@ -65,9 +65,39 @@ type Product_variables struct {
 		Cppflags []string
 		Shared_libs []string
 	}
+
 	Needs_camera_boottime_timestamp struct {
 		Cflags []string
 		Srcs []string
+	}
+
+	Uses_qcom_um_family struct {
+		Cflags []string
+		Srcs []string
+	}
+
+	Uses_qcom_um_3_18_family struct {
+		Include_dirs []string
+		Header_libs []string
+		Shared_libs []string
+	}
+
+	Uses_qcom_um_4_4_family struct {
+		Include_dirs []string
+		Header_libs []string
+		Shared_libs []string
+	}
+
+	Uses_qcom_um_4_9_family struct {
+		Include_dirs []string
+		Header_libs []string
+		Shared_libs []string
+	}
+
+	Uses_qcom_um_4_14_family struct {
+		Include_dirs []string
+		Header_libs []string
+		Shared_libs []string
 	}
 }
 
@@ -93,4 +123,9 @@ type ProductVariables struct {
 	Uses_qti_camera_device  *bool `json:",omitempty"`
 	Target_use_sdclang        *bool `json:",omitempty"`
 	Needs_camera_boottime_timestamp  *bool `json:",omitempty"`
+	Uses_qcom_um_family  *bool `json:",omitempty"`
+	Uses_qcom_um_3_18_family  *bool `json:",omitempty"`
+	Uses_qcom_um_4_4_family  *bool `json:",omitempty"`
+	Uses_qcom_um_4_9_family  *bool `json:",omitempty"`
+	Uses_qcom_um_4_14_family  *bool `json:",omitempty"`
 }
