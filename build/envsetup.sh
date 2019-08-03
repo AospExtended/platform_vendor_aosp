@@ -48,7 +48,7 @@ function fixup_common_out_dir() {
 # Enable SD-LLVM if available
 if [ -d $(gettop)/vendor/qcom/sdclang ]; then
             export SDCLANG=true
-            export SDCLANG_PATH="vendor/qcom/sdclang/6.0/prebuilt/linux-x86_64/bin"
+            export SDCLANG_PATH="vendor/qcom/sdclang-6.0/linux-x86/bin"
             export SDCLANG_LTO_DEFS="vendor/aosp/sdclang/sdllvm-lto-defs.mk"
             export SDCLANG_COMMON_FLAGS="-O3 -Wno-user-defined-warnings -Wno-vectorizer-no-neon -Wno-unknown-warning-option \
 -Wno-deprecated-register -Wno-tautological-type-limit-compare -Wno-sign-compare -Wno-gnu-folding-constant \
