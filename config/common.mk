@@ -83,7 +83,6 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     WallpaperPickerGoogle \
     MarkupGoogle \
-    WellbeingPrebuilt \
     Recorder \
     WeatherClient \
     SubstratumSignature
@@ -181,7 +180,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     HideCutout \
     StatusBarStock
-    
+
 # Markup libs
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
