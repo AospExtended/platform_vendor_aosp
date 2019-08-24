@@ -92,7 +92,8 @@ PRODUCT_PACKAGES += \
     MarkupGoogle \
     Recorder \
     WeatherClient \
-    SubstratumSignature
+    SubstratumSignature \
+    Longshot
 
 # Weather
 PRODUCT_COPY_FILES += \
