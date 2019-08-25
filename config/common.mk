@@ -199,7 +199,6 @@ PRODUCT_COPY_FILES += \
 
 # Turbo
 PRODUCT_PACKAGES += \
-    TurboPrebuilt \
     turbo.xml \
     privapp-permissions-turbo.xml
 
