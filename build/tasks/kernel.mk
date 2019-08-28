@@ -299,6 +299,21 @@ $(file) : $(KERNEL_BIN) | $(ACP)
 ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 endif
 
+# Build Kernel Using GCC For ARM64
+ifeq ($(USE_GCC_arm64),true)
+    echo "You are building your kernel using GCC for ARM64, Using GCC toolchain 9.x will require some changes in your kernel source."
+    TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
+    KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-9.1/bin
+    TARGET_KERNEL_CROSS_COMPILE_ARM32 := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-linux-gnueabi-9.1/bin/arm-eabi-
+endif
+
+# Build Kernel Using GCC For ARM
+ifeq ($(USE_GCC_arm),true)
+    echo "You are building your kernel using GCC for ARM, Using GCC toolchain 9.x will require some changes in your kernel source."
+    TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+    KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-linux-gnueabi-9.1/bin
+endif
+
 INSTALLED_DTBOIMAGE_TARGET := $(PRODUCT_OUT)/dtbo.img
 ALL_PREBUILT += $(INSTALLED_DTBOIMAGE_TARGET)
 
