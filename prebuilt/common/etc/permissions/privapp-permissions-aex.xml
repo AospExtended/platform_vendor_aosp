@@ -89,4 +89,8 @@
     <privapp-permissions package="org.aospextended.screenshot">
         <permission name="android.permission.READ_FRAME_BUFFER"/>
     </privapp-permissions>
+
+    <privapp-permissions package="com.google.android.googlequicksearchbox">
+        <permission name="android.permission.MANAGE_USB"/>
+    </privapp-permissions>
 </permissions>
