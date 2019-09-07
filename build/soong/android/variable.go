@@ -57,6 +57,10 @@ type Product_variables struct {
 		Cppflags []string
 		Shared_libs []string
 	}
+	Needs_camera_boottime_timestamp struct {
+		Cflags []string
+		Srcs []string
+	}
 }
 
 type ProductVariables struct {
@@ -78,4 +82,5 @@ type ProductVariables struct {
 	Uses_qcom_bsp_legacy  *bool `json:",omitempty"`
 	Uses_qti_camera_device  *bool `json:",omitempty"`
 	Target_use_sdclang        *bool `json:",omitempty"`
+	Needs_camera_boottime_timestamp  *bool `json:",omitempty"`
 }
