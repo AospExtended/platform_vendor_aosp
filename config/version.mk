@@ -13,10 +13,10 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v6.7
+EXTENDED_VERSION = v7.0
 
 ifndef EXTENDED_BUILD_TYPE
-    EXTENDED_BUILD_TYPE := UNOFFICIAL
+    EXTENDED_BUILD_TYPE := ALPHA
 endif
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)

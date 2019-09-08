@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-<color name="settings_background_icon_color">#ff332d4f</color>
-<color name="background_floating_material_light">@*android:color/black</color>
-
-</resources>
