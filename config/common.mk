@@ -50,7 +50,7 @@ PRODUCT_PACKAGES += \
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.control_privapp_permissions=enforce
+    ro.control_privapp_permissions=log
 
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common \
