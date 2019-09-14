@@ -157,7 +157,7 @@ def add_to_manifest(repos, fallback_branch=None):
             repo_remote="github"
 
         if is_in_manifest(repo_path):
-            print('%s already exists in the manifest', repo_path)
+            print('%s already exists in the manifest' % repo_path)
             continue
 
         print('Adding dependency:\nRepository: %s\nBranch: %s\nRemote: %s\nPath: %s\n' % (repo_name, repo_branch,repo_remote, repo_path))
