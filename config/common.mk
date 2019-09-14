@@ -70,6 +70,10 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
     Launcher3QuickStep
 
+# Extra packages
+PRODUCT_PACKAGES += \
+    libjni_latinimegoogle
+
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel.xml
