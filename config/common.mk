@@ -66,7 +66,8 @@ PRODUCT_COPY_FILES += \
 
 # priv-app permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex.xml:system/etc/permissions/privapp-permissions-aex.xml
+    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex.xml:system/etc/permissions/privapp-permissions-aex.xml \
+    vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-aex-product.xml
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
