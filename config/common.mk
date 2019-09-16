@@ -211,5 +211,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# ThemePicker
+PRODUCT_PACKAGES += \
+    ThemePicker
+
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
