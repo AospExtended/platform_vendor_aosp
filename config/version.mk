@@ -15,9 +15,9 @@
 #Extended Versioning
 EXTENDED_VERSION = v7.0
 
-ifndef EXTENDED_BUILD_TYPE
+#ifndef EXTENDED_BUILD_TYPE
     EXTENDED_BUILD_TYPE := ALPHA
-endif
+#endif
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
 
