@@ -88,7 +88,6 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     RetroMusicPlayer \
-    WallpaperPickerGoogle \
     MarkupGoogle \
     Recorder \
     WeatherClient \
