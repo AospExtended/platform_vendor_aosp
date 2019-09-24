@@ -27,6 +27,10 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
+# system mount
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/bin/system-mount.sh:install/bin/system-mount.sh
+
 # Bootanimation
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
