@@ -35,6 +35,33 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 # Gapps
 ifeq ($(WITH_GAPPS),true)
 include vendor/gapps/config.mk
+else
+
+ifeq ($(TARGET_USE_JELLY),true)
+PRODUCT_PACKAGES += \
+    Jelly
+endif
+
+# Markup libs
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
+    vendor/aosp/prebuilt/common/lib64/libsketchology_native.so:system/lib64/libsketchology_native.so
+
+PRODUCT_PACKAGES += \
+    MarkupGoogle
+
+# Turbo
+PRODUCT_PACKAGES += \
+    TurboPrebuilt \
+    turbo.xml \
+    privapp-permissions-turbo.xml
+
+
+endif
+
+ifeq ($(TARGET_USE_GCAM),true)
+PRODUCT_PACKAGES += \
+    Gcam
 endif
 
 # Hidden API whitelist
@@ -61,15 +88,6 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/aex-power-whitelist.xml:system/etc/sysconfig/aex-power-whitelist.xml
 
 # Custom AEX packages
-ifeq ($(TARGET_USE_GCAM),true)
-PRODUCT_PACKAGES += \
-    Gcam
-endif
-
-ifeq ($(TARGET_USE_JELLY),true)
-PRODUCT_PACKAGES += \
-    Jelly
-endif
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
@@ -88,7 +106,6 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     RetroMusicPlayer \
-    MarkupGoogle \
     Recorder \
     WeatherClient
 
@@ -97,20 +114,9 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/org.pixelexperience.weather.client.xml:system/etc/permissions/org.pixelexperience.weather.client.xml \
     vendor/aosp/prebuilt/common/etc/permissions/default-permissions/org.pixelexperience.weather.client.xml:system/etc/default-permissions/org.pixelexperience.weather.client.xml
 
-# Markup libs
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/lib/libsketchology_native.so:system/lib/libsketchology_native.so \
-    vendor/aosp/prebuilt/common/lib64/libsketchology_native.so:system/lib64/libsketchology_native.so
-
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml
-
-# Turbo
-PRODUCT_PACKAGES += \
-    TurboPrebuilt \
-    turbo.xml \
-    privapp-permissions-turbo.xml
 
 # Fonts
 PRODUCT_PACKAGES += \
