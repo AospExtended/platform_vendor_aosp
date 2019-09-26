@@ -90,8 +90,7 @@ PRODUCT_PACKAGES += \
     RetroMusicPlayer \
     MarkupGoogle \
     Recorder \
-    WeatherClient \
-    SubstratumSignature
+    WeatherClient
 
 # Weather
 PRODUCT_COPY_FILES += \
