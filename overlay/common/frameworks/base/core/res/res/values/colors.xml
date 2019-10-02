@@ -28,8 +28,4 @@
     <color name="user_icon_8">#ffff7043</color>
     <color name="system_error">#ffea4335</color>
 
-    <!-- Multi-sim sim colors -->
-    <color name="Teal_700">#ff00796b</color>
-    <color name="Blue_700">#ff1976d2</color>
-
 </resources>
