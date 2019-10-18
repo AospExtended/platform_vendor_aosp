@@ -91,14 +91,8 @@ PRODUCT_PACKAGES += \
     WallpaperPickerGoogle \
     MarkupGoogle \
     Recorder \
-    WeatherClient \
     SubstratumSignature \
     Longshot
-
-# Weather
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/org.pixelexperience.weather.client.xml:system/etc/permissions/org.pixelexperience.weather.client.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/default-permissions/org.pixelexperience.weather.client.xml:system/etc/default-permissions/org.pixelexperience.weather.client.xml
 
 # Themes
 # Accents
