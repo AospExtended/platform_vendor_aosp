@@ -204,7 +204,8 @@ PRODUCT_PACKAGES += \
 
 # ThemePicker
 PRODUCT_PACKAGES += \
-    ThemePicker
+    ThemePicker \
+    WallpaperPicker2
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
