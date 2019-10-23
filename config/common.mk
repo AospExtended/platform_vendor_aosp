@@ -98,7 +98,8 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     RetroMusicPlayer \
     Recorder \
-    WeatherClient
+    WeatherClient \
+    GalleryGo
 
 # Weather
 PRODUCT_COPY_FILES += \
