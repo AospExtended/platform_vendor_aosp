@@ -205,7 +205,8 @@ PRODUCT_PACKAGES += \
 # ThemePicker
 PRODUCT_PACKAGES += \
     ThemePicker \
-    WallpaperPicker2
+    WallpaperPicker2 \
+    AexThemeStub
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
