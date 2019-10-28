@@ -198,12 +198,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml
 
-# Turbo
-PRODUCT_PACKAGES += \
-    TurboPrebuilt \
-    turbo.xml \
-    privapp-permissions-turbo.xml
-
 # Fonts
 PRODUCT_PACKAGES += \
     CustomFonts
