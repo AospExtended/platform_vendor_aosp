@@ -36,6 +36,12 @@ PRODUCT_COPY_FILES += \
 # Bootanimation
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
+# Fonts
+PRODUCT_PACKAGES += \
+    FontArbutusSourceOverlay \
+    FontArvoLatoOverlay \
+    FontRubikRubikOverlay \
+
 # Gapps
 ifeq ($(WITH_GAPPS),true)
 include vendor/gapps/config.mk
