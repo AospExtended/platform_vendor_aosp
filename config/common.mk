@@ -41,6 +41,7 @@ PRODUCT_PACKAGES += \
     FontArbutusSourceOverlay \
     FontArvoLatoOverlay \
     FontRubikRubikOverlay \
+    FontGoogleSansOverlay \
 
 # Gapps
 ifeq ($(WITH_GAPPS),true)
