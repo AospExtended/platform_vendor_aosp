@@ -207,5 +207,8 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     WallpaperPicker2
 
+# ThemeOverlays
+$(call inherit-product, packages/overlays/Themes/themes.mk)
+
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
