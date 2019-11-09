@@ -202,6 +202,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# ThemeOverlays
+include packages/overlays/Themes/themes.mk
+
+
 # ThemePicker
 PRODUCT_PACKAGES += \
     ThemePicker \
