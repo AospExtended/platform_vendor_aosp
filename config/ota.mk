@@ -31,8 +31,7 @@ endif
 endif
 
 PRODUCT_GENERIC_PROPERTIES += \
-    ro.extended.ota.version_code=$(CUSTOM_OTA_VERSION_CODE) \
-    sys.ota.disable_uncrypt=1
+    ro.extended.ota.version_code=$(CUSTOM_OTA_VERSION_CODE)
 
 PRODUCT_PACKAGES += \
     Updates
