@@ -300,3 +300,15 @@ kernel: $(INSTALLED_KERNEL_TARGET)
 dtboimage: $(INSTALLED_DTBOIMAGE_TARGET)
 
 endif # TARGET_NO_KERNEL
+
+# Build kernel with GCC 9.x
+ifeq ($(USE_GCC9.x_TOOLCHAIN),true)
+    ifeq ($(TARGET_ARCH),arm64)
+    KERNEL_TOOLCHAIN := $(BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-9.x/bin
+    TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
+    TARGET_KERNEL_CROSS_COMPILE_ARM32 := $(BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-android-9.x/bin/arm-eabi-
+    else
+    KERNEL_TOOLCHAIN := $(BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-android-9.x/bin
+    TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
+    endif
+endif
