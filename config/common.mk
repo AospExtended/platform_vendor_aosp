@@ -36,13 +36,6 @@ PRODUCT_COPY_FILES += \
 # Bootanimation
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
-# Fonts
-PRODUCT_PACKAGES += \
-    FontArbutusSourceOverlay \
-    FontArvoLatoOverlay \
-    FontRubikRubikOverlay \
-    FontGoogleSansOverlay \
-
 # Gapps
 ifeq ($(WITH_GAPPS),true)
 include vendor/gapps/config.mk
@@ -191,9 +184,6 @@ PRODUCT_COPY_FILES += \
 # Fix Dialer
 PRODUCT_COPY_FILES +=  \
     vendor/aosp/prebuilt/common/etc/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
-
-# Fonts
-include vendor/aosp/config/fonts.mk
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
