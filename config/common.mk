@@ -65,7 +65,8 @@ PRODUCT_PACKAGES += \
     Stk \
     AEXPapers \
     WallpaperPickerGoogle \
-    Recorder
+    Recorder \
+    ExactCalculator
 
 # Cutout control overlays
 PRODUCT_PACKAGES += \
