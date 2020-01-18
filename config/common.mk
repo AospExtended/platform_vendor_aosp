@@ -102,7 +102,8 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     RetroMusicPlayer \
     Recorder \
-    WeatherClient
+    WeatherClient \
+    ExactCalculator
 
 # Weather
 PRODUCT_COPY_FILES += \
