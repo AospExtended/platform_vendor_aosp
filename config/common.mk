@@ -100,9 +100,6 @@ PRODUCT_PACKAGES += \
     Stk \
     ViaBrowser \
     AEXPapers \
-    RetroMusicPlayer \
-    Recorder \
-    WeatherClient \
     ExactCalculator
 
 # Weather
