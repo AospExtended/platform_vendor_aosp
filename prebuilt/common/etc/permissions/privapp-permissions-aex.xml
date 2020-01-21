@@ -25,12 +25,6 @@
         <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     </privapp-permissions>
 
-    <privapp-permissions package="com.android.fmradio">
-        <permission name="android.permission.ACCESS_FM_RADIO"/>
-        <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
-        <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-    </privapp-permissions>
-
     <privapp-permissions package="com.android.gallery3d">
         <permission name="android.permission.WRITE_APN_SETTINGS"/>
         <permission name="android.permission.WRITE_MEDIA_STORAGE"/>
@@ -43,22 +37,11 @@
         <permission name="android.permission.RECOVERY"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.recorder">
-        <permission name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT"/>
-        <permission name="android.permission.CAPTURE_VIDEO_OUTPUT"/>
-    </privapp-permissions>
-
     <privapp-permissions package="org.lineageos.snap">
         <permission name="android.permission.PREVENT_POWER_KEY"/>
         <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
         <permission name="android.permission.WRITE_MEDIA_STORAGE"/>
         <permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
-    </privapp-permissions>
-
-    <privapp-permissions package="com.android.customization">
-        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
-        <permission name="android.permission.SET_WALLPAPER_COMPONENT"/>
-        <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
     </privapp-permissions>
 
 </permissions>
