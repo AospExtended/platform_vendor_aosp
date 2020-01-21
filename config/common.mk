@@ -52,8 +52,7 @@ PRODUCT_PACKAGES += \
 
 # Turbo
 PRODUCT_PACKAGES += \
-    turbo.xml \
-    privapp-permissions-turbo.xml
+    turbo.xml
 endif
 
 ifeq ($(TARGET_USE_GCAM),true)
@@ -69,9 +68,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex.xml:system/etc/permissions/privapp-permissions-aex.xml \
     vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-aex-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-aex-product.xml
-
-PRODUCT_PACKAGES += \
-    privapp-permissions-wellbeing.xml
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -94,15 +90,7 @@ PRODUCT_PACKAGES += \
     Stk \
     ViaBrowser \
     AEXPapers \
-    RetroMusicPlayer \
-    Recorder \
-    WeatherClient \
     ExactCalculator
-
-# Weather
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/etc/permissions/org.pixelexperience.weather.client.xml:system/etc/permissions/org.pixelexperience.weather.client.xml \
-    vendor/aosp/prebuilt/common/etc/permissions/default-permissions/org.pixelexperience.weather.client.xml:system/etc/default-permissions/org.pixelexperience.weather.client.xml
 
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
@@ -144,10 +132,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
-# Some permissions
-PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/privapp-permissions-custom.xml:system/etc/permissions/privapp-permissions-custom.xml
-
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
@@ -166,11 +150,6 @@ endif
 # AEX-specific init files
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
     $(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
-
-# Bring in camera effects
-PRODUCT_COPY_FILES +=  \
-    vendor/aosp/prebuilt/common/media/LMspeed_508.emd:system/media/LMspeed_508.emd \
-    vendor/aosp/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
@@ -192,7 +171,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_GENERIC_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
 
-# Needed by some RILs and for some gApps packages
+# Needed by some RILs and for some GApps packages
 PRODUCT_PACKAGES += \
     librsjni \
     libprotobuf-cpp-full
@@ -203,12 +182,6 @@ PRODUCT_PACKAGES += \
 
 # ThemeOverlays
 include packages/overlays/Themes/themes.mk
-
-
-# ThemePicker
-PRODUCT_PACKAGES += \
-    ThemePicker \
-    WallpaperPicker2
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
