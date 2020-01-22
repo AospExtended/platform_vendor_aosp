@@ -77,9 +77,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
 
+# Common overlays
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common \
     vendor/aosp/overlay/dictionaries
+
+# Allow overlays to be excluded from enforcing RRO
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay/common
 
 # Power whitelist
 PRODUCT_COPY_FILES += \
