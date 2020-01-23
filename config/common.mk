@@ -13,6 +13,7 @@
 # limitations under the License.
 
  include vendor/aosp/config/version.mk
+ include vendor/google/customization/config.mk
 
 PRODUCT_BRAND ?= AEX
 
@@ -206,12 +207,6 @@ PRODUCT_PACKAGES += \
 
 # ThemeOverlays
 include packages/overlays/Themes/themes.mk
-
-
-# ThemePicker
-PRODUCT_PACKAGES += \
-    ThemePicker \
-    WallpaperPicker2
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG ?= false
