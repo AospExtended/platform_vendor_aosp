@@ -116,6 +116,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pixel.xml
 
+# Offline charger
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    product_charger_res_images
+
 # Extra tools
 PRODUCT_PACKAGES += \
     e2fsck \
