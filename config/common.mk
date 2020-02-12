@@ -69,12 +69,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:system/etc/sysconfig/pixel.xml
 
-# Turbo
-PRODUCT_PACKAGES += \
-    TurboPrebuilt \
-    turbo.xml \
-    privapp-permissions-turbo.xml
-
 # Extra tools
 PRODUCT_PACKAGES += \
     e2fsck \
