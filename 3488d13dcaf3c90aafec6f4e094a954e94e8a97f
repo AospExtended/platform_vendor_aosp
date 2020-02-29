@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab63e5dd_36b54d73",
+        "filename": "overlay/common/frameworks/base/core/res/res/values/colors.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000037
+      },
+      "writtenOn": "2020-02-29T18:23:52Z",
+      "side": 1,
+      "message": "\u003ccolor name\u003d\"user_icon_1\"\u003e@*android:color/accessibility_focus_highlight\u003c/color\u003e",
+      "revId": "3488d13dcaf3c90aafec6f4e094a954e94e8a97f",
+      "serverId": "d5cc2900-f5de-4894-bcd1-c35edbbdd7bf",
+      "unresolved": true
+    }
+  ]
+}
