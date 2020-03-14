@@ -23,7 +23,7 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
         <item name="android:colorControlNormal">?android:attr/textColorPrimary</item>
-        <item name="android:colorBackgroundFloating">#FF303135</item>
+        <item name="android:colorBackgroundFloating">#ff272727</item>
     </style>
 
 </resources>

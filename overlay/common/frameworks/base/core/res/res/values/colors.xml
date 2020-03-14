@@ -19,7 +19,7 @@
 <!-- Colors specific to DeviceDefault themes. These are mostly pass-throughs to enable
      overlaying new theme colors. -->
 
-    <color name="user_icon_1">@android:color/accessibility_focus_highlight</color>
+    <color name="user_icon_1">@*android:color/accent_device_default_light</color>
     <color name="user_icon_2">#ff5c6bc0</color>
     <color name="user_icon_3">#ff26a69a</color>
     <color name="user_icon_4">#ffec407a</color>
