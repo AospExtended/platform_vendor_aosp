@@ -19,6 +19,6 @@
 <resources>
 
     <!-- The background color of a notification card. -->
-    <color name="notification_material_background_color">#ff202125</color>
+    <color name="notification_material_background_color">#ff121212</color>
 
 </resources>

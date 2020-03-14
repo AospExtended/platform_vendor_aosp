@@ -16,10 +16,10 @@
 
 <resources>
 
-    <color name="search_bar_background">#FF303135</color>
+    <color name="search_bar_background">@*android:color/secondary_device_default_settings</color>
 
     <!-- Dialog background color -->
-    <color name="dialog_background">#FF303135</color>
+    <color name="dialog_background">@*android:color/secondary_device_default_settings</color>
 
 </resources>
 
