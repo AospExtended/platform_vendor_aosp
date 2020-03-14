@@ -16,10 +16,13 @@
 
 <resources>
 
-    <color name="search_bar_background">#FF303135</color>
+    <color name="search_bar_background">#FF2F2F2F</color>
 
     <!-- Dialog background color -->
-    <color name="dialog_background">#FF303135</color>
+    <color name="dialog_background">#FF2F2F2F</color>
+
+    <color name="homepage_card_dismissal_background">#FF2F2F2F</color>
+    <color name="contextual_card_background">#FF2F2F2F</color>
 
 </resources>
 
