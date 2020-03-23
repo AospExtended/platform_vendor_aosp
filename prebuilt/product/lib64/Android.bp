@@ -6,6 +6,7 @@ cc_prebuilt_library_shared {
     overrides: ["libjni_latinime"],
     product_specific: true,
     compile_multilib: "64",
+    shared_libs: ["libstdc++"],
     strip: {
         none: true,
     },
