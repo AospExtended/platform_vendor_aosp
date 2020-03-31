@@ -72,6 +72,10 @@ type Product_variables struct {
 	Target_needs_netd_direct_connect_rule struct {
 		Cppflags []string
 	}
+
+	Target_ignores_ftp_pptp_conntrack_failure struct {
+		Cppflags []string
+	}
 }
 
 type ProductVariables struct {
@@ -97,4 +101,5 @@ type ProductVariables struct {
 	Target_use_sdclang        *bool `json:",omitempty"`
 	Needs_camera_boottime_timestamp  *bool `json:",omitempty"`
 	Target_needs_netd_direct_connect_rule  *bool `json:",omitempty"`
+	Target_ignores_ftp_pptp_conntrack_failure  *bool `json:",omitempty"`
 }
