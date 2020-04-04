@@ -86,7 +86,6 @@ PRODUCT_COPY_FILES += \
 # Custom AEX packages
 PRODUCT_PACKAGES += \
     Terminal \
-    LatinIME \
     LiveWallpapers \
     LiveWallpapersPicker \
     Stk \
