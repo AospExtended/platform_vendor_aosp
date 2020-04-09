@@ -1,48 +1,53 @@
 #!/bin/bash
+export PATH=/bin:$BIN:$PATH
+set -e
 
-# Exports
+usage() {
+  cat <<EOM
+  Usage: $(basename $0) <Path to output directory, typically \$OUT variable>
+EOM
+  exit 1
+}
 
-#. $ANDROID_BUILD_TOP/vendor/aosp/tools/colors
+OUT="$1"
 
-OUT=$1
-
-export Changelog=Changelog.txt
-
-if [ -f $Changelog ];
-then
-	rm -f $Changelog
+if [ ! -d "$OUT" ];then
+  echo "specified OUT-directory: $OUT does not exist!"
+  exit 1
 fi
 
-touch $Changelog
+changelog="$OUT/Changelog.txt"
+system_changelog="$OUT/system/etc/Changelog.txt"
 
 # Print something to build output
 echo ${bldppl}"Generating changelog..."${txtrst}
 
-for i in $(seq 5);
-do
-export After_Date=$(date --date="$i days ago" +%m-%d-%Y 2>&1)
-k=$(expr $i - 1)
-	export Until_Date=$(date --date="$k days ago" +%m-%d-%Y 2>&1)
+if [ -f "$changelog" ];
+then
+   rm -f "$changelog"
+fi
 
-	# Line with after --- until was too long for a small ListView
-	echo '====================' >> $Changelog;
-	echo  "     "$Until_Date    >> $Changelog;
-	echo '====================' >> $Changelog;
-	# Cycle through every repo to find commits between 2 dates
-	while read path;
-		do
-	CLOG=$(git --git-dir ./${path}/.git log --oneline --after=$After_Date --until=$Until_Date 2>&1);
-	if [ -n "$CLOG" ]; then
-		echo project $path >> $Changelog
-		ret=$(git --git-dir ./${path}/.git log --oneline --after=$After_Date --until=$Until_Date 2>&1) >> $Changelog
-	fi
-	done < ./.repo/project.list
-	echo >> $Changelog;
-        echo >> $Changelog;
+touch $changelog
+for i in $(seq 10);
+do
+    after_Date='date --date="$i days ago" +%m-%d-%Y'
+    k=$((i - 1))
+    until_Date=$'date --date="$k days ago" +%m-%d-%Y'
+
+    # Line with after --- until was too long for a small ListView
+    echo '====================' >> "$changelog";
+    echo  "   "$until_Date      >> "$changelog";
+    echo '====================' >> "$changelog";
+    # Cycle through every repo to find commits between 2 dates
+    CURRENT_PATH="$(realpath `pwd`)"
+
+    repo forall -c "GIT_LOG=\`git log --oneline --after=$after_Date --until=$until_Date\` ; if [ ! -z \"\$GIT_LOG\" ]; then printf  '\n   * '; realpath \`pwd\` | sed 's|^$CURRENT_PATH/||' ; echo \"\$GIT_LOG\"; fi" >> "$changelog"
+    echo >> "$changelog";
 done
 
-sed -i 's/project/   */g' $Changelog
+sed -i 's/project/   */g' "$changelog"
 
-cp $Changelog $OUT/system/etc/
-cp $Changelog $OUT
-rm $Changelog
+mkdir -p $(dirname "$system_changelog")
+cp "$changelog" "$system_changelog"
+
+exit 0
