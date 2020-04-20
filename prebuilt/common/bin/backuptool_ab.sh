@@ -6,6 +6,7 @@
 export S=/system
 export C=/postinstall/tmp/backupdir
 export V=10
+
 export ADDOND_VERSION=2
 
 # Scripts in /system/addon.d expect to find backuptool.functions in /tmp
@@ -46,43 +47,14 @@ restore_addon_d() {
 check_prereq() {
 # If there is no build.prop file the partition is probably empty.
 if [ ! -r /system/build.prop ]; then
-    return 0
+  echo "Backup/restore is not possible. Partition is probably empty"
+  return 1
 fi
-
-grep -q "^ro.build.version.release=$V" /system/build.prop && return 1
-
-echo "Not backing up files from incompatible version: $V"
+if ! grep -q "^ro.build.version.release=$V.*" /system/build.prop; then
+  echo "Backup/restore is not possible. Incompatible ROM version: $V"
+  return 2
+fi
 return 0
-}
-
-check_blacklist() {
-  if [ -f /system/addon.d/blacklist -a -d /$1/addon.d/ ]; then
-      ## Discard any known bad backup scripts
-      cd /$1/addon.d/
-      for f in *sh; do
-          [ -f $f ] || continue
-          s=$(md5sum $f | cut -c-32)
-          grep -q $s /system/addon.d/blacklist && rm -f $f
-      done
-  fi
-}
-
-check_whitelist() {
-  found=0
-  if [ -f /system/addon.d/whitelist ];then
-      ## forcefully keep any version-independent stuff
-      cd /$1/addon.d/
-      for f in *sh; do
-          s=$(md5sum $f | cut -c-32)
-          grep -q $s /system/addon.d/whitelist
-          if [ $? -eq 0 ]; then
-              found=1
-          else
-              rm -f $f
-          fi
-      done
-  fi
-  return $found
 }
 
 # Execute /system/addon.d/*.sh scripts with $1 parameter
@@ -102,32 +74,24 @@ fi
 
 case "$1" in
   backup)
-    mkdir -p $C
     if check_prereq; then
-        if check_whitelist postinstall/system; then
-            exit 127
-        fi
+      mkdir -p $C
+      preserve_addon_d
+      run_stage pre-backup
+      run_stage backup
+      run_stage post-backup
     fi
-    check_blacklist postinstall/system
-    preserve_addon_d
-    run_stage pre-backup
-    run_stage backup
-    run_stage post-backup
   ;;
   restore)
     if check_prereq; then
-        if check_whitelist postinstall/tmp; then
-            exit 127
-        fi
+      run_stage pre-restore
+      run_stage restore
+      run_stage post-restore
+      restore_addon_d
+      rm -rf $C
+      rm -rf /postinstall/tmp
+      sync
     fi
-    check_blacklist postinstall/tmp
-    run_stage pre-restore
-    run_stage restore
-    run_stage post-restore
-    restore_addon_d
-    rm -rf $C
-    rm -rf /postinstall/tmp
-    sync
   ;;
   *)
     echo "Usage: $0 {backup|restore}"
