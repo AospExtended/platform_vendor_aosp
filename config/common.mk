@@ -92,7 +92,13 @@ PRODUCT_PACKAGES += \
     Stk \
     ViaBrowser \
     AEXPapers \
-    ExactCalculator
+    ExactCalculator \
+    WallpaperPickerGoogle
+
+# Dex preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI \
+    Launcher3QuickStep
 
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
