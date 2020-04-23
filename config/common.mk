@@ -93,7 +93,8 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     ExactCalculator \
-    WallpaperPickerGoogle
+    WallpaperPickerGoogle \
+    Recorder
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
