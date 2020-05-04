@@ -83,7 +83,7 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/aex-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/aex-power-whitelist.xml
 
-# Custom AEX packages
+# Custom Packages
 PRODUCT_PACKAGES += \
     Terminal \
     LatinIME \
@@ -93,7 +93,8 @@ PRODUCT_PACKAGES += \
     ViaBrowser \
     AEXPapers \
     ExactCalculator \
-    WallpaperPickerGoogle
+    WallpaperPickerGoogle \
+    StitchImage
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
