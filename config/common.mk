@@ -42,14 +42,6 @@ PRODUCT_PACKAGES += \
     Jelly
 endif
 
-# Markup libs
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/lib/libsketchology_native.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libsketchology_native.so \
-    vendor/aosp/prebuilt/common/lib64/libsketchology_native.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libsketchology_native.so
-
-PRODUCT_PACKAGES += \
-    MarkupGoogle
-
 # Turbo
 PRODUCT_PACKAGES += \
     turbo.xml
