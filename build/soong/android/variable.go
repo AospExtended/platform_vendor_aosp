@@ -80,6 +80,10 @@ type Product_variables struct {
 		Cflags []string
 		Header_libs []string
 	}
+	Target_surfaceflinger_fod_lib struct {
+		Cflags []string
+		Whole_static_libs []string
+	}
 }
 
 type ProductVariables struct {
@@ -107,4 +111,5 @@ type ProductVariables struct {
 	Target_needs_netd_direct_connect_rule  *bool `json:",omitempty"`
 	Target_ignores_ftp_pptp_conntrack_failure  *bool `json:",omitempty"`
 	Qcom_um_soong_namespace  *string `json:",omitempty"`
+	Target_surfaceflinger_fod_lib  *string `json:",omitempty"`
 }
