@@ -80,6 +80,10 @@ type Product_variables struct {
 	Target_ignores_ftp_pptp_conntrack_failure struct {
 		Cppflags []string
 	}
+	Qcom_um_soong_namespace struct {
+		Cflags []string
+		Header_libs []string
+	}
 }
 
 type ProductVariables struct {
@@ -107,4 +111,5 @@ type ProductVariables struct {
 	Healthd_use_battery_info  *bool `json:",omitempty"`
 	Target_needs_netd_direct_connect_rule  *bool `json:",omitempty"`
 	Target_ignores_ftp_pptp_conntrack_failure  *bool `json:",omitempty"`
+	Qcom_um_soong_namespace  *string `json:",omitempty"`
 }
