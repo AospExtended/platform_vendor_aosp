@@ -2,6 +2,8 @@
 include vendor/aosp/build/core/qcom_utils.mk
 
 # Platform names
+KONA := kona #SM8250
+LITO := lito #SM7250
 MSMNILE := msmnile #SM8150
 MSMSTEPPE := sm6150
 TRINKET := trinket #SM6125
@@ -14,8 +16,9 @@ UM_3_18_FAMILY := msm8937 msm8953 msm8996
 UM_4_4_FAMILY := msm8998 sdm660
 UM_4_9_FAMILY := sdm845 sdm710
 UM_4_14_FAMILY := $(MSMNILE) $(MSMSTEPPE) $(TRINKET) $(ATOLL)
-UM_PLATFORMS := $(UM_3_18_FAMILY) $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY)
-QSSI_SUPPORTED_PLATFORMS := $(UM_4_9_FAMILY) $(UM_4_14_FAMILY)
+UM_4_19_FAMILY := $(KONA) $(LITO)
+UM_PLATFORMS := $(UM_3_18_FAMILY) $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
+QSSI_SUPPORTED_PLATFORMS := $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 
 BOARD_USES_ADRENO := true
 
@@ -47,7 +50,7 @@ ifeq ($(call is-board-platform-in-list, $(UM_PLATFORMS)),true)
 endif
 
 # Enable DRM PP driver on UM platforms that support it
-ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     TARGET_USES_DRM_PP := true
 endif
 
@@ -58,12 +61,12 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 13)
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 21)
 
 # Mark GRALLOC_USAGE_PRIVATE_HEIF_VIDEO as valid gralloc bits on UM platforms that support it
-ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 27)
 endif
 
 # List of targets that use master side content protection
-MASTER_SIDE_CP_TARGET_LIST := msm8996 $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY)
+MASTER_SIDE_CP_TARGET_LIST := msm8996 $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 
 ifeq ($(call is-board-platform-in-list, $(B_FAMILY)),true)
     MSM_VIDC_TARGET_LIST := $(B_FAMILY)
@@ -86,6 +89,9 @@ else ifeq ($(call is-board-platform-in-list, $(UM_4_9_FAMILY)),true)
 else ifneq ($(filter $(UM_4_14_FAMILY),$(TARGET_BOARD_PLATFORM)),)
     MSM_VIDC_TARGET_LIST := $(UM_4_14_FAMILY)
     QCOM_HARDWARE_VARIANT := sm8150
+else ifneq ($(filter $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
+    MSM_VIDC_TARGET_LIST := $(UM_4_19_FAMILY)
+    QCOM_HARDWARE_VARIANT := sm8250
 else
     MSM_VIDC_TARGET_LIST := $(TARGET_BOARD_PLATFORM)
     QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
