@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <bool name="config_useDarkBgNotificationIconTinting">true</bool>
-    <bool name="config_useDarkBgNotificationIconTextTinting">true</bool>
-</resources>

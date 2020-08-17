@@ -13,11 +13,9 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v6.7
+EXTENDED_VERSION = v10.0
 
-ifndef EXTENDED_BUILD_TYPE
-    EXTENDED_BUILD_TYPE := UNOFFICIAL
-endif
+EXTENDED_BUILD_TYPE := GAMA
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
 
