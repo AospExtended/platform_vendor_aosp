@@ -6,14 +6,6 @@ type Product_variables struct {
 	Bootloader_message_offset struct {
 		Cflags []string
 	}
-	Device_support_hwfde struct {
-		Cflags []string
-		Header_libs []string
-		Shared_libs []string
-	}
-	Device_support_hwfde_perf struct {
-		Cflags []string
-	}
 	Should_wait_for_qsee struct {
 		Cflags []string
 	}
