@@ -30,6 +30,10 @@ endif
 # Bootanimation
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
+# Common Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    vendor/aosp/overlay/common
+
 # Hidden API whitelist
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/aex-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/aex-hiddenapi-package-whitelist.xml
