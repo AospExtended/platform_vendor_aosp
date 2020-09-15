@@ -13,11 +13,8 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v6.7
-
-ifndef EXTENDED_BUILD_TYPE
-    EXTENDED_BUILD_TYPE := UNOFFICIAL
-endif
+EXTENDED_VERSION = v8.0
+EXTENDED_BUILD_TYPE = UNOFFICIAL
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
 
@@ -26,7 +23,7 @@ $(call inherit-product-if-exists, vendor/aosp/config/ota.mk)
 
 endif
 
-TARGET_PRODUCT_SHORT := $(subst aosp_,,$(CUSTOM_BUILD))
+TARGET_PRODUCT_SHORT := $(subst aosp_,,$(AOSP_BUILD))
 
 EXTENDED_DATE_YEAR := $(shell date +%Y)
 EXTENDED_DATE_MONTH := $(shell date +%m)
