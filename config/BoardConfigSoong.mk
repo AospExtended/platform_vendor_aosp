@@ -95,6 +95,11 @@ ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_aospQcomVars_qcom_soong_namespace := $(QCOM_SOONG_NAMESPACE)
 endif
 
+SOONG_CONFIG_NAMESPACES += aosp_vs_qva
+SOONG_CONFIG_aosp_vs_qva += aosp_or_qva
 ifneq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SOONG_NAMESPACES += packages/apps/Bluetooth
+SOONG_CONFIG_aosp_vs_qva_aosp_or_qva := aosp
+else
+SOONG_CONFIG_aosp_vs_qva_aosp_or_qva := qva
 endif #TARGET_USE_QTI_BT_STACK
