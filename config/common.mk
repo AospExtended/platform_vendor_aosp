@@ -163,6 +163,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     SoftAPManager
 
+# Gesture Overlays
+PRODUCT_PACKAGES += \
+    GesturalNavigationOverlayLong \
+    GesturalNavigationOverlayMedium
+
 # init.d support
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.d/00banner:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/00banner
