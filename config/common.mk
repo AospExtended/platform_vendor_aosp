@@ -14,6 +14,9 @@
 
 include vendor/aosp/config/version.mk
 
+# Audio files
+$(call inherit-product, vendor/aosp/config/google_audio.mk)
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
