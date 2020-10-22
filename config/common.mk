@@ -34,7 +34,7 @@ endif
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
 # Common Overlay
-DEVICE_PACKAGE_OVERLAYS += \
+PRODUCT_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common
 
 # Hidden API whitelist
