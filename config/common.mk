@@ -72,6 +72,10 @@ PRODUCT_PACKAGES += \
     Recorder \
     ExactCalculator
 
+# SystemUI plugins
+PRODUCT_PACKAGES += \
+    QuickAccessWallet
+
 # Cutout control overlays
 PRODUCT_PACKAGES += \
     HideCutout \
