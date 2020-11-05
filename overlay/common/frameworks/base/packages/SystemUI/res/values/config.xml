@@ -40,4 +40,9 @@
 
     <!-- Show camera affordance on Keyguard -->
     <bool name="config_keyguardShowCameraAffordance">true</bool>
+
+    <!-- SystemUI Plugins that can be loaded on user builds. -->
+    <string-array name="config_pluginWhitelist" translatable="false">
+        <item>com.android.systemui.plugin.globalactions.wallet</item>
+    </string-array>
 </resources>
