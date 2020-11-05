@@ -27,14 +27,14 @@ else
 MD5:=md5sum
 endif
 
-TARGET_PACKAGE := $(PRODUCT_OUT)/AospExtended-$(EXTENDED_VERSION)-$(TARGET_DEVICE)-$(EXTENDED_BUILD_DATE)-$(EXTENDED_BUILD_TYPE).zip
+TARGET_PACKAGE := $(PRODUCT_OUT)/AospExtended-$(EXTENDED_VERSION)-$(TARGET_DEVICE)-$(EXTENDED_BUILD_TYPE)-$(EXTENDED_BUILD_DATE)
 
 .PHONY: otapkg bacon aex
 otapkg: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: aex
 aex: otapkg
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_PACKAGE)
-	$(hide) $(MD5) $(TARGET_PACKAGE) > $(TARGET_PACKAGE).md5sum
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_PACKAGE)-$(shell date -u +%H)$(shell date -u +%M).zip
+	$(hide) $(MD5) $(TARGET_PACKAGE)-$(shell date -u +%H)$(shell date -u +%M).zip > $(TARGET_PACKAGE)-$(shell date -u +%H)$(shell date -u +%M).zip.md5sum
 	@echo -e ${CL_RST} ""
 	@echo -e ${CL_RST} " ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄    ▄▄▄▄▄▄▄ ▄▄   ▄▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄    ▄ ▄▄▄▄▄▄  ▄▄▄▄▄▄▄ ▄▄▄▄▄▄  "
 	@echo -e ${CL_RST} "█       █       █       █       █  █       █  █▄█  █       █       █  █  █ █      ██       █      █ "
@@ -45,7 +45,7 @@ aex: otapkg
 	@echo -e ${CL_RST} "█▄▄█ █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄█      █▄▄▄▄▄▄▄█▄▄█ █▄▄█ █▄▄▄█ █▄▄▄▄▄▄▄█▄█  █▄▄█▄▄▄▄▄▄██▄▄▄▄▄▄▄█▄▄▄▄▄▄█ "
 	@echo -e ${CL_RST} "" ${CL_RST}
 	@echo -e ${CL_BLD}${CL_RED}"=======================================-Package complete-======================================="${CL_RED}
-	@echo -e ${CL_BLD}${CL_YLW}"Zip: "${CL_YLW} $(TARGET_PACKAGE)${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(TARGET_PACKAGE).md5sum | awk '{print $$1}' `"${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"Size:"${CL_YLW}" `du -sh $(TARGET_PACKAGE) | awk '{print $$1}' `"${CL_RST}
+	@echo -e ${CL_BLD}${CL_YLW}"Zip: "${CL_YLW} $(TARGET_PACKAGE)-$(shell date -u +%H)$(shell date -u +%M).zip ${CL_RST}
+	@echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(TARGET_PACKAGE)-$(shell date -u +%H)$(shell date -u +%M).zip.md5sum | awk '{print $$1}' `"${CL_RST}
+	@echo -e ${CL_BLD}${CL_YLW}"Size:"${CL_YLW}" `du -sh $(TARGET_PACKAGE)-$(shell date -u +%H)$(shell date -u +%M).zip | awk '{print $$1}' `"${CL_RST}
 	@echo -e ${CL_BLD}${CL_RED}"================================================================================================"${CL_RST}
