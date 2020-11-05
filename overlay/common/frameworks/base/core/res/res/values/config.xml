@@ -112,11 +112,13 @@
     <bool name="config_buttonTextAllCaps">false</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
     <bool name="config_sendPackageName">true</bool>
-    <dimen name="config_dialogCornerRadius">8.0dip</dimen>
-    <dimen name="config_buttonCornerRadius">4.0dip</dimen>
-    <dimen name="config_bottomDialogCornerRadius">16.0dip</dimen>
+    <dimen name="config_dialogCornerRadius">16dp</dimen>
+    <dimen name="config_buttonCornerRadius">8dp</dimen>
+    <dimen name="config_bottomDialogCornerRadius">32dp</dimen>
     <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
- 
+    <!-- Corner radius of search bars and cards -->
+    <dimen name="config_cardCornerRadius">24dp</dimen>
+
     <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
     <bool name="config_useRoundIcon">true</bool>
 
