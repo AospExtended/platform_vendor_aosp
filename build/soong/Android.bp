@@ -422,6 +422,23 @@ extended_compress_format {
 }
 
 soong_config_module_type {
+    name: "camera_boottime_timestamp",
+    module_type: "cc_defaults",
+    config_namespace: "aospQcomVars",
+    bool_variables: ["needs_camera_boottime_timestamp"],
+    properties: ["cflags"],
+}
+
+camera_boottime_timestamp {
+    name: "camera_boottime_timestamp_defaults",
+    soong_config_variables: {
+        needs_camera_boottime_timestamp: {
+            cflags: ["-DTARGET_CAMERA_BOOTTIME_TIMESTAMP"],
+        },
+    },
+}
+
+soong_config_module_type {
     name: "vold_hw_fde",
     module_type: "cc_defaults",
     config_namespace: "aospQcomVars",
