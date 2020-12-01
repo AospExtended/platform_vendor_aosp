@@ -101,8 +101,7 @@ PRODUCT_PACKAGES += \
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI \
-    Launcher3QuickStep
+    SystemUI
 
 # Extra packages
 PRODUCT_PACKAGES += \
@@ -218,4 +217,18 @@ USE_CCACHE := true
 ifneq ($(TARGET_SHIP_GCAM_GO),false)
 PRODUCT_PACKAGES += \
     GoogleCameraGo
+endif
+
+ifeq ($(PRODUCT_TYPE), go)
+PRODUCT_PACKAGES += \
+    Launcher3QuickStepGo
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStepGo
+else
+PRODUCT_PACKAGES += \
+    Launcher3QuickStep
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep
 endif
