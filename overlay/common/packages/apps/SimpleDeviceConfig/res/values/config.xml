@@ -95,5 +95,8 @@
         <item>systemui/back_gesture_ml_model_name=backgesture</item>
         <item>systemui/back_gesture_ml_model_threshold=0.9</item>
 
+        <!-- ART heap compaction for cached apps -->
+        <item>activity_manager/use_compaction=true</item>
+
     </string-array>
 </resources>
