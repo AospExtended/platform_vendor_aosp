@@ -19,6 +19,8 @@
         <!--
             System
         -->
+        <!-- Hide Navigation handle on lockscreen -->
+        <item>systemui/nav_bar_handle_show_over_lockscreen=false</item>
 
         <!--
             Device Personalization Services (AiAi)
