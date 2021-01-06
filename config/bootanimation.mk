@@ -27,9 +27,9 @@ else ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),1440)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1440.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),2140)
-     PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1080-2140-18-9.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-2140.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),2280)
-     PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1080-2280-19-9.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+     PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-2280.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),undefined)
      $(warning Target bootanimation res is undefined, using generic bootanimation )
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/bootanimation.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
