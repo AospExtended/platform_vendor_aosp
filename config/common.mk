@@ -166,7 +166,10 @@ PRODUCT_PACKAGES += \
 # Gesture Overlays
 PRODUCT_PACKAGES += \
     GesturalNavigationOverlayLong \
-    GesturalNavigationOverlayMedium
+    GesturalNavigationOverlayMedium \
+    GesturalNavigationRadiusLow \
+    GesturalNavigationRadiusVeryLow \
+    GesturalNavigationRadiusHidden
 
 # init.d support
 PRODUCT_COPY_FILES += \
