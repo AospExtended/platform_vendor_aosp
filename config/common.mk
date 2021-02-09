@@ -68,6 +68,8 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     Stk \
     AEXPapers \
+    DuckDuckGo \
+    MusicPlayerGO \
     WallpaperPickerGoogle \
     Recorder \
     ExactCalculator \
