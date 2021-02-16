@@ -461,3 +461,18 @@ stagefright_qcom_legacy {
         },
     },
 }
+
+// Define a soong config module type to determine AOSP vs QVA configuration
+soong_config_module_type {
+    name: "aosp_vs_qva_java_defaults",
+    module_type: "java_defaults",
+    config_namespace: "aosp_vs_qva",
+    variables: ["aosp_or_qva"],
+    // Properties can be extended to other properties as well
+    properties: ["libs"],
+}
+
+soong_config_string_variable {
+    name: "aosp_or_qva",
+    values: ["aosp", "qva"],
+}
