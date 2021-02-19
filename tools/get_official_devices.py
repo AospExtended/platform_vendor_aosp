@@ -18,8 +18,8 @@ try:
     response = urllib.request.urlopen(url)
     data = json.loads(response.read())
     for res in data:
-	for version in res['supported_versions']:
-		if version['version_code'] == 'q' or version['version_code'] == 'q_gapps':
-		        print (res['codename'])
+        for version in res['supported_versions']:
+            if version['version_code'] == 'q' or version['version_code'] == 'q_gapps':
+                print (res['codename'])
 except:
     print ("")
