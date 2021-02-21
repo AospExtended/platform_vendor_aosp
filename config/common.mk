@@ -70,7 +70,8 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     WallpaperPickerGoogle \
     Recorder \
-    ExactCalculator
+    ExactCalculator \
+    Etar
 
 # SystemUI plugins
 PRODUCT_PACKAGES += \
