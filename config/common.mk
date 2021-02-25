@@ -185,6 +185,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# StichImage
+PRODUCT_PACKAGES += \
+    StitchImage
+
 # ThemeOverlays
 include packages/overlays/Themes/themes.mk
 
