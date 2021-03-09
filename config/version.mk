@@ -14,7 +14,7 @@
 
 #Extended Versioning
 EXTENDED_VERSION = v8.0
-EXTENDED_BUILD_TYPE = UNOFFICIAL
+EXTENDED_BUILD_TYPE ?= UNOFFICIAL
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
 
@@ -42,4 +42,4 @@ EXTENDED_DISPLAY_VERSION := AospExtended-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_TY
 PRODUCT_GENERIC_PROPERTIES += \
   ro.extended.display.version=$(EXTENDED_DISPLAY_VERSION) \
   ro.extended.fingerprint=$(EXTENDED_FINGERPRINT) \
-  ro.extended.build_date_utc=$(EXTENDED_BUILD_DATE_UTC)
+  ro.extended.build_date=$(EXTENDED_BUILD_DATE)
