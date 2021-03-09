@@ -17,6 +17,12 @@ include vendor/aosp/config/version.mk
 # Audio files
 $(call inherit-product, vendor/aosp/config/google_audio.mk)
 
+# Conditionally build adb root
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    adb_root
+endif
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
