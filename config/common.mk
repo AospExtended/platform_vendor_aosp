@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Gapps
+ifeq ($(WITH_GAPPS),true)
+include vendor/aosp/config/gapps.mk
+endif
+
 include vendor/aosp/config/version.mk
 
 # Audio files
@@ -39,13 +44,20 @@ endif
 # Bootanimation
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
+# Conditionally build Etar
+ifneq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    Etar
+endif
+
 # Common Overlay
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/aosp/overlay/common
+DEVICE_PACKAGE_OVERLAYS += \
+    vendor/aosp/overlay/common 
 
 # Exclude RRO Enforcement
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
-    vendor/aosp/overlay/common
+    vendor/aosp/overlay
+
 
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
@@ -73,8 +85,7 @@ PRODUCT_PACKAGES += \
     MusicPlayerGO \
     WallpaperPickerGoogle \
     Recorder \
-    ExactCalculator \
-    Etar
+    ExactCalculator
 
 # SystemUI plugins
 PRODUCT_PACKAGES += \
@@ -98,9 +109,11 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
 
+ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel.xml
+endif
 
 # Extra tools
 PRODUCT_PACKAGES += \
