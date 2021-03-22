@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Gapps
+ifeq ($(WITH_GAPPS),true)
+include vendor/aosp/config/gapps.mk
+endif
+
 include vendor/aosp/config/version.mk
 
 # Audio files
@@ -40,12 +45,12 @@ endif
 $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
 # Common Overlay
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/aosp/overlay/common
+DEVICE_PACKAGE_OVERLAYS += \
+    vendor/aosp/overlay/common 
 
 # Exclude RRO Enforcement
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
-    vendor/aosp/overlay/common
+    vendor/aosp/overlay
 
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
