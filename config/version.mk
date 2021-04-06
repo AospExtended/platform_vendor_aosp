@@ -42,4 +42,4 @@ EXTENDED_DISPLAY_VERSION := AospExtended-$(EXTENDED_VERSION)-$(EXTENDED_BUILD_TY
 PRODUCT_GENERIC_PROPERTIES += \
   ro.extended.display.version=$(EXTENDED_DISPLAY_VERSION) \
   ro.extended.fingerprint=$(EXTENDED_FINGERPRINT) \
-  ro.extended.build_date=$(EXTENDED_BUILD_DATE)
+  ro.extended.build_date_utc=$(EXTENDED_BUILD_DATE)
