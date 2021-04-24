@@ -1,5 +1,5 @@
 # Gapps
-include vendor/gapps/config.mk
+$(call inherit-product, vendor/gapps/config.mk)
 IS_PHONE := true
 
 # Common Overlay

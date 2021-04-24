@@ -14,7 +14,7 @@
 
 # Gapps
 ifeq ($(WITH_GAPPS),true)
-include vendor/aosp/config/gapps.mk
+$(call inherit-product, vendor/aosp/config/gapps.mk)
 endif
 
 include vendor/aosp/config/version.mk
