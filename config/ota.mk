@@ -30,6 +30,10 @@ CUSTOM_OTA_VERSION_CODE := r
 endif
 endif
 
+ifeq ($(WITH_CUSTOM_GAPPS), true)
+CUSTOM_OTA_VERSION_CODE := r_gapps
+endif
+
 PRODUCT_GENERIC_PROPERTIES += \
     ro.extended.ota.version_code=$(CUSTOM_OTA_VERSION_CODE) \
     sys.ota.disable_uncrypt=1
