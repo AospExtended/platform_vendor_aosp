@@ -108,6 +108,10 @@ PRODUCT_PACKAGES += \
     HideCutout \
     StatusBarStock
 
+# Immersive Navigation
+PRODUCT_PACKAGES += \
+    ImmersiveNavigationOverlay
+
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
