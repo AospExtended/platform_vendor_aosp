@@ -192,6 +192,11 @@ PRODUCT_PACKAGES += \
 # ThemeOverlays
 include packages/overlays/Themes/themes.mk
 
+ifneq ($(WITH_GAPPS),true)
+PRODUCT_PACKAGES += \
+    ThemePicker
+endif
+
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG := false
 
