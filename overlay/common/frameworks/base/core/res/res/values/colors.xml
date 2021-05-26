@@ -17,5 +17,5 @@
   -->
 <resources>
     <!-- The background color of a notification card. -->
-    <color name="notification_material_background_color">@*android:color/background_material_dark</color>
+    <color name="notification_material_background_color">@*android:color/background_material_light</color>
 </resources>
