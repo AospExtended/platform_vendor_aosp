@@ -76,7 +76,6 @@ PRODUCT_PACKAGES += \
     AEXPapers \
     DuckDuckGo \
     MusicPlayerGO \
-    WallpaperPickerGoogle \
     Recorder \
     ExactCalculator \
     Etar
