@@ -16,6 +16,24 @@
       "message": "I\u0027m afraid this will make contextual card background on dark theme look same as light theme",
       "revId": "424241fc9901ba1a831ac86fb991114c1629c5cb",
       "serverId": "692a3d4a-6cfc-41d4-b12b-cb9542eed61e"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2de2b170_7736a15a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2021-06-16T21:51:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be taken care of in settings, since this seems a resource from aosp itself and I see the actual card colour has been overridden in values-night, so most probably this must be color of the shadow in the dismissal UI, even in light theme by default it uses @*android:color/material_grey_100 which means it is supposed to look greyish in light theme. Also I am not getting that why are we adding this overlay only for apps build, contextual cards are part of settings in all type of builds right?",
+      "parentUuid": "2a8e7f10_c2fb870f",
+      "revId": "424241fc9901ba1a831ac86fb991114c1629c5cb",
+      "serverId": "692a3d4a-6cfc-41d4-b12b-cb9542eed61e"
     }
   ]
 }
