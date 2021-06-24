@@ -47,3 +47,10 @@ PRODUCT_GENERIC_PROPERTIES += \
   ro.extended.display.version=$(EXTENDED_DISPLAY_VERSION) \
   ro.extended.fingerprint=$(EXTENDED_FINGERPRINT) \
   ro.extended.build_date_utc=$(EXTENDED_BUILD_DATE_UTC)
+
+
+# AOSP recovery flashing
+ifeq ($(TARGET_USES_AOSP_RECOVERY), true)
+PRODUCT_GENERIC_PROPERTIES += \
+    persist.sys.recovery_update=true
+endif
