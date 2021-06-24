@@ -35,6 +35,7 @@ SOONG_CONFIG_aospGlobalVars += \
     has_memfd_backport \
     ignores_ftp_pptp_conntrack_failure \
     needs_netd_direct_connect_rule \
+    target_uses_prebuilt_dynamic_partitions \
     target_init_vendor_lib \
     target_inputdispatcher_skip_event_key \
     target_ld_shim_libs \
@@ -71,6 +72,7 @@ SOONG_CONFIG_aospGlobalVars_has_legacy_camera_hal1 := $(TARGET_HAS_LEGACY_CAMERA
 SOONG_CONFIG_aospGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
 SOONG_CONFIG_aospGlobalVars_ignores_ftp_pptp_conntrack_failure := $(TARGET_IGNORES_FTP_PPTP_CONNTRACK_FAILURE)
 SOONG_CONFIG_aospGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
+SOONG_CONFIG_aospGlobalVars_target_uses_prebuilt_dynamic_partitions := $(TARGET_USES_PREBUILT_DYNAMIC_PARTITIONS)
 SOONG_CONFIG_aospNvidiaVars_uses_nv_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
 SOONG_CONFIG_aospQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_ENCRYPTION)
 SOONG_CONFIG_aospQcomVars_should_wait_for_qsee := $(TARGET_KEYMASTER_WAIT_FOR_QSEE)
