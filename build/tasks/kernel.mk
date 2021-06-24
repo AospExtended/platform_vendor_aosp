@@ -61,7 +61,11 @@
 ifneq ($(TARGET_NO_KERNEL),true)
 
 ## Externally influenced variables
-KERNEL_SRC := $(TARGET_KERNEL_SOURCE)
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+ KERNEL_SRC := $(TARGET_KERNEL_SOURCE)
+else
+ KERNEL_SRC :=
+endif
 # kernel configuration - mandatory
 KERNEL_DEFCONFIG := $(TARGET_KERNEL_CONFIG)
 VARIANT_DEFCONFIG := $(TARGET_KERNEL_VARIANT_CONFIG)
