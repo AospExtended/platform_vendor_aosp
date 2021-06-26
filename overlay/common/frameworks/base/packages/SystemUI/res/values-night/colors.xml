@@ -22,6 +22,15 @@
     <!-- The color of the dividing line between grouped notifications while . -->
     <color name="notification_divider_color">@*android:color/tertiary_device_default_dark</color>
 
+    <!-- The color of the material notification background -->
+    <color name="notification_material_background_color">@*android:color/primary_device_default_dark</color>
+
+    <!--  It's fine to override this color since at that point the shade was dark. -->
+    <color name="notification_legacy_background_color">@*android:color/primary_device_default_dark</color>
+
+    <!-- The color of the material notification background when dimmed -->
+    <color name="notification_material_background_dimmed_color">@*android:color/primary_device_default_dark</color>
+
     <!-- The color of the background in the top part of QSCustomizer -->
     <color name="qs_customize_background">@*android:color/primary_device_default_dark</color>
 
@@ -33,9 +42,9 @@
 
     <!-- Notification guts -->
     <color name="notification_guts_bg_color">@*android:color/primary_device_default_dark</color>
-    <color name="notification_guts_info_button_color">@*android:color/accent_device_default_light</color>
-    <color name="notification_guts_priority_button_content_color_selected">@*android:color/accent_device_default_light</color>
-    <color name="notification_guts_priority_button_bg_stroke_color_selected">@*android:color/accent_device_default_light</color>
+    <color name="notification_guts_info_button_color">@*android:color/accent_device_default_dark</color>
+    <color name="notification_guts_priority_button_content_color_selected">@*android:color/accent_device_default_dark</color>
+    <color name="notification_guts_priority_button_bg_stroke_color_selected">@*android:color/accent_device_default_dark</color>
     <color name="notification_guts_priority_button_bg_fill_color_selected">@*android:color/secondary_device_default_dark</color>
 
     <!-- The color of the background in the separated list of the Global Actions menu -->
