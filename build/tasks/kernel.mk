@@ -151,7 +151,7 @@ else
         $(warning **********************************************************)
         $(error "NO KERNEL CONFIG")
     else
-        ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
+        ifeq ($(filter OFFICIAL,$(EXTENDED_BUILD_TYPE)),)
             $(error "PREBUILT KERNEL IS NOT ALLOWED ON OFFICIAL BUILDS!")
         else
             ifneq ($(TARGET_FORCE_PREBUILT_KERNEL),)
