@@ -152,9 +152,6 @@ else
         $(error "NO KERNEL CONFIG")
     else
         ifneq ($(TARGET_FORCE_PREBUILT_KERNEL),)
-            ifneq ($(filter OFFICIAL,$(EXTENDED_BUILD_TYPE)),)
-                $(error "PREBUILT KERNEL IS NOT ALLOWED ON OFFICIAL BUILDS!")
-            else
                 $(warning **********************************************************)
                 $(warning * Kernel source found and configuration was defined,     *)
                 $(warning * but prebuilt kernel is being forced.                   *)
@@ -167,7 +164,6 @@ else
                 $(warning **********************************************************)
                 FULL_KERNEL_BUILD := false
                 KERNEL_BIN := $(TARGET_PREBUILT_KERNEL)
-            endif
         else
             FULL_KERNEL_BUILD := true
             KERNEL_BIN := $(TARGET_PREBUILT_INT_KERNEL)
