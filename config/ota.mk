@@ -13,9 +13,8 @@
 # limitations under the License.
 
 ifneq ($(IS_GENERIC_SYSTEM_IMAGE), true)
-
 ifeq ($(TARGET_SHIPS_SEPERATE_GAPPS_BUILD), true)
-ifeq ($(WITH_GAPPS), true)
+ifeq (true,$(filter true, $(WITH_GAPPS) $(WITH_CORE_GAPPS)))
 ifeq ($(IS_GO_VERSION), true)
 CUSTOM_OTA_VERSION_CODE := r_go_gapps
 else

@@ -13,9 +13,7 @@
 # limitations under the License.
 
 # Gapps
-ifeq ($(WITH_GAPPS),true)
 $(call inherit-product, vendor/aosp/config/gapps.mk)
-endif
 
 include vendor/aosp/config/version.mk
 
