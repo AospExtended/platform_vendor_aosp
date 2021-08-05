@@ -6,7 +6,6 @@
     <!--string name="cell_broadcast_receiver_package">com.google.android.cellbroadcastreceiver</string-->
     <string name="config_account_intent_uri">intent:#Intent;action=com.android.settings.action.VIEW_ACCOUNT;category=android.intent.category.DEFAULT;launchFlags=0x8000;S.extra.callingPackageName=com.android.settings;end</string>
     <string name="config_bluetooth_device_settings_uri">content://com.google.android.apps.wearables.maestro.companion/settings_slice?addr=%1$s</string>
-    <string name="config_contextual_card_feedback_email">contextual-settings-homepage-feedback@google.com</string>
     <string name="config_deletion_helper_package">com.google.android.storagemanager</string>
     <string name="config_emergency_intent_action">com.google.android.safetyhub.SAFETY_HUB</string>
     <string name="config_emergency_package_name">com.google.android.apps.safetyhub</string>
