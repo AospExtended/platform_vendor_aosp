@@ -48,10 +48,6 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/common 
 
-# Exclude RRO Enforcement
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
-    vendor/aosp/overlay
-
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED ?= true
 ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
