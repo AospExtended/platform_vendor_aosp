@@ -25,6 +25,6 @@ endif
 
 # AOSP recovery flashing
 ifeq ($(TARGET_USES_AOSP_RECOVERY), true)
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.recovery_update=true
 endif
