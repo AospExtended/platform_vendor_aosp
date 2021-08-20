@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_GENERIC_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
@@ -29,6 +29,7 @@ PRODUCT_GENERIC_PROPERTIES += \
     persist.sys.dun.override=0 \
     ro.storage_manager.enabled=true \
     persist.sys.recovery_update=false \
+    ro.com.google.ime.bs_theme=true \
     ro.com.google.ime.theme_id=5 \
     persist.sys.disable_rescue=true
 
