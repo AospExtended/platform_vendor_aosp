@@ -76,6 +76,8 @@ PRODUCT_PACKAGES += \
     LatinIME \
     LiveWallpapers \
     LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni \
     Stk \
     AEXPapers \
     DuckDuckGo \
