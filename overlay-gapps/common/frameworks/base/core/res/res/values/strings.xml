@@ -23,16 +23,9 @@
     <string name="widget_default_class_name">com.android.alarmclock.DigitalAppWidgetProvider</string>
     <string name="widget_default_package_name">com.google.android.deskclock</string>
     <string name="config_batterySaverScheduleProvider">com.google.android.apps.turbo</string>
-    <string name="config_defaultAppPredictionService">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiPredictionService</string>
-    <string name="config_defaultAugmentedAutofillService">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiAugmentedAutofillService</string>
     <string name="config_defaultBugReportHandlerApp">com.google.android.apps.internal.betterbug</string>
-    <string name="config_defaultContentCaptureService">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiContentCaptureService</string>
-    <string name="config_defaultContentSuggestionsService">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiContentSuggestionsService</string>
     <!--string name="config_defaultModuleMetadataProvider">com.google.android.modulemetadata</string-->
     <string name="config_defaultSupervisionProfileOwnerComponent">com.google.android.gms/.kids.account.receiver.ProfileOwnerReceiver</string>
-    <string name="config_defaultSystemCaptionsManagerService">com.google.android.as/com.google.android.apps.miphone.aiai.captions.SystemCaptionsManagerService</string>
-    <string name="config_defaultSystemCaptionsService">com.google.android.as/com.google.android.apps.miphone.aiai.captions.CaptionsService</string>
-    <string name="config_defaultTextClassifierPackage">com.google.android.as</string>
     <string name="config_defaultWellbeingPackage">com.google.android.apps.wellbeing</string>
     <string name="config_emergency_dialer_package">com.google.android.apps.safetyhub</string>
     <string name="config_feedbackIntentExtraKey">EXTRA_FEEDBACK_PSD_KEYS</string>
