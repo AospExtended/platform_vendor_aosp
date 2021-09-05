@@ -170,6 +170,10 @@
     <!-- Flag indicating which package name can access DeviceConfig table -->
     <string name="config_deviceConfiguratorPackageName" translatable="false">org.protonaosp.deviceconfig</string>
 
+    <!-- The app which will handle routine based automatic battery saver, if empty the UI for
+         routine based battery saver will be hidden -->
+    <string name="config_batterySaverScheduleProvider">com.google.android.apps.turbo</string>
+
     <!-- The package name for the system's content capture service.
          This service must be trusted, as it can be activated without explicit consent of the user.
          If no service with the specified name exists on the device, content capture will be
