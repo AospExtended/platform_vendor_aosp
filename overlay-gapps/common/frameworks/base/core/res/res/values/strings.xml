@@ -22,7 +22,6 @@
     <string name="harmful_app_warning_title">Play Protect warning</string>
     <string name="widget_default_class_name">com.android.alarmclock.DigitalAppWidgetProvider</string>
     <string name="widget_default_package_name">com.google.android.deskclock</string>
-    <string name="config_batterySaverScheduleProvider">com.google.android.apps.turbo</string>
     <string name="config_defaultBugReportHandlerApp">com.google.android.apps.internal.betterbug</string>
     <!--string name="config_defaultModuleMetadataProvider">com.google.android.modulemetadata</string-->
     <string name="config_defaultSupervisionProfileOwnerComponent">com.google.android.gms/.kids.account.receiver.ProfileOwnerReceiver</string>
