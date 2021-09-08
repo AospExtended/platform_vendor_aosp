@@ -6,6 +6,10 @@
     <!-- Enable Zero Touch Provisioning support for 2016 and newer Nexus devices. -->
     <feature name="com.google.android.feature.ZERO_TOUCH" />
 
+    <!-- Both versions of this string are needed due to a miscommunication. b/29978934 -->
+    <feature name="com.google.android.apps.photos.NEXUS_PRELOAD" />
+    <feature name="com.google.android.apps.photos.nexus_preload" />
+
     <!-- Specify the explicit set of other applications that AI services are allowed to
          interact with, including the providers that back the implementation of the APIs
          provided by the package. -->
