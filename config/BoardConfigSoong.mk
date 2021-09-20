@@ -44,10 +44,6 @@ SOONG_CONFIG_aospGlobalVars += \
     target_surfaceflinger_fod_lib \
     uses_camera_parameter_lib
 
-ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
-SOONG_CONFIG_aospGlobalVars += force_build_fingerprint
-endif
-
 SOONG_CONFIG_NAMESPACES += aospNvidiaVars
 SOONG_CONFIG_aospNvidiaVars += \
     uses_nv_enhancements
@@ -108,9 +104,6 @@ SOONG_CONFIG_aospGlobalVars_target_process_sdk_version_override := $(TARGET_PROC
 SOONG_CONFIG_aospGlobalVars_target_surfaceflinger_fod_lib := $(TARGET_SURFACEFLINGER_FOD_LIB)
 SOONG_CONFIG_aospGlobalVars_uses_camera_parameter_lib := $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY)
 SOONG_CONFIG_aospGlobalVars_target_inputdispatcher_skip_event_key := $(TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY)
-ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
-SOONG_CONFIG_aospGlobalVars_force_build_fingerprint := $(TARGET_FORCE_BUILD_FINGERPRINT)
-endif
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_aospQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
 else
