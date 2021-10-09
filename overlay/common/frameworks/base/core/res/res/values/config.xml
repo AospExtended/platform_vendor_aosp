@@ -212,6 +212,9 @@
     -->
     <string name="config_defaultContentSuggestionsService" translatable="false">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiContentSuggestionsService</string>
 
+    <!-- Face detection for screen auto rotation -->
+    <string name="config_defaultRotationResolverService" translatable="false">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiRotationResolverService</string>
+
     <!-- The component name for the system-wide captions service.
          This service must be trusted, as it controls part of the UI of the volume bar.
          Example: "com.android.captions/.SystemCaptionsService"
