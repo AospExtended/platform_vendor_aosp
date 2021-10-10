@@ -194,6 +194,9 @@ PRODUCT_PACKAGES += \
 #    product_charger_res_images
 #endif
 
+# Selinux
+SELINUX_IGNORE_NEVERALLOWS ?= true
+
 # StichImage
 #PRODUCT_PACKAGES += \
 #    StitchImage
