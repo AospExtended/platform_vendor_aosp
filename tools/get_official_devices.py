@@ -19,7 +19,7 @@ try:
     data = json.loads(response.read())
     for res in data:
         for version in res['supported_versions']:
-            if version['version_code'] == 'r' or version['version_code'] == 'r_gapps':
+            if version['version_code'] == 's' or version['version_code'] == 's_gapps':
                 print (res['codename'])
 except:
     print ("")
