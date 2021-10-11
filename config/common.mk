@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Gapps
-$(call inherit-product, vendor/aosp/config/gapps.mk)
+#$(call inherit-product, vendor/aosp/config/gapps.mk)
 
 include vendor/aosp/config/version.mk
 
@@ -21,10 +21,10 @@ include vendor/aosp/config/version.mk
 $(call inherit-product, vendor/aosp/config/google_audio.mk)
 
 # Conditionally build adb root
-ifneq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_PACKAGES += \
-    adb_root
-endif
+#ifneq ($(TARGET_BUILD_VARIANT),user)
+#PRODUCT_PACKAGES += \
+#    adb_root
+#endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
@@ -51,25 +51,25 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
     vendor/aosp/overlay
 
 # Face Unlock
-TARGET_FACE_UNLOCK_SUPPORTED ?= true
-ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
-PRODUCT_PACKAGES += \
-    FaceUnlockService
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
-endif
+#TARGET_FACE_UNLOCK_SUPPORTED ?= true
+#ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
+#PRODUCT_PACKAGES += \
+#    FaceUnlockService
+#PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+#    ro.face_unlock_service.enabled=$(TARGET_FACE_UNLOCK_SUPPORTED)
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
+#endif
 
 # FOD
-ifeq ($(EXTRA_FOD_ANIMATIONS),true)
-PRODUCT_PACKAGES += \
-    FodAnimationResources
-endif
+#ifeq ($(EXTRA_FOD_ANIMATIONS),true)
+#PRODUCT_PACKAGES += \
+#    FodAnimationResources
+#endif
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.control_privapp_permissions=enforce
+    ro.control_privapp_permissions=log
 
 PRODUCT_PACKAGES += \
     Terminal \
@@ -92,13 +92,13 @@ PRODUCT_PACKAGES += \
     QuickAccessWallet
 
 # Config
-PRODUCT_PACKAGES += \
-    SimpleDeviceConfig
+#PRODUCT_PACKAGES += \
+#    SimpleDeviceConfig
 
 # Cutout control overlays
-PRODUCT_PACKAGES += \
-    HideCutout \
-    StatusBarStock
+#PRODUCT_PACKAGES += \
+#    HideCutout \
+#    StatusBarStock
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -108,14 +108,9 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
 
-# Cutout control overlays
-PRODUCT_PACKAGES += \
-    HideCutout \
-    StatusBarStock
-
 # Immersive Navigation
-PRODUCT_PACKAGES += \
-    ImmersiveNavigationOverlay
+#PRODUCT_PACKAGES += \
+#    ImmersiveNavigationOverlay
 
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
@@ -161,8 +156,8 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
 # SoftAPManager
-PRODUCT_PACKAGES += \
-    SoftAPManager
+#PRODUCT_PACKAGES += \
+#    SoftAPManager
 
 # init.d support
 PRODUCT_COPY_FILES += \
@@ -194,17 +189,17 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Pixel charger images
-ifeq ($(USE_PIXEL_CHARGER_IMAGES),true)
-PRODUCT_PACKAGES += \
-    product_charger_res_images
-endif
+#ifeq ($(USE_PIXEL_CHARGER_IMAGES),true)
+#PRODUCT_PACKAGES += \
+#    product_charger_res_images
+#endif
 
 # StichImage
-PRODUCT_PACKAGES += \
-    StitchImage
+#PRODUCT_PACKAGES += \
+#    StitchImage
 
 # ThemeOverlays
-include packages/overlays/Themes/themes.mk
+#include packages/overlays/Themes/themes.mk
 
 PRODUCT_PACKAGES += \
     ThemePicker
@@ -221,16 +216,16 @@ PRODUCT_PACKAGES += \
     GoogleCameraGo
 endif
 
-ifeq ($(PRODUCT_TYPE), go)
-PRODUCT_PACKAGES += \
-    Launcher3QuickStepGo
-
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStepGo
-else
+#ifeq ($(PRODUCT_TYPE), go)
+#PRODUCT_PACKAGES += \
+#    Launcher3QuickStepGo
+#
+#PRODUCT_DEXPREOPT_SPEED_APPS += \
+#    Launcher3QuickStepGo
+#else
 PRODUCT_PACKAGES += \
     Launcher3QuickStep
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
-endif
+#endif
