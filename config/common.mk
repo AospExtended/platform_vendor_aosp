@@ -202,7 +202,7 @@ SELINUX_IGNORE_NEVERALLOWS ?= true
 #    StitchImage
 
 # ThemeOverlays
-#include packages/overlays/Themes/themes.mk
+include packages/overlays/Themes/themes.mk
 
 PRODUCT_PACKAGES += \
     ThemePicker
