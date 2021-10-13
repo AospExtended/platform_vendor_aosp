@@ -202,7 +202,7 @@ SELINUX_IGNORE_NEVERALLOWS ?= true
 #    StitchImage
 
 # ThemeOverlays
-#include packages/overlays/Themes/themes.mk
+include packages/overlays/Themes/themes.mk
 
 ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
