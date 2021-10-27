@@ -1,0 +1,7 @@
+runtime_resource_overlay {
+    name: "TeleServiceOverlay",
+    theme: "TeleServiceOverlay",
+    certificate: "platform",
+    sdk_version: "current",
+    product_specific: true
+}
