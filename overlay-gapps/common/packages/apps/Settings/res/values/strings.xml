@@ -16,6 +16,9 @@
     <string name="config_rtt_setting_package_name">com.google.android.dialer</string>
     <string name="config_settingsintelligence_log_action">com.google.android.settings.intelligence.LOG_BRIDGE</string>
     <string name="config_settingsintelligence_package_name">com.google.android.settings.intelligence</string>
+    <string name="config_wallpaper_picker_class">com.google.android.apps.wallpaper.picker.CategoryPickerActivity</string>
+    <string name="config_wallpaper_picker_package">com.google.android.apps.wallpaper</string>
+    <string name="emergency_gesture_settings_package">com.google.android.apps.safetyhub</string>
     <string name="gesture_assist_component">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</string>
     <string name="gesture_assist_deskclock_package">com.google.android.deskclock</string>
     <string name="gesture_assist_deskclock_permission">com.google.android.deskclock.permission.RECEIVE_ALERT_BROADCASTS</string>
