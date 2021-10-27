@@ -1,11 +1,23 @@
-# RRO Overlays
+# RRO overlays
 PRODUCT_PACKAGES += \
+    BuiltInPrintServiceOverlay \
+    CaptivePortalLoginOverlay \
+    CellBroadcastServiceOverlay \
+    ContactsProviderOverlay \
     FilesOverlay \
-    NowPlayingOverlay \
+    GoogleConfigOverlay \
+    GooglePermissionControllerOverlay \
+    GoogleWebViewOverlay \
+    PixelConfigOverlay2018 \
+    PixelConfigOverlay2019 \
+    PixelConfigOverlay2019Midyear \
+    PixelConfigOverlayCommon \
     PixelDocumentsUIGoogleOverlay \
-    PixelSetupWizardAodOverlay
-    
-ifeq ($(TARGET_INCLUDE_LIVE_WALLPAPERS),true)
-PRODUCT_PACKAGES += \
-    PixelLiveWallpapersOverlay
-endif
+    PixelFwResOverlay \
+    PixelSetupWizardOverlay \
+    PixelSetupWizardOverlay2019 \
+    PixelSetupWizardOverlayActiveEdge \
+    SettingsProviderOverlay \
+    TelecomOverlay \
+    TelephonyProviderOverlay \
+    TeleServiceOverlay

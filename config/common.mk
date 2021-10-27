@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Gapps
-#$(call inherit-product, vendor/aosp/config/gapps.mk)
+$(call inherit-product, vendor/aosp/config/gapps.mk)
 
 include vendor/aosp/config/version.mk
 
@@ -44,11 +44,11 @@ $(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
 # Common Overlay
 DEVICE_PACKAGE_OVERLAYS += \
-    vendor/aosp/overlay/common 
+    vendor/aosp/overlay/common
 
 # Exclude RRO Enforcement
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS +=  \
-    vendor/aosp/overlay
+    vendor/aosp/overlay/common
 
 # Enable one-handed mode
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -204,8 +204,10 @@ SELINUX_IGNORE_NEVERALLOWS ?= true
 # ThemeOverlays
 include packages/overlays/Themes/themes.mk
 
+ifneq ($(WITH_GAPPS),true)
 PRODUCT_PACKAGES += \
     ThemePicker
+endif
 
 # Recommend using the non debug dexpreopter
 USE_DEX2OAT_DEBUG := false
@@ -219,6 +221,7 @@ PRODUCT_PACKAGES += \
     GoogleCameraGo
 endif
 
+ifneq ($(WITH_GAPPS),true)
 #ifeq ($(PRODUCT_TYPE), go)
 #PRODUCT_PACKAGES += \
 #    Launcher3QuickStepGo
@@ -232,3 +235,4 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
 #endif
+endif
