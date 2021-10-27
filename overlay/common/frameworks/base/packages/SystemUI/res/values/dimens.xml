@@ -20,8 +20,5 @@
     <!--  Blur radius on status bar window and power menu  -->
     <dimen name="max_window_blur_radius">50dp</dimen>
 
-    <!-- The height of the divider between the individual notifications. -->
-    <dimen name="notification_divider_height">0dp</dimen>
-
     <dimen name="global_actions_translate">0dp</dimen>
 </resources>
