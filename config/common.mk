@@ -95,9 +95,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
-# Config
-#PRODUCT_PACKAGES += \
-#    SimpleDeviceConfig
+# SimpleDeviceConfig
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
 
 # Cutout control overlays
 #PRODUCT_PACKAGES += \
