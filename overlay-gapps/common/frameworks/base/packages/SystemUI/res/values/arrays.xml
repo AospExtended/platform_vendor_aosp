@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="config_controlsPreferredPackages">
+    <array name="config_controlsPreferredPackages">
         <item>com.google.android.apps.chromecast.app</item>
-    </string-array>
-    <string-array name="config_pluginWhitelist">
+    </array>
+    <array name="config_pluginWhitelist">
         <item>com.android.systemui</item>
         <item>com.android.systemui.plugin.globalactions.wallet</item>
-    </string-array>
+    </array>
     <string-array name="config_quickSettingsAutoAdd">
         <item>accessibility_display_inversion_enabled:inversion</item>
         <item>wind_down_first_time_setup:custom(com.google.android.apps.wellbeing/.screen.ui.GrayscaleTileService)</item>

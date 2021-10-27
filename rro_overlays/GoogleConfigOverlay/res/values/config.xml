@@ -1,0 +1,195 @@
+<!--
+     Copyright (C) 2018 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Default SMS Application. This will be the default SMS application when
+         the phone first boots. The user can then change the default app to one
+         of their choosing.
+         This can be overridden for devices where a different default SMS
+         application is desired.
+
+         If this string is empty or the specified package does not exist, then
+         the platform will search for an SMS app and use that (if there is one)-->
+    <string name="config_defaultSms" translatable="false">com.google.android.apps.messaging</string>
+
+    <!-- Default SMS Application. This will be the default SMS application when
+         the phone first boots. This is required for Google Fi devices as Fi
+         does not support other messaging apps at this time. -->
+    <string name="default_sms_application" translatable="false">com.google.android.apps.messaging</string>
+	
+    <!-- The name of the package that will hold the dialer role by default. -->
+    <string name="config_defaultDialer" translatable="false">com.google.android.dialer</string>
+
+    <!-- The name of the package that will hold the system contacts role. -->
+    <string name="config_systemContacts" translatable="false">com.google.android.contacts</string>
+	
+    <!-- The name of the package that will hold the assistant role by default. -->
+    <string name="config_defaultAssistant">com.google.android.googlequicksearchbox</string>
+
+    <!-- Sets the package name for location extra packages -->
+    <string-array name="config_locationExtraPackageNames" translatable="false">
+         <item>com.google.android.gms.location.history</item>
+    </string-array>
+
+    <!-- An array of packages for which notifications cannot be blocked. -->
+    <string-array name="config_nonBlockableNotificationPackages" translatable="false">
+        <!-- Google apps -->
+        <item>com.google.android.deskclock:Firing</item>
+        <item>com.google.android.setupwizard</item>
+        <item>com.google.android.apps.pixelmigrate</item>
+        <item>com.google.android.dialer</item>
+        <item>com.google.android.apps.restore</item>
+    </string-array>
+
+    <!-- The name of the package that will hold the wellbeing role. -->
+    <string name="config_systemWellbeing" translatable="false">com.google.android.apps.wellbeing</string>
+
+    <!-- The package name for the default wellbeing application. [DO NOT TRANSLATE] -->
+    <string name="config_defaultWellbeingPackage" translatable="false">com.google.android.apps.wellbeing</string>
+
+    <!-- Colon separated list of package names that should be granted DND access -->
+    <string name="config_defaultDndAccessPackages" translatable="false">com.google.android.gms:com.google.android.apps.wellbeing:com.google.android.dialer</string>
+
+    <!-- The component to be the default supervisor profile owner [DO NOT TRANSLATE] -->
+    <string name="config_defaultSupervisionProfileOwnerComponent" translatable="false">com.google.android.gms/.kids.account.receiver.ProfileOwnerReceiver</string>
+
+    <!-- The package name of the default network recommendation app.
+         A network recommendation provider must:
+             * Be granted the SCORE_NETWORKS permission.
+             * Be granted the ACCESS_COARSE_LOCATION permission.
+             * Include a Service for the android.net.scoring.RECOMMEND_NETWORKS action
+               protected by the BIND_NETWORK_RECOMMENDATION_SERVICE permission.
+
+         This must be set to a valid network recommendation app or empty.
+     -->
+    <string name="config_defaultNetworkRecommendationProviderPackage" translatable="false">com.google.android.gms</string>
+
+    <!-- A list of potential packages, in priority order, that may contain an
+         ephemeral resolver. Each package will be be queried for a component
+         that has been granted the PACKAGE_EPHEMERAL_AGENT permission.
+         This may be empty if ephemeral apps are not supported. -->
+    <string-array name="config_ephemeralResolverPackage" translatable="false">
+        <item>com.google.android.gms</item>
+    </string-array>
+
+    <!-- Apps that are authorized to access shared accounts, overridden by product overlays -->
+    <string name="config_appsAuthorizedForSharedAccounts" translatable="false">;com.android.vending;com.android.settings;</string>
+
+    <string-array name="config_priorityOnlyDndExemptPackages">
+        <item>com.android.systemui</item>
+        <item>com.android.server.telecom</item>
+        <item>android</item>
+        <!-- Google apps -->
+        <item>com.google.android.dialer</item>
+    </string-array>
+
+    <!-- The set of system packages on device that are queryable by any app regardless of the
+         contents of its manifest. -->
+    <string-array name="config_forceQueryablePackages" translatable="false">
+        <!-- Android Settings -->
+        <item>com.android.settings</item>
+        <item>com.android.providers.settings</item>
+        <!-- Google Play Services or microG -->
+        <item>com.google.android.gms</item>
+        <!-- Google Play Store -->
+        <item>com.android.vending</item>
+    </string-array>
+
+    <!-- A list of potential packages, in priority order, that can supply rules to
+         AppIntegrityManager. These need to be apps on the system partition. -->
+    <string-array name="config_integrityRuleProviderPackages" translatable="false">
+        <!-- Google Play Services or microG -->
+        <item>com.google.android.gms</item>
+        <!-- Google Play Store -->
+        <item>com.android.vending</item>
+    </string-array>
+
+    <!-- Component name that accepts ACTION_SEND intents for nearby (proximity-based) sharing.
+         Used by ChooserActivity. -->
+    <string name="config_defaultNearbySharingComponent" translatable="false">com.google.android.gms/.nearby.sharing.ShareSheetActivity</string>
+
+    <!-- Names of packages that should not be suspended when personal use is blocked by policy. -->
+    <string-array name="config_packagesExemptFromSuspension" translatable="false">
+        <!-- AOSP apps -->
+        <item>com.android.vending</item>
+        <item>com.android.systemui</item>
+        <item>com.android.settings</item>
+        <item>com.google.android.gms</item>
+        <!-- Google apps -->
+        <item>com.google.android.apps.wellbeing</item>
+        <item>com.google.android.apps.pixelmigrate</item>
+        <item>com.google.android.apps.restore</item>
+    </string-array>
+
+   <!-- Colon separated list of package names that should be granted Notification Listener access -->
+    <string name="config_defaultListenerAccessPackages">com.android.launcher3:com.google.android.apps.nexuslauncher:com.google.android.setupwizard:com.google.android.apps.pixelmigrate:com.google.android.as:com.google.android.projection.gearhead</string>
+
+    <!-- Default autofill service to enable [DO NOT TRANSLATE] -->
+    <string name="config_defaultAutofillService" translatable="false">com.google.android.gms/.autofill.service.AutofillService</string>
+
+    <!-- Flag indicating which package name can access the persistent data partition -->
+    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
+
+    <!-- An array of packages that need to be treated as type service in battery settings -->
+    <string-array name="config_batteryPackageTypeService">
+        <item>com.google.android.gms</item>
+        <item>com.google.android.apps.gcs</item>
+    </string-array>
+
+    <!-- The name of the package that will hold the speech recognizer role by default. -->
+    <string name="config_systemSpeechRecognizer" translatable="false">com.google.android.tts</string>
+	
+    <!-- The name of the package that will hold the system activity recognizer role. -->
+    <string name="config_systemActivityRecognizer" translatable="false">com.google.android.gms</string>
+
+    <!-- List containing the allowed install sources for accessibility service. -->
+    <string-array name="config_accessibility_allowed_install_source" translatable="false">
+        <item>com.android.vending</item>
+    </string-array>
+	
+    <!-- Whether the primary location time zone provider is enabled.
+         This setting is ignored if config_enableGeolocationTimeZoneDetection is false.
+
+         This is turned on in GMS sample config as Google hosts a location time zone provider in
+         GmsCore. -->
+    <bool name="config_enablePrimaryLocationTimeZoneProvider" translatable="false">true</bool>
+
+    <!-- The package hosting the primary location time zone provider.
+         Only used when config_enableGeolocationTimeZoneDetection and
+         config_enablePrimaryLocationTimeZoneProvider are true.
+
+         See android.service.timezone.TimeZoneProviderService for how to host location time zone
+         provider services.
+
+         This contains the GmsCore package name in GMS sample config as Google hosts a location
+         time zone provider in GmsCore. The provider implementation is hosted in GmsCore. -->
+    <string name="config_primaryLocationTimeZoneProviderPackageName" translatable="false">com.google.android.gms</string>
+
+    <!-- Component name for the activity that will be presenting the Recents UI, which will receive
+         special permissions for API related to fetching and presenting recent tasks. The default
+         configuration uses Launcehr3QuickStep as default launcher and points to the corresponding
+         recents component. When using a different default launcher, change this appropriately or
+         use the default systemui implementation: com.android.systemui/.recents.RecentsActivity -->
+    <string name="config_recentsComponentName" translatable="false"
+            >com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity</string>
+
+    <!-- This is the default launcher package with an activity to use on secondary displays that
+         support system decorations.
+         This launcher package must have an activity that supports multiple instances and has
+         corresponding launch mode set in AndroidManifest.
+         {@see android.view.Display#FLAG_SHOULD_SHOW_SYSTEM_DECORATIONS} -->
+    <string name="config_secondaryHomePackage" translatable="false">com.google.android.apps.nexuslauncher</string>
+</resources>
