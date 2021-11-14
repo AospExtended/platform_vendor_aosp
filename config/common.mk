@@ -151,10 +151,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Exchange2
 
-# Backup Services whitelist
-PRODUCT_COPY_FILES += \
-    vendor/aosp/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
-
 # SoftAPManager
 #PRODUCT_PACKAGES += \
 #    SoftAPManager
