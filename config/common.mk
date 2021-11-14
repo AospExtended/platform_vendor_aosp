@@ -160,8 +160,9 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/init.d/00banner:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/00banner
 
 # AEX-specific init files
-$(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
-    $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/init/init.aex-updates.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.aex-updates.rc \
+    vendor/aosp/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
