@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "343443d8_8ccefb8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-11-22T08:28:07Z",
+      "side": 1,
+      "message": "No need of this (build/core/vendor/qcom_boards.mk)",
+      "revId": "2ee7b154134fd5df2a4800ffff01bc9d34cabc34",
+      "serverId": "692a3d4a-6cfc-41d4-b12b-cb9542eed61e"
+    }
+  ]
+}
