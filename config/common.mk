@@ -116,6 +116,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    ImmersiveNavigationOverlay
 
+# Navbar
+PRODUCT_PACKAGES += \
+     NavigationBarModeGesturalOverlayFS
+
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
