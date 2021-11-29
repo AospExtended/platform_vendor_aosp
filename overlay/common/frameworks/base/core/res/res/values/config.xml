@@ -112,12 +112,17 @@
     <bool name="config_buttonTextAllCaps">false</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
     <bool name="config_sendPackageName">true</bool>
-    <dimen name="config_dialogCornerRadius">28dp</dimen>
-    <dimen name="config_buttonCornerRadius">8dp</dimen>
-    <dimen name="config_bottomDialogCornerRadius">32dp</dimen>
-    <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
-    <!-- Corner radius of search bars and cards -->
+
+    <!-- Rounded Corners -->
+    <dimen name="config_bottomDialogCornerRadius">24dp</dimen>
+    <dimen name="config_buttonCornerRadius">24dp</dimen>
     <dimen name="config_cardCornerRadius">24dp</dimen>
+    <dimen name="config_dialogCornerRadius">24dp</dimen>
+    <dimen name="config_progressBarCornerRadius">1000.0dip</dimen>
+    <dimen name="control_corner_material">24dp</dimen>
+    <dimen name="corner_size">24dp</dimen>
+    <dimen name="dialog_corner_radius">24dp</dimen>
+    <dimen name="tooltip_corner_radius">24dp</dimen>
 
     <!-- System-provided radius for the background view of app widgets. The resolved value of this resource may change at runtime. -->
     <dimen name="system_app_widget_background_radius">28dp</dimen>
