@@ -177,19 +177,4 @@
          This contains the GmsCore package name in GMS sample config as Google hosts a location
          time zone provider in GmsCore. The provider implementation is hosted in GmsCore. -->
     <string name="config_primaryLocationTimeZoneProviderPackageName" translatable="false">com.google.android.gms</string>
-
-    <!-- Component name for the activity that will be presenting the Recents UI, which will receive
-         special permissions for API related to fetching and presenting recent tasks. The default
-         configuration uses Launcehr3QuickStep as default launcher and points to the corresponding
-         recents component. When using a different default launcher, change this appropriately or
-         use the default systemui implementation: com.android.systemui/.recents.RecentsActivity -->
-    <string name="config_recentsComponentName" translatable="false"
-            >com.google.android.apps.nexuslauncher/com.android.quickstep.RecentsActivity</string>
-
-    <!-- This is the default launcher package with an activity to use on secondary displays that
-         support system decorations.
-         This launcher package must have an activity that supports multiple instances and has
-         corresponding launch mode set in AndroidManifest.
-         {@see android.view.Display#FLAG_SHOULD_SHOW_SYSTEM_DECORATIONS} -->
-    <string name="config_secondaryHomePackage" translatable="false">com.google.android.apps.nexuslauncher</string>
 </resources>
