@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="launcher_overlayable_package">com.android.launcher3</string>
+</resources>

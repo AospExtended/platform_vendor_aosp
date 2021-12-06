@@ -268,7 +268,7 @@
     <!-- Wallpaper cropper package. Used as the default cropper if the active launcher doesn't
          handle wallpaper cropping.
     -->
-    <string name="config_wallpaperCropperPackage" translatable="false">com.android.wallpaper</string>
+    <string name="config_wallpaperCropperPackage" translatable="false">com.google.android.apps.wallpaper</string>
 
     <!-- Exempt AiAi from privacy indicators -->
     <string name="config_systemAmbientAudioIntelligence">com.google.android.as</string>
@@ -280,4 +280,7 @@
 
     <!-- the number of the max cached processes in the system. -->
     <integer name="config_customizedMaxCachedProcesses">64</integer>
+
+    <!-- Whether or not to add a "people" notifications section -->
+    <bool name="config_usePeopleFiltering">true</bool>
 </resources>

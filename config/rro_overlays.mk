@@ -20,4 +20,5 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlay \
     TelecomOverlay \
     TelephonyProviderOverlay \
-    TeleServiceOverlay
+    TeleServiceOverlay \
+    WallpaperPickerGoogleReleaseOverlay
