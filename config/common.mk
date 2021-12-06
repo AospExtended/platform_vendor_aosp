@@ -123,6 +123,10 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/permissions/privapp-permissions-google.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google.xml
 endif
 
+# Pixel sysconfig from Pixel XL (Photos)
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/sysconfig/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml \
+
 # Extra tools
 PRODUCT_PACKAGES += \
     e2fsck \
