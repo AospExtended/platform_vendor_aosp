@@ -65,11 +65,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 #    frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 #endif
 
-# FOD
-#ifeq ($(EXTRA_FOD_ANIMATIONS),true)
-#PRODUCT_PACKAGES += \
-#    FodAnimationResources
-#endif
+# Udfps
+ifeq ($(EXTRA_UDFPS_ANIMATIONS),true)
+PRODUCT_PACKAGES += \
+    UdfpsAnimationResources
+endif
 
 # Enforce privapp-permissions whitelist
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
