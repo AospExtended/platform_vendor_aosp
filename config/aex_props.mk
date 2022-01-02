@@ -25,7 +25,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.opa.eligible_device=true \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0 \
-    ro.build.selinux=1 \
     persist.sys.dun.override=0 \
     ro.storage_manager.enabled=true \
     persist.sys.recovery_update=false \
