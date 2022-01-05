@@ -13,6 +13,7 @@
 # limitations under the License.
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
     keyguard.no_require_sim=true \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
@@ -31,4 +32,3 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.ime.bs_theme=true \
     ro.com.google.ime.theme_id=5 \
     persist.sys.disable_rescue=true
-
