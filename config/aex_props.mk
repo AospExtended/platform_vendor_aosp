@@ -32,3 +32,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.ime.theme_id=5 \
     persist.sys.disable_rescue=true
 
+ifneq ($(TARGET_BUILD_VARIANT),user)
+# Disable ADB authentication
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
+else
+# Enable ADB authentication
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
+endif
