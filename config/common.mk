@@ -20,6 +20,9 @@ include vendor/aosp/config/version.mk
 # Audio files
 $(call inherit-product, vendor/aosp/config/google_audio.mk)
 
+# Adb
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
+
 # Conditionally build adb root
 #ifneq ($(TARGET_BUILD_VARIANT),user)
 #PRODUCT_PACKAGES += \
