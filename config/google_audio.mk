@@ -21,6 +21,6 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ui,$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui)
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.alarm_alert=Your_new_adventure.ogg \
-    ro.config.ringtone=Eureka.ogg \
-    ro.config.notification_sound=Fresh_start.ogg
+    ro.config.alarm_alert=Fresh_start.ogg \
+    ro.config.ringtone=Your_new_adventure.ogg \
+    ro.config.notification_sound=Eureka.ogg
