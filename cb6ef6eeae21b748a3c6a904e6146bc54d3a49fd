@@ -52,6 +52,24 @@
       "parentUuid": "1e738978_c68d1818",
       "revId": "cb6ef6eeae21b748a3c6a904e6146bc54d3a49fd",
       "serverId": "692a3d4a-6cfc-41d4-b12b-cb9542eed61e"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6181fc6_05231c38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-05T07:45:32Z",
+      "side": 1,
+      "message": "Also, you forget to push build/make changes",
+      "parentUuid": "ddaeb690_436f1223",
+      "revId": "cb6ef6eeae21b748a3c6a904e6146bc54d3a49fd",
+      "serverId": "692a3d4a-6cfc-41d4-b12b-cb9542eed61e"
     }
   ]
 }
