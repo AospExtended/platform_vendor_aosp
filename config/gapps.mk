@@ -1,4 +1,13 @@
-ifeq ($(WITH_GAPPS),true)
+ifeq (true,$(filter true, $(WITH_GAPPS) $(WITH_CORE_GAPPS)))
+ifeq ($(WITH_CORE_GAPPS),true)
+# Gapps core
+PRODUCT_PACKAGES += \
+    PixelSetupWizardOverlay \
+    PixelSetupWizardOverlay2019 \
+    PixelSetupWizardOverlayActiveEdge \
+
+$(call inherit-product, vendor/google/common/common-vendor-core.mk)
+else
 # Gapps
 $(call inherit-product, vendor/google/common/common-vendor.mk)
 
@@ -17,6 +26,9 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 # Add acsa property for CarrierServices
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.acsa=true
+
+$(call inherit-product, vendor/aosp/config/rro_overlays.mk)
+endif
 
 # SetupWizard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -41,9 +53,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.error.receiver.system.apps=com.google.android.gms \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
 
-$(call inherit-product, vendor/aosp/config/rro_overlays.mk)
 endif
-
-#ifeq ($(WITH_CORE_GAPPS),true)
-#$(call inherit-product, vendor/google/config_core.mk)
-#endif
