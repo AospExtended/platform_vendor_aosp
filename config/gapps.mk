@@ -44,6 +44,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 $(call inherit-product, vendor/aosp/config/rro_overlays.mk)
 endif
 
-#ifeq ($(WITH_CORE_GAPPS),true)
-#$(call inherit-product, vendor/google/config_core.mk)
-#endif
+ifeq ($(WITH_CORE_GAPPS),true)
+$(call inherit-product, vendor/google/common/common-vendor-core.mk)
+endif
