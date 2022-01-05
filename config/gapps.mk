@@ -1,6 +1,11 @@
 ifeq ($(WITH_GAPPS),true)
+ifeq ($(WITH_CORE_GAPPS),true)
+# Gapps core
+$(call inherit-product, vendor/google/common/common-vendor-core.mk)
+else
 # Gapps
 $(call inherit-product, vendor/google/common/common-vendor.mk)
+endif
 
 # Common Overlay
 DEVICE_PACKAGE_OVERLAYS += \
@@ -43,7 +48,3 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 $(call inherit-product, vendor/aosp/config/rro_overlays.mk)
 endif
-
-#ifeq ($(WITH_CORE_GAPPS),true)
-#$(call inherit-product, vendor/google/config_core.mk)
-#endif
