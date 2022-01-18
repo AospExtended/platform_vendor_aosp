@@ -95,9 +95,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
+ifneq ($(WITH_GAPPS),true)
 # SimpleDeviceConfig
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
+endif
 
 # Cutout control overlays
 #PRODUCT_PACKAGES += \
