@@ -122,6 +122,7 @@ endif
 # Pixel sysconfig from Pixel XL (Photos)
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/sysconfig/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/pixel_2016_exclusive.xml \
+    vendor/aosp/prebuilt/common/etc/sysconfig/game_overlay.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/game_overlay.xml
 
 # Extra tools
 PRODUCT_PACKAGES += \
