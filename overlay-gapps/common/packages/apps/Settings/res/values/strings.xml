@@ -14,8 +14,6 @@
     <string name="config_non_public_slice_query_uri">content://com.android.settings.slices/settings_internal_slices</string>
     <string name="config_rtt_setting_intent_action">com.android.dialer.rtt.settings.impl.gateway.ACTION_OPEN_RTT_SETTINGS</string>
     <string name="config_rtt_setting_package_name">com.google.android.dialer</string>
-    <string name="config_settingsintelligence_log_action">com.google.android.settings.intelligence.LOG_BRIDGE</string>
-    <string name="config_settingsintelligence_package_name">com.google.android.settings.intelligence</string>
     <string name="emergency_gesture_settings_package">com.google.android.apps.safetyhub</string>
     <string name="gesture_assist_component">com.google.android.googlequicksearchbox/com.google.android.voiceinteraction.GsaVoiceInteractionService</string>
     <string name="gesture_assist_deskclock_package">com.google.android.deskclock</string>
