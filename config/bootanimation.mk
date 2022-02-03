@@ -26,8 +26,8 @@ else ifeq ($(TARGET_BOOT_ANIMATION_RES),1080)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1080.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),1440)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-1440.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
-else ifeq ($(TARGET_BOOT_ANIMATION_RES),2140)
-     PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-2140.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
+else ifeq ($(TARGET_BOOT_ANIMATION_RES),2160)
+     PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-2160.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),2280)
      PRODUCT_COPY_FILES += vendor/aosp/prebuilt/common/media/AEX-2280.zip:$(TARGET_COPY_OUT_PRODUCT)/media/bootanimation.zip
 else ifeq ($(TARGET_BOOT_ANIMATION_RES),2560)
