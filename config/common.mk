@@ -202,6 +202,7 @@ SELINUX_IGNORE_NEVERALLOWS ?= false
 include packages/overlays/Themes/themes.mk
 
 PRODUCT_PACKAGES += \
+    AEXWallpaperStub \
     ThemePicker
 
 # Recommend using the non debug dexpreopter
