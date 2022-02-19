@@ -17,6 +17,10 @@ $(call inherit-product, vendor/aosp/config/gapps.mk)
 
 include vendor/aosp/config/version.mk
 
+# APPLock
+PRODUCT_COPY_FILES += \
+    vendor/aosp/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
+
 # Audio files
 $(call inherit-product, vendor/aosp/config/google_audio.mk)
 
