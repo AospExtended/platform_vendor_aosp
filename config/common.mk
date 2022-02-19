@@ -112,6 +112,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    ImmersiveNavigationOverlay
 
+# Live display
+PRODUCT_COPY_FILES += \
+    vendor/aosp/config/permissions/privapp-permissions-custom.xml:system/etc/permissions/privapp-permissions-custom.xml \
+
 ifneq ($(WITH_GAPPS),true)
 # Pixel sysconfig
 PRODUCT_COPY_FILES += \
