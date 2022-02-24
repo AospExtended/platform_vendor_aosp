@@ -104,6 +104,10 @@ endif
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
+# app lock permission
+PRODUCT_COPY_FILES += \
+    vendor/aosp/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
+
 # Extra packages
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
