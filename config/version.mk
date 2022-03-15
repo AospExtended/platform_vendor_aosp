@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #Extended Versioning
-EXTENDED_VERSION = v9.0
+EXTENDED_VERSION = v9.1
 EXTENDED_BUILD_TYPE ?= UNOFFICIAL
 
 ifeq ($(EXTENDED_BUILD_TYPE), OFFICIAL)
