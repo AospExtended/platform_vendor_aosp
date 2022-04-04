@@ -30,7 +30,8 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.recovery_update=false \
     ro.com.google.ime.bs_theme=true \
     ro.com.google.ime.theme_id=5 \
-    persist.sys.disable_rescue=true
+    persist.sys.disable_rescue=true \
+    persist.wm.enable_remote_keyguard_animation=0
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Disable ADB authentication
